@@ -6,7 +6,70 @@
              xmlns:local="clr-namespace:GenshinWishCounter1._5.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <!--Style Counter Border-->
+        <Style x:Key="CounterBorderStyle" TargetType="Border">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="CornerRadius" Value="20,20,20,20"/>
+            <Setter Property="BorderThickness" Value="5,10,5,10"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6C2AA1"/>
+                        <GradientStop Color="#FF00A3FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--Style Counter Label-->
+        <Style x:Key="CounterLabelStyle" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="52"/>
+            <Setter Property="Margin" Value="0,-12,0,0"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Label Content="udało się!"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+
+        <!--Counter Grid-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15"/>
+            <Label Content="★★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15" Grid.Column="2"/>
+
+            <Border Style="{StaticResource CounterBorderStyle}" Grid.Row="1">
+                <Label Style="{StaticResource CounterLabelStyle}"  Content="90" />
+            </Border>
+        </Grid>
     </Grid>
 </UserControl>
