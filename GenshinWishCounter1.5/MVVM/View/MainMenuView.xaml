@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
-        <!--Style Counter Border-->
+        <!--Counter Border Style-->
         <Style x:Key="CounterBorderStyle" TargetType="Border">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -26,7 +26,7 @@
             </Setter>
         </Style>
 
-        
+
         <!--Button Border Style-->
         <Style x:Key="ButtonBorderStyle" TargetType="Border">
             <Setter Property="Width" Value="100"/>
@@ -43,7 +43,7 @@
             </Setter>
         </Style>
 
-        
+
         <!--Button Style-->
 
         <Style x:Key="ButtonStyle" TargetType="Button">
@@ -88,7 +88,7 @@
             </Setter>
         </Style>
 
-        <!--Style Counter Label-->
+        <!--Counter Label Style-->
         <Style x:Key="CounterLabelStyle" TargetType="Label">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
@@ -96,6 +96,54 @@
             <Setter Property="FontSize" Value="52"/>
             <Setter Property="Margin" Value="0,-12,0,0"/>
         </Style>
+        
+        <!--DataGrid Column Header Style-->
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="Gray" />
+            <Setter Property="Foreground" Value="SaddleBrown" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Border CornerRadius="10"  Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
+            <Setter Property="Background" Value="Gray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridRow}">
+                        <Border CornerRadius="10"  Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter Content="{Binding _pulledAt}" />
+                                <ContentPresenter Content="{Binding _element}" />
+                                <ContentPresenter Content="{Binding _characterName}" />
+                                <ContentPresenter Content="{Binding _fiftyFiftyResult}" />
+                            </StackPanel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -110,7 +158,6 @@
             <RowDefinition/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-
 
         <!--Counter Grid-->
         <Grid Grid.Row="1" Grid.Column="1">
@@ -138,16 +185,33 @@
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="2" Grid.ColumnSpan="3">
                 <Button Content="+1" Style="{StaticResource ButtonStyle}"/>
             </Border>
-            
+
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.ColumnSpan="1">
                 <Button Content="★★★★" Foreground="#FFCBAC15" FontSize="20" Style="{StaticResource ButtonStyle}"/>
             </Border>
-            
+
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
                 <Button Content="★★★★★" Foreground="#FFCBAC15" FontSize="20" Style="{StaticResource ButtonStyle}"/>
             </Border>
 
-            
+
         </Grid>
+
+        <DataGrid x:Name="PullHistoryDataGrid" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}" ItemsSource="{Binding PullHistoryList}" Grid.Row="1" Grid.Column="3" BorderThickness="0,0,0,0" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" FontSize="20" BorderBrush="{x:Null}" Foreground="Black" Focusable="False" IsHitTestVisible="False" HeadersVisibility="Column">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding _pulledAt}" Header="Get @" Width="100"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding _element}" Width="40" Height="40"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding _characterName}" Header="Character name" CanUserSort="False" Width="200"/>
+                <DataGridTextColumn Binding="{Binding _fiftyFiftyResult}" Header="50/50" Width="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>

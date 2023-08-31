@@ -12,12 +12,14 @@ namespace GenshinWishCounter1._5.MVVM.Model
     public class PullModel
     {
         public byte _pulledAt { get; set; }
+        public string _element { get; set; }
         public string _characterName { get; set; }
         public string _fiftyFiftyResult { get; set; }
 
-        public PullModel(byte pulledAt, string characterName, string fiftyFiftyResult)
+        public PullModel(byte pulledAt, string element, string characterName, string fiftyFiftyResult)
         {
             _pulledAt = pulledAt;
+            _element = "/Images/" + element + ".png";
             _characterName = characterName;
             _fiftyFiftyResult = fiftyFiftyResult;
         }

@@ -1,4 +1,5 @@
-﻿using GenshinWishCounter1._5.Service;
+﻿using GenshinWishCounter1._5.MVVM.Model;
+using GenshinWishCounter1._5.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,14 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        public PullHistoryModel PullHistory { get; set; }
+        public List<PullModel> PullHistoryList { get; set; }
 
         public MainMenuViewModel(INavigationService Navigation)
         {
             _navigationService = Navigation;
+            PullHistory = new PullHistoryModel();
+            PullHistoryList = new List<PullModel>() { new PullModel(55,"electro", "Miko", "Won") };
         }
     }
 }

@@ -10,16 +10,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\anemo.png" />
+    <None Remove="Images\cryo.png" />
+    <None Remove="Images\dendro.png" />
+    <None Remove="Images\electro.png" />
+    <None Remove="Images\geo.png" />
+    <None Remove="Images\hydro.png" />
+    <None Remove="Images\pyro.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="GenshinWishCounter1.5.ico" />
+    <Content Include="Images\anemo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\cryo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\dendro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\electro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\geo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\hydro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\pyro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Images\" />
   </ItemGroup>
 
 </Project>
