@@ -27,7 +27,7 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
         {
             _navigationService = Navigation;
             PullHistory = new PullHistoryModel();
-            PullHistoryList = new List<PullModel>() { new PullModel(55,"electro", "Miko", "Won") };
+            PullHistoryList = PullHistory.LoadPullHistory();
         }
     }
 }

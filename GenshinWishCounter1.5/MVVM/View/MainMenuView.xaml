@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GenshinWishCounter1._5.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="600">
     <UserControl.Resources>
         <!--Counter Border Style-->
         <Style x:Key="CounterBorderStyle" TargetType="Border">
@@ -26,7 +26,6 @@
             </Setter>
         </Style>
 
-
         <!--Button Border Style-->
         <Style x:Key="ButtonBorderStyle" TargetType="Border">
             <Setter Property="Width" Value="100"/>
@@ -43,9 +42,7 @@
             </Setter>
         </Style>
 
-
         <!--Button Style-->
-
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -96,48 +93,242 @@
             <Setter Property="FontSize" Value="52"/>
             <Setter Property="Margin" Value="0,-12,0,0"/>
         </Style>
-        
-        <!--DataGrid Column Header Style-->
-        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="Gray" />
-            <Setter Property="Foreground" Value="SaddleBrown" />
-            <Setter Property="BorderBrush" Value="Transparent" />
+
+        <!--DataGridColumnHeaderPresenter Style-->
+        <Style x:Key="ColumnHeaderPresenterStyle" TargetType="DataGridColumnHeadersPresenter">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Padding" Value="10" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
-                        <Border CornerRadius="10"  Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" />
+                    <ControlTemplate TargetType="DataGridColumnHeadersPresenter">
+
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                CornerRadius="10">
+                            <ItemsPresenter />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
-            <Setter Property="Background" Value="Gray"/>
+        <!--DataGrid Row Style-->
+        <Style x:Key="DataGridRowStyle" 
+               TargetType="DataGridRow">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <SolidColorBrush 
+                        Color="White" 
+                        Opacity="0.8"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="10" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Left" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="30" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DataGridRow}">
-                        <Border CornerRadius="10"  Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
-                            <StackPanel Orientation="Horizontal">
-                                <ContentPresenter Content="{Binding _pulledAt}" />
-                                <ContentPresenter Content="{Binding _element}" />
-                                <ContentPresenter Content="{Binding _characterName}" />
-                                <ContentPresenter Content="{Binding _fiftyFiftyResult}" />
-                            </StackPanel>
+                        <Border 
+                            CornerRadius="10" 
+                            BorderThickness="0 2 0 2"  
+                            Background="{TemplateBinding Background}" 
+                            Padding="{TemplateBinding Padding}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition 
+                                        Width="{Binding Columns[0].ActualWidth, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                    <ColumnDefinition 
+                                        Width="{Binding Columns[1].ActualWidth, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                    <ColumnDefinition 
+                                        Width="{Binding Columns[2].ActualWidth, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                    <ColumnDefinition 
+                                        Width="{Binding Columns[3].ActualWidth, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter Content="{Binding _pulledAt}" 
+                                                  Margin="20 3 0 0" />
+                                <Image 
+                                    Width="20" 
+                                    Height="20" 
+                                    Source="{Binding _element}" 
+                                    Grid.Column="1" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center"/>
+                                <ContentPresenter 
+                                    Content="{Binding _characterName}" 
+                                    Margin="10 3 0 0" 
+                                    Grid.Column="2" />
+                                <ContentPresenter 
+                                    Content="{Binding _fiftyFiftyResult}" 
+                                    Margin="15 3 0 0"  
+                                    Grid.Column="3" />
+                            </Grid>
                         </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--ColumnHeader Style-->
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="10 0 0 0"/>
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <!--DataGrid Style-->
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="RowStyle" Value="{StaticResource DataGridRowStyle}"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DataGrid">
+                        <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                                <Border Grid.Row="0" BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                            CornerRadius="10">
+                                    <Border.Background>
+                                        <SolidColorBrush Color="White" Opacity="0.6"/>
+                                    </Border.Background>
+                                    <DataGridColumnHeadersPresenter Style="{StaticResource ColumnHeaderPresenterStyle}"/>
+                                </Border>
+                                <ItemsPresenter Grid.Row="1"/>
+                            </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Thumb Style-->
+        <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Setter Property="Opacity" Value="0.9"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid x:Name="Grid">
+                            <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" 
+                           Height="Auto" Fill="Transparent"/>
+                            <Border x:Name="Rectangle1" CornerRadius="10" HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch" Width="Auto" Height="Auto" Opacity="{TemplateBinding Opacity}" 
+                        Background="{TemplateBinding Background}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Tag" Value="Horizontal">
+                                <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
+                                <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+            <!--ScrollBar Style-->
+        <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <Grid x:Name="GridRoot" Width="12" Background="{x:Null}">
+                            <Border Background="White" Opacity="{TemplateBinding Opacity}" CornerRadius="10">
+                                <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="False">
+                                    <Track.Thumb>
+                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" 
+                                                Style="{DynamicResource ScrollThumbs}"/>
+                                    </Track.Thumb>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="False"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="False"/>
+                                    </Track.DecreaseRepeatButton>
+                                </Track>
+                            </Border>
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="Orientation" Value="Horizontal">
+                                <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="-90"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Width" Value="Auto"/>
+                                <Setter Property="Height" Value="12"/>
+                                <Setter TargetName="Thumb" Property="Tag" Value="Horizontal"/>
+                                <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand"/>
+                                <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--ScrollViewer Style-->
+        <Style x:Key="SVStyle" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollViewer">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="20"/>
+                            </Grid.ColumnDefinitions>
+                            <ScrollContentPresenter Grid.Column="0" />
+                            <ScrollBar x:Name="PART_VerticalScrollBar"
+                                       Grid.Column="1"
+                                       VerticalAlignment="Stretch"
+                                       Orientation="Vertical"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -145,22 +336,23 @@
 
 
     </UserControl.Resources>
-    <Grid>
+    <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
             <RowDefinition/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
         <!--Counter Grid-->
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="10"/>
@@ -197,21 +389,24 @@
 
         </Grid>
 
-        <DataGrid x:Name="PullHistoryDataGrid" RowStyle="{StaticResource DataGridRowStyle}" ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}" ItemsSource="{Binding PullHistoryList}" Grid.Row="1" Grid.Column="3" BorderThickness="0,0,0,0" GridLinesVisibility="Horizontal" AutoGenerateColumns="False" FontSize="20" BorderBrush="{x:Null}" Foreground="Black" Focusable="False" IsHitTestVisible="False" HeadersVisibility="Column">
-
+        <DataGrid Grid.Row="1" Grid.Column="3"  Style="{StaticResource DataGridStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding _pulledAt}" Header="Get @" Width="100"/>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding _element}" Width="40" Height="40"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding _characterName}" Header="Character name" CanUserSort="False" Width="200"/>
-                <DataGridTextColumn Binding="{Binding _fiftyFiftyResult}" Header="50/50" Width="100" />
+                <DataGridTextColumn Header="Get @" Width="60"/>
+                <DataGridTemplateColumn Width="30"/>
+                <DataGridTextColumn Header="Character name"  Width="140"/>
+                <DataGridTextColumn Header="50/50" Width="60"  />
             </DataGrid.Columns>
         </DataGrid>
+        <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" >
+            <DataGrid x:Name="PullHistoryDataGrid" ItemsSource="{Binding PullHistoryList}" Style="{StaticResource DataGridStyle}"  >
 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="60"/>
+                    <DataGridTemplateColumn Width="30"/>
+                    <DataGridTextColumn  Width="*"/>
+                    <DataGridTextColumn Width="60" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </UserControl>
