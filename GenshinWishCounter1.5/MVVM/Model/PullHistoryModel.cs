@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,11 @@ namespace GenshinWishCounter1._5.MVVM.Model
     public class PullHistoryModel
     {
         public List<PullModel> _pullList {  get; set; }
+
+        public PullHistoryModel()
+        {
+            _pullList = LoadPullHistory();
+        }
 
 
 
@@ -64,5 +70,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
             if (_pullList.Last()._fiftyFiftyResult == "Win" || _pullList.Last()._fiftyFiftyResult == "100%") return "Win";
             else return "100%";
         }
+
+
     }
 }

@@ -16,8 +16,11 @@ namespace GenshinWishCounter1._5.Core
             _execute = execute;
             _canExecute = canExecute;
         }
-        public event EventHandler? CanExecuteChanged;// Nie dodaje nic. Jak coś nie działąło do dodaj
-
+        public event EventHandler? CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
         public bool CanExecute(object? parameter)
         {
             return _canExecute(parameter);

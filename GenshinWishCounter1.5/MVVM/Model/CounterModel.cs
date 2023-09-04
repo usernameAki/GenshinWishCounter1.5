@@ -16,14 +16,19 @@ namespace GenshinWishCounter1._5.MVVM.Model
     ///</summary>
     public class CounterModel
     {
-        private byte[] _counters { get; set; }
+        public int[] _counters { get; set; }
+
+        public CounterModel()
+        {
+            _counters = LoadCounter();
+        }
 
 
 
         ///<summary>
         ///Saves counter values to json file.
         ///</summary>
-        public void SaveCounter(byte[] counters)
+        public void SaveCounter(int[] counters)
         {
             string json = JsonConvert.SerializeObject(counters, Formatting.Indented);
             File.WriteAllText("Counters.json", json);
@@ -35,18 +40,15 @@ namespace GenshinWishCounter1._5.MVVM.Model
         ///Loads counter values from json file, and returns loaded file into local byte[]. 
         ///Method createEmptyCounter will be executed if file doesn't exist.
         ///</summary>
-        public byte[] LoadCounter()
+        public int[] LoadCounter()
         {
             if (!File.Exists("Counters.json"))
             {
                 createEmptyCounter();
             }
-            else
-            {
-                string json = File.ReadAllText("Counters.json");
-                byte[] _counters = JsonConvert.DeserializeObject<byte[]>(json);
-            }
-            return _counters;
+            string json = File.ReadAllText("Counters.json");
+            int[] loadedCounter = JsonConvert.DeserializeObject<int[]>(json);
+            return loadedCounter;
         }
 
 
@@ -55,8 +57,8 @@ namespace GenshinWishCounter1._5.MVVM.Model
         ///</summary>
         private void createEmptyCounter()
         {
-            _counters = new byte[2] { 0, 0};
-            SaveCounter(_counters);
+            int[] emptyCounterArray = new int[2] { 0, 0 };
+            SaveCounter(emptyCounterArray);
         }
 
 
@@ -86,7 +88,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
             }
             else if (_counters[1] == 10)
             {
-                ResetCounter(2);
+                ResetCounter(1);
             }
         }
 
@@ -96,13 +98,24 @@ namespace GenshinWishCounter1._5.MVVM.Model
         ///0 = 5 star counter.
         ///1 = 4 star counter.
         ///</summary>
-        private void ResetCounter(byte counterPlace) 
+        private void ResetCounter(int counterPlace) 
         {
             if (counterPlace == 0) _counters[0] = 0;
             else if (counterPlace == 1) _counters[1] = 0;
-            else MessageBox.Show("Ops! Handed wrong value to CounterModel.ResetCounter(byte) " +
+            else MessageBox.Show("Ops! Handed wrong value to CounterModel.ResetCounter(int) " +
                                  "Expected value 0 or 1. Handed:" + counterPlace.ToString());
             SaveCounter(_counters);
         }
+
+        /// <summary>
+        /// Adds one to mian counter and resets four star counter.
+        /// </summary>
+        public void AddFourStar()
+        {
+            PlusCounter();
+            ResetCounter(1);
+        }
+
+
     }
 }
