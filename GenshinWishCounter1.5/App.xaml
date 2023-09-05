@@ -5,11 +5,18 @@
              xmlns:viewModel="clr-namespace:GenshinWishCounter1._5.MVVM.ViewModel"
              xmlns:view="clr-namespace:GenshinWishCounter1._5.MVVM.View">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
-            <view:MainMenuView/>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type TypeName=viewModel:AddFiveStarViewModel}">
-            <view:AddFiveStarView/>
-        </DataTemplate>
+
+
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
+                <view:MainMenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type TypeName=viewModel:AddFiveStarViewModel}">
+                <view:AddFiveStarView/>
+            </DataTemplate>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/ScrollViewerResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

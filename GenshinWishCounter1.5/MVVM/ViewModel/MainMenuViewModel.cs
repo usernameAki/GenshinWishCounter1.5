@@ -56,7 +56,7 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
         //Commands
         public RelayCommand AddOnePull { get; set; }
         public RelayCommand AddFourStar { get; set; }
-        private RelayCommand AddFiveStar { get; set; }
+        public RelayCommand AddFiveStar { get; set; }
 
         public MainMenuViewModel(INavigationService Navigation)
         {
@@ -72,6 +72,7 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             //Commands
             AddOnePull = new RelayCommand(o => { Counter.PlusCounter(); CountersDisplayed = Counter._counters; }, o => true);
             AddFourStar = new RelayCommand(o => { Counter.AddFourStar(); CountersDisplayed = Counter._counters; }, o => CountersDisplayed[0] != 89 ) ;
+            AddFiveStar = new RelayCommand(o => { Navigation.NavigateTo<AddFiveStarViewModel>(); }, o => true);
         }
     }
 }

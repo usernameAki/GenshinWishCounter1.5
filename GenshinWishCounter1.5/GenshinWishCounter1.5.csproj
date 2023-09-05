@@ -10,19 +10,71 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Albedo.png" />
+    <None Remove="Images\Alhaitham.png" />
+    <None Remove="Images\Aloy.png" />
     <None Remove="Images\anemo.png" />
+    <None Remove="Images\Ayaka.png" />
+    <None Remove="Images\Ayato.png" />
+    <None Remove="Images\Baizhu.png" />
     <None Remove="Images\bcg.png" />
     <None Remove="Images\cryo.png" />
+    <None Remove="Images\Cyno.png" />
+    <None Remove="Images\Dehya.png" />
     <None Remove="Images\dendro.png" />
+    <None Remove="Images\Diluc.png" />
     <None Remove="Images\electro.png" />
+    <None Remove="Images\Eula.png" />
+    <None Remove="Images\Ganyu.png" />
     <None Remove="Images\geo.png" />
+    <None Remove="Images\Hu_Tao.png" />
     <None Remove="Images\hydro.png" />
+    <None Remove="Images\Itto.png" />
+    <None Remove="Images\Jean.png" />
+    <None Remove="Images\Kazuha.png" />
+    <None Remove="Images\Keqing.png" />
+    <None Remove="Images\Klee.png" />
+    <None Remove="Images\Kokomi.png" />
+    <None Remove="Images\Lyney.png" />
+    <None Remove="Images\Mona.png" />
+    <None Remove="Images\Nahida.png" />
+    <None Remove="Images\Nilou.png" />
     <None Remove="Images\pyro.png" />
+    <None Remove="Images\Qiqi.png" />
+    <None Remove="Images\Raiden.png" />
+    <None Remove="Images\Shenhe.png" />
+    <None Remove="Images\Tartaglia.png" />
+    <None Remove="Images\Tighnari.png" />
+    <None Remove="Images\Venti.png" />
+    <None Remove="Images\Wanderer.png" />
+    <None Remove="Images\Xiao.png" />
+    <None Remove="Images\Yae_Miko.png" />
+    <None Remove="Images\Yelan.png" />
+    <None Remove="Images\Yoimiya.png" />
+    <None Remove="Images\Zhongli.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="GenshinWishCounter1.5.ico" />
+    <Content Include="Images\Albedo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Alhaitham.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Aloy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\anemo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ayaka.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ayato.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Baizhu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bcg.png">
@@ -31,19 +83,103 @@
     <Content Include="Images\cryo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Cyno.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Dehya.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\dendro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Diluc.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\electro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Eula.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ganyu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\geo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Hu_Tao.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\hydro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Itto.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Jean.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Kazuha.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Keqing.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Klee.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Kokomi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Lyney.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Mona.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Nahida.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Nilou.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\pyro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Qiqi.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Raiden.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Shenhe.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Tartaglia.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Tighnari.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Venti.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Wanderer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Xiao.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Yae_Miko.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Yelan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Yoimiya.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Zhongli.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
