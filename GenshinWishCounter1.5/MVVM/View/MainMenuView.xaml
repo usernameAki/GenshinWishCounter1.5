@@ -299,7 +299,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" >
-            <DataGrid x:Name="PullHistoryDataGrid" ItemsSource="{Binding PullHistoryList}" Style="{StaticResource DataGridStyle}"  >
+            <DataGrid x:Name="PullHistoryDataGrid" ItemsSource="{Binding PullHistoryList, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DataGridStyle}"  >
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="60"/>

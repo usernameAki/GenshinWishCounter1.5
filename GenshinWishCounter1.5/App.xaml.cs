@@ -9,6 +9,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GenshinWishCounter1._5.MVVM.Model;
 
 namespace GenshinWishCounter1._5
 {
@@ -29,6 +30,7 @@ namespace GenshinWishCounter1._5
             service.AddSingleton<MainViewModel>();
             service.AddSingleton<MainMenuViewModel>();
             service.AddSingleton<AddFiveStarViewModel>();
+            service.AddSingleton<PullHistoryModel>();
             service.AddSingleton<INavigationService, NavigationService>();
             service.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
             serviceProvider = service.BuildServiceProvider();

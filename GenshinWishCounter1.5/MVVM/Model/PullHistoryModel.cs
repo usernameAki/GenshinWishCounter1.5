@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GenshinWishCounter1._5.Core;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,7 +12,16 @@ namespace GenshinWishCounter1._5.MVVM.Model
 {
     public class PullHistoryModel
     {
-        public List<PullModel> _pullList {  get; set; }
+        private List<PullModel> _pullList;
+        public List<PullModel> PullList
+        {
+            get => _pullList;
+            set
+            {
+                _pullList = value;
+            }
+        }
+
 
         public PullHistoryModel()
         {
@@ -43,8 +53,8 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 CreateEmptyPullHistoryList();
             }
             string json = File.ReadAllText("PullData.json");
-            List<PullModel> _pullList = JsonConvert.DeserializeObject<List<PullModel>>(json);
-            return _pullList;
+            List<PullModel> PullList = JsonConvert.DeserializeObject<List<PullModel>>(json);
+            return PullList;
         }
 
 
@@ -54,8 +64,8 @@ namespace GenshinWishCounter1._5.MVVM.Model
         /// </summary>
         private void CreateEmptyPullHistoryList()
         {
-            _pullList = new List<PullModel>();
-            SavePullHistory(_pullList);
+            PullList = new List<PullModel>();
+            SavePullHistory(PullList);
         }
 
 
@@ -66,11 +76,16 @@ namespace GenshinWishCounter1._5.MVVM.Model
         /// <returns>String of actual result.</returns>
         public string checkLastFiftyFiftyResult()
         {
-            if (_pullList.Count == 0) return "Win";
-            if (_pullList.Last()._fiftyFiftyResult == "Win" || _pullList.Last()._fiftyFiftyResult == "100%") return "Win";
+            if (PullList.Count == 0) return "Win";
+            if (PullList.Last()._fiftyFiftyResult == "Win" || PullList.Last()._fiftyFiftyResult == "100%") return "Win";
             else return "100%";
         }
 
 
+        public void AddCharacterToList(string name, string element, int numberOfPulls, string fFresult)
+        {
+            PullList.Add(new PullModel(numberOfPulls, element, name, fFresult));
+            SavePullHistory(PullList);
+        }
     }
 }

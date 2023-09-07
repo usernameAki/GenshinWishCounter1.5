@@ -11,7 +11,7 @@
                     <Grid x:Name="Grid">
                         <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" 
                    Height="Auto" Fill="Transparent"/>
-                        <Border x:Name="Rectangle1" CornerRadius="10" HorizontalAlignment="Stretch" 
+                        <Border x:Name="Rectangle1" CornerRadius="6" HorizontalAlignment="Stretch" 
                 VerticalAlignment="Stretch" Width="Auto" Height="Auto" Opacity="{TemplateBinding Opacity}" 
                 Background="{TemplateBinding Background}"/>
                     </Grid>

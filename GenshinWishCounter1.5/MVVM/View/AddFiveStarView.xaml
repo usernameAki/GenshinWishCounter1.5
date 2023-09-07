@@ -79,106 +79,106 @@
             </Border.Background>
             <ScrollViewer Padding="0 10 0 10">
                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="AddAlbedo" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddAlbedo" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddAlbedoCommand}">
                         <Image Source="/Images/Albedo.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddAlhaitham" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddAlhaitham" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddAlhaithamCommand}">
                         <Image Source="/Images/Alhaitham.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddAloy" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddAloy" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddAloyCommand}">
                         <Image Source="/Images/Aloy.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddAyaka" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddAyaka" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddAyakaCommand}">
                         <Image Source="/Images/Ayaka.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddAyato" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddAyato" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddAyatoCommand}">
                         <Image Source="/Images/Ayato.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddBaizhu" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddBaizhu" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddBaizhuCommand}">
                         <Image Source="/Images/Baizhu.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddCyno" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddCyno" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddCynoCommand}">
                         <Image Source="/Images/Cyno.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddDehya" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddDehya" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddDehyaCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Dehya.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddDiluc" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddDiluc" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddDilucCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Diluc.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddEula" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddEula" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddEulaCommand}">
                         <Image Source="/Images/Eula.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddGanyu" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddGanyu" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddGanyuCommand}">
                         <Image Source="/Images/Ganyu.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddHuTao" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddHuTao" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddHuTaoCommand}">
                         <Image Source="/Images/Hu_Tao.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddItoo" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddItto" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddIttoCommand}">
                         <Image Source="/Images/Itto.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddJean" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddJean" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddJeanCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Jean.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddKazuha" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddKazuha" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddKazuhaCommand}">
                         <Image Source="/Images/Kazuha.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddKeqing" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddKeqing" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddKeqingCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Keqing.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddKlee" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddKlee" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddKleeCommand}">
                         <Image Source="/Images/Klee.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddKokomi" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddKokomi" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddKokomiCommand}">
                         <Image Source="/Images/Kokomi.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddLyney" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddLyney" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddLyneyCommand}">
                         <Image Source="/Images/Lyney.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddMona" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddMona" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddMonaCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Mona.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddNahida" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddNahida" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddNahidaCommand}">
                         <Image Source="/Images/Nahida.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddNilou" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddNilou" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddNilouCommand}">
                         <Image Source="/Images/Nilou.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddQiqi" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddQiqi" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddQiqiCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Qiqi.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddRaiden" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddRaiden" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddRaidenCommand}">
                         <Image Source="/Images/Raiden.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddShenhe" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddShenhe" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddShenheCommand}">
                         <Image Source="/Images/Shenhe.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddTartaglia" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddTartaglia" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddTartagliaCommand}">
                         <Image Source="/Images/Tartaglia.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddTighnari" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddTighnari" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddTighnariCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Tighnari.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddVenti" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddVenti" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddVentiCommand}">
                         <Image Source="/Images/Venti.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddWanderer" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddWanderer" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddWandererCommand}">
                         <Image Source="/Images/Wanderer.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddXiao" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddXiao" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddXiaoCommand}">
                         <Image Source="/Images/Xiao.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddYaeMiko" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddYaeMiko" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddYaeMikoCommand}">
                         <Image Source="/Images/Yae_Miko.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddYelan" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddYelan" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddYelanCommand}">
                         <Image Source="/Images/Yelan.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddYoimiya" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddYoimiya" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddYoimiyaCommand}">
                         <Image Source="/Images/Yoimiya.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    <Button x:Name="AddZhongli" Style="{StaticResource CharacterButtonStyle}">
+                    <Button x:Name="AddZhongli" Style="{StaticResource CharacterButtonStyle}" Command="{Binding AddZhongliCommand}">
                         <Image Source="/Images/Zhongli.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
                 </WrapPanel>
