@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GenshinWishCounter1._5.Service
 {
+    /// <summary>
+    /// Navigation Interface. Serves for navigation throught entire app.
+    /// </summary>
     public interface INavigationService
     {
         ViewModel CurrentView { get; }

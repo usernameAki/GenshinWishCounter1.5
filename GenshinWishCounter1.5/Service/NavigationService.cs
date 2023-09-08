@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GenshinWishCounter1._5.Service
 {
+    /// <summary>
+    /// This class serves for navigation throught entire app.
+    /// </summary>
     public class NavigationService : ObservableObject, INavigationService
     {
         private ViewModel _currentView;
@@ -26,6 +29,10 @@ namespace GenshinWishCounter1._5.Service
             _viewModelFactory = viewModelFactory;
         }
 
+        /// <summary>
+        /// Navigates to another View.
+        /// </summary>
+        /// <typeparam name="T">Name of ViewModel</typeparam>
         public void NavigateTo<T>() where T : ViewModel
         {
             ViewModel viewModel = _viewModelFactory.Invoke(typeof(T));

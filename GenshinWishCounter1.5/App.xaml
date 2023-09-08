@@ -6,7 +6,6 @@
              xmlns:view="clr-namespace:GenshinWishCounter1._5.MVVM.View">
     <Application.Resources>
 
-
         <ResourceDictionary>
             <DataTemplate DataType="{x:Type TypeName=viewModel:MainMenuViewModel}">
                 <view:MainMenuView/>
@@ -16,6 +15,11 @@
             </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/MVVM/View/ResourceDictionary/ScrollViewerResourceDictionary.xaml"/>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/DataGridResourceDictionary.xaml"/>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/ButtonResourceDictionary.xaml"/>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/BorderResourceDictionary.xaml"/>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/LabelResourceDictionary.xaml"/>
+                <ResourceDictionary Source="/MVVM/View/ResourceDictionary/ImageResourceDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

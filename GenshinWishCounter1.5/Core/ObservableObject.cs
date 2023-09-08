@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace GenshinWishCounter1._5.Core
 {
+    /// <summary>
+    /// Base class for observable objects.
+    /// This class inherit interfrace INotifyPropertyChanged.
+    /// </summary>
     public class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

@@ -7,6 +7,10 @@ using System.Windows.Input;
 
 namespace GenshinWishCounter1._5.Core
 {
+    /// <summary>
+    /// Base class for Commands.
+    /// This class inherit interface ICommand.
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Predicate<object> _canExecute;

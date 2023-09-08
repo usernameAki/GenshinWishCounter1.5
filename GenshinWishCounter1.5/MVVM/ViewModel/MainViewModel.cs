@@ -10,6 +10,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
 {
     public class MainViewModel : Core.ViewModel
     {
+
+        //Naviagtion
         private INavigationService _navigationService;
         public INavigationService Navigation
         {
@@ -21,12 +23,18 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             }
         }
 
-        private RelayCommand MoveToMainMenu { get; set; }
+        //Command
+        private RelayCommand _moveToMainMenu { get; set; }
+
+        /// <summary>
+        /// Directly moves to MainMenuView.
+        /// </summary>
+        /// <param name="navigationService"></param>
         public MainViewModel(INavigationService navigationService)
         {
             Navigation = navigationService;
-            MoveToMainMenu = new RelayCommand(o => { Navigation.NavigateTo<MainMenuViewModel>(); }, o => true);
-            MoveToMainMenu.Execute("MainMenuViewModel");
+            _moveToMainMenu = new RelayCommand(o => { Navigation.NavigateTo<MainMenuViewModel>(); }, o => true);
+            _moveToMainMenu.Execute("MainMenuViewModel");
         }
     }
 }

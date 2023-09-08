@@ -22,17 +22,19 @@ namespace GenshinWishCounter1._5.MVVM.Model
             }
         }
 
-
+        /// <summary>
+        /// Loads List<PullModel> from json file and assigns it into local variable by executing LoadPullHistory() method.
+        /// </summary>
         public PullHistoryModel()
         {
-            _pullList = LoadPullHistory();
+            PullList = LoadPullHistory();
         }
 
 
-
         /// <summary>
-        /// Takes a List of PullModel and saves it into a json file.
+        /// Takes a List<PullModel> and saves it into a json file.
         /// </summary>
+        /// <param name="pullList"></param>
         public void SavePullHistory(List<PullModel> pullList)
         {
             string json = JsonConvert.SerializeObject(pullList, Formatting.Indented);
@@ -40,9 +42,8 @@ namespace GenshinWishCounter1._5.MVVM.Model
         }
 
 
-
         /// <summary>
-        /// Loads List of PullModel from json file.
+        /// Loads List<PullModel> from json file.
         /// If file doesn't exist CreateEmptyPullHistoryList() method will be executed.
         /// </summary>
         /// <returns>List of PullModel loaded from json file.</returns>
@@ -53,14 +54,14 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 CreateEmptyPullHistoryList();
             }
             string json = File.ReadAllText("PullData.json");
-            List<PullModel> PullList = JsonConvert.DeserializeObject<List<PullModel>>(json);
-            return PullList;
+            List<PullModel> loadedPullList = JsonConvert.DeserializeObject<List<PullModel>>(json);
+            return loadedPullList;
         }
 
 
-
         /// <summary>
-        /// Creates a new empty List of PullModel, and saves it into a json file.
+        /// Creates a new empty List<PullModel>,
+        /// and saves it into a json file by executing SavePullHistory() method.
         /// </summary>
         private void CreateEmptyPullHistoryList()
         {
@@ -69,19 +70,26 @@ namespace GenshinWishCounter1._5.MVVM.Model
         }
 
 
-
         /// <summary>
         /// Checks 50/50 result of last PullModel.
+        /// This method can be called only on limited characters!
         /// </summary>
         /// <returns>String of actual result.</returns>
-        public string checkLastFiftyFiftyResult()
+        public string CheckLastFiftyFiftyResult()
         {
             if (PullList.Count == 0) return "Win";
-            if (PullList.Last()._fiftyFiftyResult == "Win" || PullList.Last()._fiftyFiftyResult == "100%") return "Win";
+            if (PullList.Last().FiftyFiftyResult == "Win" || PullList.Last().FiftyFiftyResult == "100%") return "Win";
             else return "100%";
         }
 
-
+        /// <summary>
+        /// Adds new PullModel into List<PullModel> 
+        /// and saves it into file by executing SavePullHistory(List<PullModel>) method.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="element"></param>
+        /// <param name="numberOfPulls"></param>
+        /// <param name="fFresult"></param>
         public void AddCharacterToList(string name, string element, int numberOfPulls, string fFresult)
         {
             PullList.Add(new PullModel(numberOfPulls, element, name, fFresult));

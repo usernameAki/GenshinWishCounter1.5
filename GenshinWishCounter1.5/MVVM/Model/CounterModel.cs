@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GenshinWishCounter1._5.Core;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,33 +13,45 @@ using Formatting = Newtonsoft.Json.Formatting;
 namespace GenshinWishCounter1._5.MVVM.Model
 {
     ///<summary>
-    ///This class is responsible for calculationg, saving, and loading counters.
+    ///This class is responsible for operations on counters such as calculation, 
+    ///save to/ load from json file, and creating new files.
     ///</summary>
-    public class CounterModel
+    public class CounterModel : ObservableObject
     {
-        public int[] _counters { get; set; }
+        private int[] _counters;
+        public int[] Counters
+        {
+            get => _counters;
+            set
+            {
+                _counters = value;
+            }
+        }
 
+        /// <summary>
+        /// Executes LoadCounter() method.
+        /// </summary>
         public CounterModel()
         {
-            _counters = LoadCounter();
+            Counters = LoadCounter();
         }
 
 
 
         ///<summary>
-        ///Saves counter values to json file.
+        ///Saves int[] with counters to json file.
         ///</summary>
-        public void SaveCounter(int[] counters)
+        public void SaveCounter(int[] intArrayOfCounters)
         {
-            string json = JsonConvert.SerializeObject(counters, Formatting.Indented);
+            string json = JsonConvert.SerializeObject(intArrayOfCounters, Formatting.Indented);
             File.WriteAllText("Counters.json", json);
         }
 
 
 
         ///<summary>
-        ///Loads counter values from json file, and returns loaded file into local byte[]. 
-        ///Method createEmptyCounter will be executed if file doesn't exist.
+        ///Loads and returns int[] of counters from json file. 
+        ///Method createEmptyCounter will be executed if file Counters.json doesn't exist.
         ///</summary>
         public int[] LoadCounter()
         {
@@ -53,7 +66,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
 
 
         ///<summary>
-        ///Creates new json file for counter values, and set them to {0, 0}.
+        ///Creates a new empty int[] of counters, and saves it as json file.
         ///</summary>
         private void createEmptyCounter()
         {
@@ -62,31 +75,34 @@ namespace GenshinWishCounter1._5.MVVM.Model
         }
 
 
-        ///<summary>
-        ///Increment counter values by 1 each,
-        ///and executes CheckCounter method.
-        ///</summary>
-        public void PlusCounter()
+        /// <summary>
+        /// Increment each counter values by 1,
+        ///executes CheckCounter() and SaveCounter(int[]) method.
+        /// </summary>
+        /// <param name="intArrayOfCounters"></param>
+        /// <returns>Returns int[] of counters after calculations.</returns>
+        public int[] PlusCounter(int[] intArrayOfCounters)
         {
-            _counters[0]++;
-            _counters[1]++;
+            intArrayOfCounters[0]++;
+            intArrayOfCounters[1]++;
             CheckCounter();
-            SaveCounter(_counters);
+            SaveCounter(intArrayOfCounters);
+            return Counters;
         }
 
 
         ///<summary>
         ///Checks if any counter reached maximum value.
-        ///if yes, then method ResetCounter will be executed.
+        ///If yes then method ResetCounter will be executed on this counter accoringly to mechanics.
         ///</summary>
         private void CheckCounter()
         {
-            if (_counters[0] == 90)
+            if (Counters[0] == 90)
             {
                 ResetCounter(0);
                 ResetCounter(1);
             }
-            else if (_counters[1] == 10)
+            else if (Counters[1] == 10)
             {
                 ResetCounter(1);
             }
@@ -97,25 +113,44 @@ namespace GenshinWishCounter1._5.MVVM.Model
         ///Resets counter value to 0.
         ///0 = 5 star counter.
         ///1 = 4 star counter.
+        ///2 = both counters.
         ///</summary>
-        private void ResetCounter(int counterPlace) 
+        public void ResetCounter(int counterPlace) 
         {
-            if (counterPlace == 0) _counters[0] = 0;
-            else if (counterPlace == 1) _counters[1] = 0;
+            if (counterPlace == 0) Counters[0] = 0;
+            else if (counterPlace == 1) Counters[1] = 0;
+            else if (counterPlace == 2)
+            {
+                Counters[0] = 0;
+                Counters[1] = 0;
+            }
             else MessageBox.Show("Ops! Handed wrong value to CounterModel.ResetCounter(int) " +
-                                 "Expected value 0 or 1. Handed:" + counterPlace.ToString());
-            SaveCounter(_counters);
+                                 "Expected value: 0, 1 or 2. Handed:" + counterPlace.ToString());
+            SaveCounter(Counters);
         }
 
         /// <summary>
-        /// Adds one to mian counter and resets four star counter.
+        /// Calls PlusCounter(int[]) method, and resets four star counter.
         /// </summary>
-        public void AddFourStar()
+        /// <param name="intArrayOfCounters"></param>
+        /// <returns>Returns int[] of counters after calculations.</returns>
+        public int[] AddFourStar(int[] intArrayOfCounters)
         {
-            PlusCounter();
+            PlusCounter(intArrayOfCounters);
             ResetCounter(1);
+            return Counters;
         }
 
-
+        /// <summary>
+        /// Increment five star counter by 1, and calls SaveCounter() method.
+        /// </summary>
+        /// <param name="intArrayOfCounters"></param>
+        /// <returns>Returns int[] of counters after calculations.</returns>
+        public int[] AddFiveStar(int[] intArrayOfCounters)
+        {
+            intArrayOfCounters[0]++;
+            SaveCounter(intArrayOfCounters);
+            return Counters;
+        }
     }
 }

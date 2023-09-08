@@ -25,7 +25,11 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             }
         }
 
+        //Visibility of standard characters.
         private Visibility _standardCharacterVisibility = Visibility.Visible;
+        /// <summary>
+        /// Visibility of standard characters.
+        /// </summary>
         public Visibility StandardCharacterVisibility
         {
             get => _standardCharacterVisibility;
@@ -39,8 +43,13 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             }
         }
 
+
+        // Models
         private readonly PullHistoryModel _pullHistoryModel;
-        private CounterModel _counterModel;
+        private readonly CounterModel _counterModel;
+
+
+        //Commands--------------------------------------------------------|
         public RelayCommand AddAlbedoCommand { get; set; }
         public RelayCommand AddAlhaithamCommand { get; set; }
         public RelayCommand AddAloyCommand { get; set; }
@@ -76,17 +85,22 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
         public RelayCommand AddYoimiyaCommand { get; set; }
         public RelayCommand AddZhongliCommand { get; set; }
 
-        public AddFiveStarViewModel(INavigationService Navigation, PullHistoryModel pullHistoryModel)
+        //End of Commands-------------------------------------------------|
+
+        public AddFiveStarViewModel(INavigationService navigation, PullHistoryModel pullHistoryModel, CounterModel counterModel)
         {
-            _navigationService = Navigation;
+            _navigationService = navigation;
             _pullHistoryModel = pullHistoryModel;
-            _counterModel = new CounterModel();
+            _counterModel = counterModel;
 
 
+
+            //Button Commands to add 5 star character -------------------------------------------------------------------|
             AddAlbedoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Albedo", "geo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Albedo", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -94,7 +108,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddAlhaithamCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Alhaitham", "dendro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Alhaitham", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -102,7 +117,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddAloyCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Aloy", "cryo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Aloy", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -110,7 +126,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddAyakaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Ayaka", "cryo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Ayaka", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -118,7 +135,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddAyatoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Ayato", "hydro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Ayato", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -126,7 +144,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddBaizhuCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Baizhu", "dendro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Baizhu", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -134,7 +153,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddCynoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Cyno", "electro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Cyno", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -142,7 +162,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddDehyaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Dehya", "pyro", _counterModel._counters[0], "Lose");
+                ("Dehya", "pyro", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -150,7 +171,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddDilucCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Diluc", "pyro", _counterModel._counters[0], "Lose");
+                ("Diluc", "pyro", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -158,7 +180,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddEulaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Eula", "cryo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Eula", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -166,7 +189,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddGanyuCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Ganyu", "cryo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Ganyu", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -174,7 +198,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddHuTaoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Hu Tao", "pyro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Hu Tao", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -182,7 +207,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddIttoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Arataki Itto", "geo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Arataki Itto", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -190,7 +216,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddJeanCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Jean", "anemo", _counterModel._counters[0], "Lose");
+                ("Jean", "anemo", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -198,7 +225,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddKazuhaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Kazuha", "anemo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Kazuha", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -206,7 +234,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddKeqingCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Keqing", "electro", _counterModel._counters[0], "Lose");
+                ("Keqing", "electro", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -214,7 +243,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddKleeCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Klee", "pyro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Klee", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -222,7 +252,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddKokomiCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Kokomi", "hydro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Kokomi", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -230,7 +261,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddLyneyCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Lyney", "pyro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Lyney", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -238,7 +270,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddMonaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Mona", "hydro", _counterModel._counters[0], "Lose");
+                ("Mona", "hydro", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -246,7 +279,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddNahidaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Nahida", "dendro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Nahida", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -254,7 +288,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddNilouCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Nilou", "hydro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Nilou", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -262,7 +297,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddQiqiCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Qiqi", "cryo", _counterModel._counters[0], "Lose");
+                ("Qiqi", "cryo", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -270,7 +306,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddRaidenCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Raiden Shogun", "electro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Raiden Shogun", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -278,7 +315,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddShenheCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Shenhe", "cryo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Shenhe", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -286,7 +324,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddTartagliaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Tartaglia", "hydro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Tartaglia", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -294,7 +333,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddTighnariCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Tighnari", "dendro", _counterModel._counters[0], "Lose");
+                ("Tighnari", "dendro", _counterModel.Counters[0], "Lose");
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -302,7 +342,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddVentiCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Venti", "anemo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Venti", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -310,7 +351,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddWandererCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Wanderer", "anemo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Wanderer", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -318,7 +360,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddXiaoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Xiao", "anemo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Xiao", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -326,7 +369,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddYaeMikoCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Yae Miko", "electro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Yae Miko", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -334,7 +378,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddYelanCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Yelan", "hydro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Yelan", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -342,7 +387,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddYoimiyaCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Yoimiya", "pyro", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Yoimiya", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
@@ -350,17 +396,21 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             AddZhongliCommand = new RelayCommand(o =>
             {
                 _pullHistoryModel.AddCharacterToList
-                ("Zhongli", "geo", _counterModel._counters[0], _pullHistoryModel.checkLastFiftyFiftyResult());
+                ("Zhongli", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 
             }, o => true);
 
-
+            //End of button Commands to add 5 star character ------------------------------------------------------------|
         }
 
+        /// <summary>
+        /// Switches between visibility of standard 5 star characters accordinglu to gatcha mechanics.
+        /// </summary>
         public void StandardCharacterVisibilitySwitch()
         {
-            if (_pullHistoryModel.PullList.Last()._fiftyFiftyResult == "Lose")
+            if (_pullHistoryModel.PullList.Count > 0 && _pullHistoryModel.PullList.Last().FiftyFiftyResult == "Lose")
             {
                 StandardCharacterVisibility = Visibility.Collapsed;
             }

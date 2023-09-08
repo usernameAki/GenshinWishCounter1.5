@@ -14,14 +14,16 @@ using GenshinWishCounter1._5.MVVM.Model;
 namespace GenshinWishCounter1._5
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// This app is a counter for gatcha system in Genshin Impact 4.0
     /// </summary>
     public partial class App : Application
     {
+        //DI service provider
         private readonly IServiceProvider serviceProvider;
 
         public App()
         {
+            //DI classes
             IServiceCollection service = new ServiceCollection();
             service.AddSingleton<MainWindow>(provider => new MainWindow
             {
@@ -31,6 +33,7 @@ namespace GenshinWishCounter1._5
             service.AddSingleton<MainMenuViewModel>();
             service.AddSingleton<AddFiveStarViewModel>();
             service.AddSingleton<PullHistoryModel>();
+            service.AddSingleton<CounterModel>();
             service.AddSingleton<INavigationService, NavigationService>();
             service.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
             serviceProvider = service.BuildServiceProvider();

@@ -11,17 +11,24 @@ namespace GenshinWishCounter1._5.MVVM.Model
     /// </summary>
     public class PullModel
     {
-        public int _pulledAt { get; set; }
-        public string _element { get; set; }
-        public string _characterName { get; set; }
-        public string _fiftyFiftyResult { get; set; }
+        public int PulledAt { get; set; }
+        public string TheElement { get; set; }
+        public string CharacterName { get; set; }
+        public string FiftyFiftyResult { get; set; }
 
+        /// <summary>
+        /// Creates a new pull record.
+        /// </summary>
+        /// <param name="pulledAt"> Numbers of pulls</param>
+        /// <param name="element">Element of character(pyro, hydro, geo, anemo, cryo, dendro, electro)</param>
+        /// <param name="characterName">Name of character</param>
+        /// <param name="fiftyFiftyResult">Result of 50/50</param>
         public PullModel(int pulledAt, string element, string characterName, string fiftyFiftyResult)
         {
-            _pulledAt = pulledAt;
-            _element = "/Images/" + element + ".png";
-            _characterName = characterName;
-            _fiftyFiftyResult = fiftyFiftyResult;
+            PulledAt = pulledAt;
+            TheElement = "/Images/" + element + ".png";
+            CharacterName = characterName;
+            FiftyFiftyResult = fiftyFiftyResult;
         }
     }
 }

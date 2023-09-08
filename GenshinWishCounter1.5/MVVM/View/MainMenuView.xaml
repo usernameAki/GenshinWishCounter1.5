@@ -6,237 +6,8 @@
              xmlns:local="clr-namespace:GenshinWishCounter1._5.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="600">
-    <UserControl.Resources>
-        <!--Counter Border Style-->
-        <Style x:Key="CounterBorderStyle" TargetType="Border">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="Height" Value="80"/>
-            <Setter Property="CornerRadius" Value="20,20,20,20"/>
-            <Setter Property="BorderThickness" Value="5,10,5,10"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF6C2AA1"/>
-                        <GradientStop Color="#FF00A3FF" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--Button Border Style-->
-        <Style x:Key="ButtonBorderStyle" TargetType="Border">
-            <Setter Property="Width" Value="100"/>
-            <Setter Property="Height" Value="65"/>
-            <Setter Property="BorderThickness" Value="5,5,5,5"/>
-            <Setter Property="CornerRadius" Value="15,0,15,0"/>
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF00A3FF" Offset="1"/>
-                        <GradientStop Color="#FF6C2AA1" Offset="0"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--Button Style-->
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Background">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF00A3FF" Offset="1"/>
-                        <GradientStop Color="#FF6C2AA1" Offset="0"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="ButtonStyle_Border" Padding="1" CornerRadius="11,0,11,0" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"  BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <EventTrigger RoutedEvent="MouseEnter">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="ButtonStyle_Border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].Color" To="#80d1ff" Duration="0:0:0.2"/>
-                                        <ColorAnimation Storyboard.TargetName="ButtonStyle_Border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].Color" To="#b695d0" Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <EventTrigger RoutedEvent="MouseLeave">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="ButtonStyle_Border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[0].Color" To="#FF00A3FF" Duration="0:0:0.2"/>
-                                        <ColorAnimation Storyboard.TargetName="ButtonStyle_Border" Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].Color" To="#FF6C2AA1" Duration="0:0:0.2"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--Counter Label Style-->
-        <Style x:Key="CounterLabelStyle" TargetType="Label">
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="52"/>
-            <Setter Property="Margin" Value="0,-12,0,0"/>
-        </Style>
-
-        <!--DataGridColumnHeaderPresenter Style-->
-        <Style x:Key="ColumnHeaderPresenterStyle" TargetType="DataGridColumnHeadersPresenter">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Padding" Value="10" />
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DataGridColumnHeadersPresenter">
-
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}" 
-                                CornerRadius="10">
-                            <ItemsPresenter />
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--DataGrid Row Style-->
-        <Style x:Key="DataGridRowStyle" 
-               TargetType="DataGridRow">
-            <Setter Property="Background">
-                <Setter.Value>
-                    <SolidColorBrush 
-                        Color="White" 
-                        Opacity="0.8"/>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Padding" Value="0" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalContentAlignment" Value="Left" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type DataGridRow}">
-                        <Border 
-                            CornerRadius="10" 
-                            BorderThickness="0 2 0 2"  
-                            Background="{TemplateBinding Background}" 
-                            Padding="{TemplateBinding Padding}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition 
-                                        Width="{Binding Columns[0].ActualWidth, 
-                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                                    <ColumnDefinition 
-                                        Width="{Binding Columns[1].ActualWidth, 
-                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                                    <ColumnDefinition 
-                                        Width="{Binding Columns[2].ActualWidth, 
-                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                                    <ColumnDefinition 
-                                        Width="{Binding Columns[3].ActualWidth, 
-                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
-                                </Grid.ColumnDefinitions>
-                                <ContentPresenter Content="{Binding _pulledAt}" 
-                                                  Margin="20 3 0 0" />
-                                <Image 
-                                    Width="20" 
-                                    Height="20" 
-                                    Source="{Binding _element}" 
-                                    Grid.Column="1" 
-                                    HorizontalAlignment="Center" 
-                                    VerticalAlignment="Center"/>
-                                <ContentPresenter 
-                                    Content="{Binding _characterName}" 
-                                    Margin="10 3 0 0" 
-                                    Grid.Column="2" />
-                                <ContentPresenter 
-                                    Content="{Binding _fiftyFiftyResult}" 
-                                    Margin="15 3 0 0"  
-                                    Grid.Column="3" />
-                            </Grid>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!--ColumnHeader Style-->
-        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Margin" Value="10 0 0 0"/>
-            <Setter Property="FontWeight" Value="Bold" />
-        </Style>
-
-        <!--DataGrid Style-->
-        <Style x:Key="DataGridStyle" TargetType="DataGrid">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Focusable" Value="False"/>
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden"/>
-            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-            <Setter Property="RowStyle" Value="{StaticResource DataGridRowStyle}"/>
-            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="DataGrid">
-                        <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                                <Border Grid.Row="0" BorderBrush="{TemplateBinding BorderBrush}" 
-                                            BorderThickness="{TemplateBinding BorderThickness}" 
-                                            CornerRadius="10">
-                                    <Border.Background>
-                                        <SolidColorBrush Color="White" Opacity="0.6"/>
-                                    </Border.Background>
-                                    <DataGridColumnHeadersPresenter Style="{StaticResource ColumnHeaderPresenterStyle}"/>
-                                </Border>
-                                <ItemsPresenter Grid.Row="1"/>
-                            </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        
-        
-
-    </UserControl.Resources>
+    
+    
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -265,14 +36,18 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15"/>
-            <Label Content="★★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15" Grid.Column="2"/>
+            <Label Content="★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15"/>
+            <Label Content="★★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                   FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15" Grid.Column="2"/>
 
             <Border Style="{StaticResource CounterBorderStyle}" Grid.Row="1">
-                <Label Style="{StaticResource CounterLabelStyle}"  Content="{Binding CountersDisplayed[1]}" />
+                <Label Style="{StaticResource CounterLabelStyle}"  
+                       Content="{Binding CountersDisplayed[1], UpdateSourceTrigger=PropertyChanged}" />
             </Border>
             <Border Style="{StaticResource CounterBorderStyle}" Grid.Row="1" Grid.Column="2">
-                <Label Style="{StaticResource CounterLabelStyle}"  Content="{Binding CountersDisplayed[0]}" />
+                <Label Style="{StaticResource CounterLabelStyle}"  
+                       Content="{Binding CountersDisplayed[0], UpdateSourceTrigger=PropertyChanged}" />
             </Border>
 
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="2" Grid.ColumnSpan="3">
@@ -280,11 +55,13 @@
             </Border>
 
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.ColumnSpan="1">
-                <Button Content="★★★★" Foreground="#FFCBAC15" FontSize="20" Style="{StaticResource ButtonStyle}" Command="{Binding AddFourStar}"/>
+                <Button Content="★★★★" Foreground="#FFCBAC15" FontSize="20" 
+                        Style="{StaticResource ButtonStyle}" Command="{Binding AddFourStar}"/>
             </Border>
 
             <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-                <Button Content="★★★★★" Foreground="#FFCBAC15" FontSize="20" Style="{StaticResource ButtonStyle}" Command="{Binding AddFiveStar}"/>
+                <Button Content="★★★★★" Foreground="#FFCBAC15" FontSize="20" 
+                        Style="{StaticResource ButtonStyle}" Command="{Binding AddFiveStar}"/>
             </Border>
 
 
@@ -299,7 +76,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <ScrollViewer Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" >
-            <DataGrid x:Name="PullHistoryDataGrid" ItemsSource="{Binding PullHistoryList, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource DataGridStyle}"  >
+            <DataGrid x:Name="PullHistoryDataGrid" ItemsSource="{Binding PullHistoryList, UpdateSourceTrigger=PropertyChanged}" 
+                      Style="{StaticResource DataGridStyle}"  >
 
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="60"/>
