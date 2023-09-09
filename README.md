@@ -4,7 +4,7 @@
 Welcome!
 
 This app helps you count your pity in Ganehin Impact game for limited banner.
-If you are not similiar with pity system check [this](https://game8.co/games/Genshin-Impact/archives/305937).
+If you are not familiar with pity system check [this](https://game8.co/games/Genshin-Impact/archives/305937).
 
 This app displays your 4 and 5 star counter, and history of pulls.
 
