@@ -13,6 +13,7 @@ This repository contains raw project and .rar file with ready to use application
 
 ## Installation
 Make sure you have installed [.NET 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+
 Just unpack ``GenshinWishCounter1.5.rar`` and run ``GenshinWishCounter1.5.exe`` file.
 
 After that app is ready to use.
