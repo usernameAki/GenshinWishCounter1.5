@@ -72,6 +72,7 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
         public RelayCommand AddMonaCommand { get; set; }
         public RelayCommand AddNahidaCommand { get; set; }
         public RelayCommand AddNilouCommand { get; set; }
+        public RelayCommand AddNuviletteCommand { get; set; }
         public RelayCommand AddQiqiCommand { get; set; }
         public RelayCommand AddRaidenCommand { get; set; }
         public RelayCommand AddShenheCommand { get; set; }
@@ -289,6 +290,15 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             {
                 _pullHistoryModel.AddCharacterToList
                 ("Nilou", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
+                _counterModel.ResetCounter(2);
+                Navigation.NavigateTo<MainMenuViewModel>();
+
+            }, o => true);
+
+            AddNuviletteCommand = new RelayCommand(o =>
+            {
+                _pullHistoryModel.AddCharacterToList
+                ("Nuvilette", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
                 _counterModel.ResetCounter(2);
                 Navigation.NavigateTo<MainMenuViewModel>();
 

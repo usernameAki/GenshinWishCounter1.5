@@ -147,12 +147,17 @@
                             Command="{Binding AddNilouCommand}">
                         <Image Source="/Images/Nilou.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    
+
+                    <Button x:Name="AddNuvilette" Style="{StaticResource CharacterButtonStyle}" 
+                            Command="{Binding AddNuviletteCommand}">
+                        <Image Source="/Images/Nuvilette.png" Style="{StaticResource CharacterImageStyle}"/>
+                    </Button>
+
                     <Button x:Name="AddQiqi" Style="{StaticResource CharacterButtonStyle}" 
                             Command="{Binding AddQiqiCommand}" Visibility="{Binding StandardCharacterVisibility}">
                         <Image Source="/Images/Qiqi.png" Style="{StaticResource CharacterImageStyle}"/>
                     </Button>
-                    
+
                     <Button x:Name="AddRaiden" Style="{StaticResource CharacterButtonStyle}" 
                             Command="{Binding AddRaidenCommand}">
                         <Image Source="/Images/Raiden.png" Style="{StaticResource CharacterImageStyle}"/>

@@ -39,6 +39,7 @@
     <None Remove="Images\Mona.png" />
     <None Remove="Images\Nahida.png" />
     <None Remove="Images\Nilou.png" />
+    <None Remove="Images\Nuvilette.png" />
     <None Remove="Images\pyro.png" />
     <None Remove="Images\Qiqi.png" />
     <None Remove="Images\Raiden.png" />
@@ -141,6 +142,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Nilou.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Nuvilette.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pyro.png">
