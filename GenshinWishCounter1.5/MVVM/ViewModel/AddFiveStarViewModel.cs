@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Media.Imaging;
 using GenshinWishCounter1._5.Core;
 using GenshinWishCounter1._5.MVVM.Model;
 using GenshinWishCounter1._5.Service;
@@ -47,379 +47,129 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
         // Models
         private readonly PullHistoryModel _pullHistoryModel;
         private readonly CounterModel _counterModel;
+        private readonly CharacterDatabaseModel _characterDatabaseModel;
 
 
-        //Commands--------------------------------------------------------|
-        public RelayCommand AddAlbedoCommand { get; set; }
-        public RelayCommand AddAlhaithamCommand { get; set; }
-        public RelayCommand AddAloyCommand { get; set; }
-        public RelayCommand AddAyakaCommand { get; set; }
-        public RelayCommand AddAyatoCommand { get; set; }
-        public RelayCommand AddBaizhuCommand { get; set; }
-        public RelayCommand AddCynoCommand { get; set; }
-        public RelayCommand AddDehyaCommand { get; set; }
-        public RelayCommand AddDilucCommand { get; set; }
-        public RelayCommand AddEulaCommand { get; set; }
-        public RelayCommand AddGanyuCommand { get; set; }
-        public RelayCommand AddHuTaoCommand { get; set; }
-        public RelayCommand AddIttoCommand { get; set; }
-        public RelayCommand AddJeanCommand { get; set; }
-        public RelayCommand AddKazuhaCommand { get; set; }
-        public RelayCommand AddKeqingCommand { get; set; }
-        public RelayCommand AddKleeCommand { get; set; }
-        public RelayCommand AddKokomiCommand { get; set; }
-        public RelayCommand AddLyneyCommand { get; set; }
-        public RelayCommand AddMonaCommand { get; set; }
-        public RelayCommand AddNahidaCommand { get; set; }
-        public RelayCommand AddNilouCommand { get; set; }
-        public RelayCommand AddNuviletteCommand { get; set; }
-        public RelayCommand AddQiqiCommand { get; set; }
-        public RelayCommand AddRaidenCommand { get; set; }
-        public RelayCommand AddShenheCommand { get; set; }
-        public RelayCommand AddTartagliaCommand { get; set; }
-        public RelayCommand AddTighnariCommand { get; set; }
-        public RelayCommand AddVentiCommand { get; set; }
-        public RelayCommand AddWandererCommand { get; set; }
-        public RelayCommand AddXiaoCommand { get; set; }
-        public RelayCommand AddYaeMikoCommand { get; set; }
-        public RelayCommand AddYelanCommand { get; set; }
-        public RelayCommand AddYoimiyaCommand { get; set; }
-        public RelayCommand AddZhongliCommand { get; set; }
+        //Commands
+        public RelayCommand AddCharacterCommand {  get; set; }
 
-        //End of Commands-------------------------------------------------|
+        //Buttons
+        private ObservableCollection<Button> _characterButtons;
+        public ObservableCollection<Button> CharacterButtons
+        {
+            get => _characterButtons;
+            set
+            {
+                _characterButtons = value;
+                OnPropertyChanged();
+            }
+        }
 
         public AddFiveStarViewModel(INavigationService navigation, PullHistoryModel pullHistoryModel, CounterModel counterModel)
         {
+            ///Initialize dependencies.
             _navigationService = navigation;
             _pullHistoryModel = pullHistoryModel;
             _counterModel = counterModel;
 
+            ///Create new instances of local objects.
+            _characterButtons = new ObservableCollection<Button>();
+            _characterDatabaseModel = new CharacterDatabaseModel();
+            AddCharacterCommand = new RelayCommand(
+                parameter => { 
+                                int intValue = (int)parameter; 
+                                AddCharacter(intValue);
+                             }, 
+                o => true);
+
+            ///Creating buttons in UI.
+            GenerateCharacterButtons();
 
-
-            //Button Commands to add 5 star character -------------------------------------------------------------------|
-            AddAlbedoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Albedo", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddAlhaithamCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Alhaitham", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddAloyCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Aloy", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddAyakaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Ayaka", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddAyatoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Ayato", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddBaizhuCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Baizhu", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddCynoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Cyno", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddDehyaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Dehya", "pyro", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddDilucCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Diluc", "pyro", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddEulaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Eula", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddGanyuCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Ganyu", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddHuTaoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Hu Tao", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddIttoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Arataki Itto", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddJeanCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Jean", "anemo", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddKazuhaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Kazuha", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddKeqingCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Keqing", "electro", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddKleeCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Klee", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddKokomiCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Kokomi", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddLyneyCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Lyney", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddMonaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Mona", "hydro", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddNahidaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Nahida", "dendro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddNilouCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Nilou", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddNuviletteCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Nuvilette", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddQiqiCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Qiqi", "cryo", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddRaidenCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Raiden Shogun", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddShenheCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Shenhe", "cryo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddTartagliaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Tartaglia", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddTighnariCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Tighnari", "dendro", _counterModel.Counters[0], "Lose");
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddVentiCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Venti", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddWandererCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Wanderer", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddXiaoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Xiao", "anemo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddYaeMikoCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Yae Miko", "electro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddYelanCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Yelan", "hydro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddYoimiyaCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Yoimiya", "pyro", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            AddZhongliCommand = new RelayCommand(o =>
-            {
-                _pullHistoryModel.AddCharacterToList
-                ("Zhongli", "geo", _counterModel.Counters[0], _pullHistoryModel.CheckLastFiftyFiftyResult());
-                _counterModel.ResetCounter(2);
-                Navigation.NavigateTo<MainMenuViewModel>();
-
-            }, o => true);
-
-            //End of button Commands to add 5 star character ------------------------------------------------------------|
         }
+
+        /// <summary>
+        /// Generates buttons with five star characters into CharacterButton Collection.
+        /// </summary>
+        public void GenerateCharacterButtons()
+        {
+            int ID = 0;
+            Style characterButtonStyle = Application.Current.FindResource("CharacterButtonStyle") as Style;
+            Style characterImageStyle = Application.Current.FindResource("CharacterImageStyle") as Style;
+            Binding addCharacterCommandBinding = new Binding("AddCharacterCommand");
+            Binding buttonVisibility = new Binding("StandardCharacterVisibility");
+
+            foreach (CharacterModel character in _characterDatabaseModel.CharacterList)
+            {
+                //checks if character have any spaces in name, and replaces it with underscore.
+                string characterNamewithoutSpaces = character.CharacterName.Replace(" ", "_");
+                ///Setting Image for Button
+                Image image = new Image();
+                image.Source = new BitmapImage(new Uri("/Images/" + characterNamewithoutSpaces + ".png", UriKind.RelativeOrAbsolute));
+                image.Style = characterImageStyle;
+                ///Adding Button
+                Button button = new Button();
+                BindingOperations.SetBinding(button, Button.CommandProperty, addCharacterCommandBinding);
+                button.CommandParameter = ID;
+                button.Style = characterButtonStyle;
+                button.Content = image;
+
+                ///Set visibility to standard characters
+                if (character.Standard)
+                {
+                    BindingOperations.SetBinding(button, Button.VisibilityProperty, buttonVisibility);
+                }
+
+                ///Adds button to ObservableCollection<>
+                CharacterButtons.Add(button);
+
+                ///Generates new ID for next character. ID will be used as command parameter, 
+                ///and it will match with corresponding index in CharacterDatabaseModel.CharacterList.
+                ID++;
+            }
+        }
+        /// <summary>
+        /// Adds character pull record.
+        /// </summary>
+        /// <param name="ID"></param>
+        public void AddCharacter(int ID)
+        {
+            ///Checks if selected character is from standard banner, 
+            ///to avoid adding 2 standard characters in a row (what should be impossible).
+            
+
+            ///Checking result according to pull history.
+            string pullResult; 
+
+            if (!_characterDatabaseModel.CharacterList[ID].Standard)
+            {
+                pullResult = _pullHistoryModel.CheckLastFiftyFiftyResult();
+            }
+            else
+            {
+                pullResult = "Lose";
+            }
+
+            ///Adding character to list.
+            _pullHistoryModel.AddCharacterToList(
+                _characterDatabaseModel.CharacterList[ID].CharacterName,
+                _characterDatabaseModel.CharacterList[ID].Elemenet,
+                _counterModel.Counters[0],
+                pullResult); 
+
+            ///Reseting counters
+            _counterModel.ResetCounter(2);
+
+            ///Navigating to main menu
+            Navigation.NavigateTo<MainMenuViewModel>();
+        }
+
 
         /// <summary>
         /// Switches between visibility of standard 5 star characters accordinglu to gatcha mechanics.
         /// </summary>
         public void StandardCharacterVisibilitySwitch()
         {
+            ///If we pulled character from standard banner, user should not be able to pull another standard character.
             if (_pullHistoryModel.PullList.Count > 0 && _pullHistoryModel.PullList.Last().FiftyFiftyResult == "Lose")
             {
                 StandardCharacterVisibility = Visibility.Collapsed;

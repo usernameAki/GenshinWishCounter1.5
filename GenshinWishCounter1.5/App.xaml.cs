@@ -3,11 +3,6 @@ using GenshinWishCounter1._5.Core;
 using GenshinWishCounter1._5.Service;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using GenshinWishCounter1._5.MVVM.Model;
 

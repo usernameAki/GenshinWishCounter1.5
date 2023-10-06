@@ -14,6 +14,7 @@
     <None Remove="Images\Alhaitham.png" />
     <None Remove="Images\Aloy.png" />
     <None Remove="Images\anemo.png" />
+    <None Remove="Images\Arataki_Itto.png" />
     <None Remove="Images\Ayaka.png" />
     <None Remove="Images\Ayato.png" />
     <None Remove="Images\Baizhu.png" />
@@ -29,7 +30,6 @@
     <None Remove="Images\geo.png" />
     <None Remove="Images\Hu_Tao.png" />
     <None Remove="Images\hydro.png" />
-    <None Remove="Images\Itto.png" />
     <None Remove="Images\Jean.png" />
     <None Remove="Images\Kazuha.png" />
     <None Remove="Images\Keqing.png" />
@@ -38,11 +38,11 @@
     <None Remove="Images\Lyney.png" />
     <None Remove="Images\Mona.png" />
     <None Remove="Images\Nahida.png" />
+    <None Remove="Images\Neuvillette.png" />
     <None Remove="Images\Nilou.png" />
-    <None Remove="Images\Nuvilette.png" />
     <None Remove="Images\pyro.png" />
     <None Remove="Images\Qiqi.png" />
-    <None Remove="Images\Raiden.png" />
+    <None Remove="Images\Raiden_Shogun.png" />
     <None Remove="Images\Shenhe.png" />
     <None Remove="Images\Tartaglia.png" />
     <None Remove="Images\Tighnari.png" />
@@ -114,7 +114,7 @@
     <Content Include="Images\hydro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Itto.png">
+    <Content Include="Images\Arataki_Itto.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Jean.png">
@@ -144,7 +144,7 @@
     <Content Include="Images\Nilou.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Nuvilette.png">
+    <Content Include="Images\Neuvillette.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\pyro.png">
@@ -153,7 +153,7 @@
     <Content Include="Images\Qiqi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Raiden.png">
+    <Content Include="Images\Raiden_Shogun.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Shenhe.png">

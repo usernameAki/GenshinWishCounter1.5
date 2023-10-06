@@ -1,14 +1,7 @@
 ﻿using GenshinWishCounter1._5.Core;
 using GenshinWishCounter1._5.MVVM.Model;
 using GenshinWishCounter1._5.Service;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenshinWishCounter1._5.MVVM.ViewModel
 {

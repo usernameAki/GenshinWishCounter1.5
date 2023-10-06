@@ -1,12 +1,7 @@
-﻿using GenshinWishCounter1._5.Core;
-using Newtonsoft.Json;
-using System;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenshinWishCounter1._5.MVVM.Model
 {

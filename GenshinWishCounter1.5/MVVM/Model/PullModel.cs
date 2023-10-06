@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GenshinWishCounter1._5.MVVM.Model
+﻿namespace GenshinWishCounter1._5.MVVM.Model
 {
     /// <summary>
     /// This class creates a pull data of a single 5 star character.
