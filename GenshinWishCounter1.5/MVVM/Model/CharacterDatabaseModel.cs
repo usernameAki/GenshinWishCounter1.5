@@ -43,6 +43,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 new CharacterModel("Tighnari", "dendro", true),
                 new CharacterModel("Venti", "anemo", false),
                 new CharacterModel("Wanderer", "anemo", false),
+                new CharacterModel("Wriothesley", "cryo", false),
                 new CharacterModel("Xiao", "anemo", false),
                 new CharacterModel("Yae Miko", "electro", false),
                 new CharacterModel("Yelan", "hydro", false),
