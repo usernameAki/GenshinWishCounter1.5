@@ -26,6 +26,7 @@
     <None Remove="Images\Diluc.png" />
     <None Remove="Images\electro.png" />
     <None Remove="Images\Eula.png" />
+    <None Remove="Images\Furina.png" />
     <None Remove="Images\Ganyu.png" />
     <None Remove="Images\geo.png" />
     <None Remove="Images\Hu_Tao.png" />
@@ -100,6 +101,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Eula.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Furina.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Ganyu.png">

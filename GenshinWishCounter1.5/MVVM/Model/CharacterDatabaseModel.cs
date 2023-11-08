@@ -23,6 +23,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 new CharacterModel("Dehya", "pyro", true),
                 new CharacterModel("Diluc", "pyro", true),
                 new CharacterModel("Eula", "cryo", false),
+                new CharacterModel("Furina", "hydro", false),
                 new CharacterModel("Ganyu", "cryo", false),
                 new CharacterModel("Hu Tao", "pyro", false),
                 new CharacterModel("Arataki Itto", "geo", false),
