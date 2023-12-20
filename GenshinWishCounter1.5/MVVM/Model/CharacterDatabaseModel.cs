@@ -35,6 +35,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 new CharacterModel("Lyney", "pyro", false),
                 new CharacterModel("Mona", "hydro", true),
                 new CharacterModel("Nahida", "dendro", false),
+                new CharacterModel("Navia", "geo", false),
                 new CharacterModel("Nilou", "hydro", false),
                 new CharacterModel("Neuvillette", "hydro", false),
                 new CharacterModel("Qiqi", "cryo", true),
