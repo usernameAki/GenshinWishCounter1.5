@@ -50,6 +50,7 @@
     <None Remove="Images\Tighnari.png" />
     <None Remove="Images\Venti.png" />
     <None Remove="Images\Wanderer.png" />
+    <None Remove="Images\Wriothesley.png" />
     <None Remove="Images\Xiao.png" />
     <None Remove="Images\Yae_Miko.png" />
     <None Remove="Images\Yelan.png" />
@@ -177,6 +178,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Wanderer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Wriothesley.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Xiao.png">
