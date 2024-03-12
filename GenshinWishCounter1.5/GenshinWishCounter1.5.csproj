@@ -19,6 +19,7 @@
     <None Remove="Images\Ayato.png" />
     <None Remove="Images\Baizhu.png" />
     <None Remove="Images\bcg.png" />
+    <None Remove="Images\Chiori.png" />
     <None Remove="Images\cryo.png" />
     <None Remove="Images\Cyno.png" />
     <None Remove="Images\Dehya.png" />
@@ -83,6 +84,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\bcg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Chiori.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\cryo.png">
