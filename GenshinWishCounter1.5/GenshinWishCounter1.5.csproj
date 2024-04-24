@@ -15,6 +15,7 @@
     <None Remove="Images\Aloy.png" />
     <None Remove="Images\anemo.png" />
     <None Remove="Images\Arataki_Itto.png" />
+    <None Remove="Images\Arlecchino.png" />
     <None Remove="Images\Ayaka.png" />
     <None Remove="Images\Ayato.png" />
     <None Remove="Images\Baizhu.png" />
@@ -72,6 +73,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\anemo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Arlecchino.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Ayaka.png">

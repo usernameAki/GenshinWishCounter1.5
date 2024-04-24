@@ -16,6 +16,7 @@ namespace GenshinWishCounter1._5.MVVM.Model
                 new CharacterModel("Albedo", "geo", false),
                 new CharacterModel("Alhaitham", "dendro", false),
                 new CharacterModel("Aloy", "cryo", false),
+                new CharacterModel("Arlecchino", "pyro", false),
                 new CharacterModel("Ayaka", "cryo", false),
                 new CharacterModel("Ayato", "hydro", false),
                 new CharacterModel("Baizhu", "dendro", false),
