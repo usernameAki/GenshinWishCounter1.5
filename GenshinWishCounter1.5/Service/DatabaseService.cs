@@ -128,7 +128,13 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Summit Shaper", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "The First Great Magic", Type = CategoryStrings.Bow, IsStandard = false },
             new FiveStarModel { Name = "The Unforged", Type = CategoryStrings.Claymore, IsStandard = false },
-
+            new FiveStarModel { Name = "Thundering Pulse", Type = CategoryStrings.Bow, IsStandard = false },
+            new FiveStarModel { Name = "Tome of the Eternal Flow", Type = CategoryStrings.Catalyst, IsStandard = false },
+            new FiveStarModel { Name = "Tulaytullah's Remembrance", Type = CategoryStrings.Catalyst, IsStandard = false },
+            new FiveStarModel { Name = "Uraku Misugiri", Type = CategoryStrings.Sword, IsStandard = false },
+            new FiveStarModel { Name = "Verdict", Type = CategoryStrings.Claymore, IsStandard = false },
+            new FiveStarModel { Name = "Vortex Vanquisher", Type = CategoryStrings.Polearm, IsStandard = false },
+            new FiveStarModel { Name = "Wolf's Gravestone", Type = CategoryStrings.Claymore, IsStandard = false },
         };
         private List<FiveStarModel> StarRailWeaponList = new List<FiveStarModel>
         {
