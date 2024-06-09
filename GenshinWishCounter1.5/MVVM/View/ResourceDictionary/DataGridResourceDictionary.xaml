@@ -73,12 +73,12 @@
                             <Image 
                                     Width="20" 
                                     Height="20" 
-                                    Source="{Binding TheElement}" 
+                                    Source="{Binding Type}" 
                                     Grid.Column="1" 
                                     HorizontalAlignment="Center" 
                                     VerticalAlignment="Center"/>
                             <ContentPresenter 
-                                    Content="{Binding CharacterName}" 
+                                    Content="{Binding Name}" 
                                     Margin="10 3 0 0" 
                                     Grid.Column="2" />
                             <ContentPresenter 

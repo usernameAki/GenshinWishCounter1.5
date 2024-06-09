@@ -36,7 +36,7 @@
                 <SolidColorBrush Color="White" Opacity="0.75"/>
             </Border.Background>
             <ScrollViewer Padding="0 10 0 10">
-                <ItemsControl ItemsSource="{Binding CharacterButtons}">
+                <ItemsControl ItemsSource="{Binding FiveStarButtons}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />

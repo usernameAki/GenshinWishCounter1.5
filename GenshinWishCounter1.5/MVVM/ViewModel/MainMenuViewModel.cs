@@ -1,14 +1,14 @@
 ﻿using GenshinWishCounter1._5.Core;
+using GenshinWishCounter1._5.MVVM.Enums;
 using GenshinWishCounter1._5.MVVM.Model;
 using GenshinWishCounter1._5.Service;
+using System;
 using System.Collections.Generic;
 
 namespace GenshinWishCounter1._5.MVVM.ViewModel
 {
     public class MainMenuViewModel : Core.ViewModel
     {
-
-        //Navigation
         private INavigationService _navigationService;
         public INavigationService Navigation
         {
@@ -19,72 +19,81 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
-
-        //Models
-        private readonly PullHistoryModel _pullHistory;
-        private readonly CounterModel _counter;
+        private readonly IPullManagerService _pullManagerService;
+        private readonly ICounterManagerService _counterManagerService;
         private readonly AddFiveStarViewModel _addFiveStarViewModel;
+        private readonly ISettingService _settingService;
 
-
-        //List showed on View
         public List<PullModel> PullHistoryList
         {
-            get => _pullHistory.PullList; 
+            get => _pullManagerService.GetPullHistoryModelFromBannerEnum(_settingService.banner).PullList; 
             set
             {
-                _pullHistory.PullList = value;
+                _pullManagerService.GetPullHistoryModelFromBannerEnum(_settingService.banner).PullList = value;
                 OnPropertyChanged();
             } 
         }
 
-
-        //Counter showed on View
         public int[] CountersDisplayed
         {
-            get => _counter.Counters; 
+            get => _counterManagerService.GetCounterModelFromBannerEnum(_settingService.banner).Counters; 
             set
             {
-                _counter.Counters = value;
+                _counterManagerService.GetCounterModelFromBannerEnum(_settingService.banner).Counters = value;
                 OnPropertyChanged();
             }
         }
 
-
-
-        //Commands------------------------------------|
         public RelayCommand AddOnePull { get; set; }
         public RelayCommand AddFourStar { get; set; }
         public RelayCommand AddFiveStar { get; set; }
-        //End of Commands-----------------------------|
+        public RelayCommand ChangeBanner { get; set; }
 
-
-
-        public MainMenuViewModel(INavigationService Navigation, PullHistoryModel pullHistoryModel,
-                                AddFiveStarViewModel addFiveStarViewModel, CounterModel counterModel)
+        public MainMenuViewModel(
+            INavigationService Navigation,
+            IPullManagerService pullManagerService,
+            AddFiveStarViewModel addFiveStarViewModel,
+            ICounterManagerService counterManagerService,
+            ISettingService settingService)
         {
-
-            //Setting Navigation & Models throught DI 
             _navigationService = Navigation;
-            _pullHistory = pullHistoryModel;
+            _pullManagerService = pullManagerService;
             _addFiveStarViewModel = addFiveStarViewModel;
-            _counter = counterModel;
-
+            _counterManagerService = counterManagerService;
+            _settingService = settingService;
 
             //Commands
-            AddOnePull = new RelayCommand(o => { CountersDisplayed = _counter.PlusCounter(CountersDisplayed); },
-                                          o => CountersDisplayed[0] != 89);
+            AddOnePull = new RelayCommand(o => 
+            { 
+                _counterManagerService.PlusCounter(_settingService.banner);
+                OnPropertyChanged("CountersDisplayed");
+            },o => CountersDisplayed[0] != 89);
 
+            AddFourStar = new RelayCommand(o => 
+            {
+                _counterManagerService.AddFourStar(_settingService.banner);
+                OnPropertyChanged("CountersDisplayed");
+            },
+            o => CountersDisplayed[0] != 89 ) ;
 
-            AddFourStar = new RelayCommand(o => { CountersDisplayed = _counter.AddFourStar(CountersDisplayed); },
-                                           o => CountersDisplayed[0] != 89 ) ;
+            AddFiveStar = new RelayCommand(o =>
+            {
+                _counterManagerService.AddFiveStar(_settingService.banner);
+                OnPropertyChanged("CountersDisplayed");
+                _addFiveStarViewModel.GenerateButtons();
+                _addFiveStarViewModel.StandardFiveStarVisibilitySwitch();
+                Navigation.NavigateTo<AddFiveStarViewModel>(); 
+            },
+            o => true);
 
-
-            AddFiveStar = new RelayCommand(o => { CountersDisplayed = _counter.AddFiveStar(CountersDisplayed);
-                                                  _addFiveStarViewModel.StandardCharacterVisibilitySwitch();
-                                                  Navigation.NavigateTo<AddFiveStarViewModel>(); },
-                                                  o => true);
-
+            ChangeBanner = new RelayCommand(o =>
+            {
+                string value = (string)o;
+                Enum.TryParse(value, out Banner banner);
+                _settingService.banner = banner;
+                OnPropertyChanged("CountersDisplayed");
+                OnPropertyChanged("PullHistoryList");
+            }, o => true);
 
         }
 

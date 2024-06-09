@@ -6,22 +6,15 @@
     public class PullModel
     {
         public int PulledAt { get; set; }
-        public string TheElement { get; set; }
-        public string CharacterName { get; set; }
+        public string Type { get; set; }
+        public string Name { get; set; }
         public string FiftyFiftyResult { get; set; }
 
-        /// <summary>
-        /// Creates a new pull record.
-        /// </summary>
-        /// <param name="pulledAt"> Numbers of pulls</param>
-        /// <param name="element">Element of character(pyro, hydro, geo, anemo, cryo, dendro, electro)</param>
-        /// <param name="characterName">Name of character</param>
-        /// <param name="fiftyFiftyResult">Result of 50/50</param>
-        public PullModel(int pulledAt, string element, string characterName, string fiftyFiftyResult)
+        public PullModel(int pulledAt, string type, string name, string fiftyFiftyResult)
         {
             PulledAt = pulledAt;
-            TheElement = "/Images/" + element + ".png";
-            CharacterName = characterName;
+            Type = type;
+            Name = name;
             FiftyFiftyResult = fiftyFiftyResult;
         }
     }

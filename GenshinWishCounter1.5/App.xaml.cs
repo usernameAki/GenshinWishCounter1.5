@@ -4,13 +4,10 @@ using GenshinWishCounter1._5.Service;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows;
-using GenshinWishCounter1._5.MVVM.Model;
+using GenshinWishCounter1._5.MVVM.Enums;
 
 namespace GenshinWishCounter1._5
 {
-    /// <summary>
-    /// This app is a counter for gatcha system in Genshin Impact 4.0
-    /// </summary>
     public partial class App : Application
     {
         //DI service provider
@@ -27,9 +24,11 @@ namespace GenshinWishCounter1._5
             service.AddSingleton<MainViewModel>();
             service.AddSingleton<MainMenuViewModel>();
             service.AddSingleton<AddFiveStarViewModel>();
-            service.AddSingleton<PullHistoryModel>();
-            service.AddSingleton<CounterModel>();
+            service.AddSingleton<IPullManagerService, PullManagerService>();
+            service.AddSingleton<ICounterManagerService, CounterManagerService>();
             service.AddSingleton<INavigationService, NavigationService>();
+            service.AddSingleton<ISettingService, SettingService>();
+            service.AddSingleton<IDatabaseService, DatabaseService>();
             service.AddSingleton<Func<Type, ViewModel>>(provider => viewModelType => (ViewModel)provider.GetRequiredService(viewModelType));
             serviceProvider = service.BuildServiceProvider();
 

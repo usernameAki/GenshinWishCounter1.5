@@ -71,7 +71,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="@" Width="60"/>
                 <DataGridTemplateColumn Width="30"/>
-                <DataGridTextColumn Header="Character name"  Width="140"/>
+                <DataGridTextColumn Header="Name"  Width="140"/>
                 <DataGridTextColumn Header="50/50" Width="60"  />
             </DataGrid.Columns>
         </DataGrid>
@@ -87,5 +87,14 @@
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
+        <Menu Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MenuItem Header="Banner">
+                <MenuItem Header="Genshin Character Banner" Command="{Binding ChangeBanner}" CommandParameter="GenshinCharacter"/>
+                <MenuItem Header="Genshin Weapon Banner" Command="{Binding ChangeBanner}" CommandParameter="GenshinWeapon"/>
+                <Separator/>
+                <MenuItem Header="Star Rail Character Banner" Command="{Binding ChangeBanner}" CommandParameter="StarRailCharacter"/>
+                <MenuItem Header="Star Rail Weapon Banner" Command="{Binding ChangeBanner}" CommandParameter="StarRailWeapon"/>
+            </MenuItem>
+        </Menu>
     </Grid>
 </UserControl>

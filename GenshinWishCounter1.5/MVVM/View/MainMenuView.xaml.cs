@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace GenshinWishCounter1._5.MVVM.View
 {
-    /// <summary>
-    /// Logika interakcji dla klasy MainMenuView.xaml
-    /// </summary>
     public partial class MainMenuView : UserControl
     {
         public MainMenuView()
