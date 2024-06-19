@@ -69,6 +69,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Bronya", Type = CategoryStrings.Ice, IsStandard = true },
             new FiveStarModel{ Name = "Clara", Type = CategoryStrings.Physical, IsStandard = true },
             new FiveStarModel{ Name = "Dr Ratio", Type = CategoryStrings.Imaginary, IsStandard = false },
+            new FiveStarModel{ Name = "Firefly", Type = CategoryStrings.Fire, IsStandard = false },
             new FiveStarModel{ Name = "Fu Xuan", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Gepard", Type = CategoryStrings.Ice, IsStandard = true },
             new FiveStarModel{ Name = "Himeko", Type = CategoryStrings.Fire, IsStandard = true },
@@ -165,6 +166,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Something Irreplaceable", Type = CategoryStrings.Destruction, IsStandard = true },
             new FiveStarModel { Name = "The Unreachable Side", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Time Waits for No One", Type = CategoryStrings.Abundance, IsStandard = true },
+            new FiveStarModel { Name = "Whereabouts Should Dreams Rest", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Worrisome, Blissful", Type = CategoryStrings.Hunt, IsStandard = false },
         };
     public List<FiveStarModel> GetFiveStarList(Banner banner)

@@ -68,6 +68,7 @@
     <None Remove="Images\Eula.png" />
     <None Remove="Images\Everlasting Moonglow.png" />
     <None Remove="Images\Fire.png" />
+    <None Remove="Images\Firefly.png" />
     <None Remove="Images\Flowing Nightglow.png" />
     <None Remove="Images\Freedom-Sworn.png" />
     <None Remove="Images\Fu Xuan.png" />
@@ -172,6 +173,7 @@
     <None Remove="Images\Vortex Vanquisher.png" />
     <None Remove="Images\Wanderer.png" />
     <None Remove="Images\Welt.png" />
+    <None Remove="Images\Whereabouts Should Dreams Rest.png" />
     <None Remove="Images\Wind.png" />
     <None Remove="Images\Wolf%27s Gravestone.png" />
     <None Remove="Images\Worrisome, Blissful.png" />
@@ -356,6 +358,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Fire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Firefly.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Flowing Nightglow.png">
@@ -671,6 +676,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Welt.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Whereabouts Should Dreams Rest.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Wind.png">
