@@ -1,0 +1,94 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    env:
+      Solution_Name: GenshinWishCounter1.5.sln
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Restore the application
+      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    - name: Build the application
+      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }} /p:OutputPath=${{ github.workspace }}/bin/${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
+
+    - name: List workspace after build
+      run: |
+        echo "Listing contents of workspace after build:"
+        Get-ChildItem -Recurse ${{ github.workspace }}
+
+    - name: Compress to ZIP
+      run: |
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
+        $outputPath = "${{ github.workspace }}\$customName"
+        $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
+
+    - name: Configure Git
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+    - name: Commit ZIP file
+      run: |
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
+        git add $customName
+        git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
+
+    - name: Pull and Push with Retry
+      shell: pwsh
+      run: |
+        $retry_count = 0
+        $max_retries = 5
+        $delay = 15
+        $customName = "Genshin Wish Counter $env:Configuration.zip"
+        while ($retry_count -lt $max_retries) {
+          try {
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git pull --no-rebase
+            git push --force
+            break
+          } catch {
+            $retry_count++
+            Write-Output "Retry $retry_count/$max_retries..."
+            Start-Sleep -Seconds $delay
+          }
+        }
+        if ($retry_count -eq $max_retries) {
+          Write-Output "Failed to push after $max_retries attempts."
+          exit 1
+        }
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
