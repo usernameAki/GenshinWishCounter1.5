@@ -99,6 +99,11 @@ jobs:
         git add build_output_Release.zip
         git commit -m "Add release build ZIP [skip ci]"
 
+    - name: Pull latest changes
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git pull --rebase
+        
     - name: Push changes
       run: git push
       env:
