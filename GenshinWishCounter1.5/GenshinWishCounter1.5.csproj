@@ -140,7 +140,9 @@
     <None Remove="Images\Seele.png" />
     <None Remove="Images\She Already Shut Her Eyes.png" />
     <None Remove="Images\Shenhe.png" />
+    <None Remove="Images\Sigewinne.png" />
     <None Remove="Images\Silver Wolf.png" />
+    <None Remove="Images\Silvershower Heartstrings.png" />
     <None Remove="Images\Skyward Atlas.png" />
     <None Remove="Images\Skyward Blade.png" />
     <None Remove="Images\Skyward Harp.png" />
@@ -579,7 +581,13 @@
     <Content Include="Images\Shenhe.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Sigewinne.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Silver Wolf.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Silvershower Heartstrings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Skyward Atlas.png">
