@@ -92,7 +92,7 @@ jobs:
         $customName = "Genshin Wish Counter$env:Configuration.zip"
         $outputPath = "${{ github.workspace }}\$customName"
         $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
-        Compress-Archive -Path $inputPath -DestinationPath $outputPath
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
 
     - name: Configure Git
       run: |
