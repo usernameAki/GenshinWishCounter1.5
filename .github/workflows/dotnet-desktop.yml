@@ -78,7 +78,7 @@ jobs:
         Configuration: ${{ matrix.configuration }}
 
     - name: Build the application
-      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }}
+      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }} /p:OutputPath=${{ github.workspace }}/bin/${{ matrix.configuration }}
       env:
         Configuration: ${{ matrix.configuration }}
 
@@ -86,16 +86,6 @@ jobs:
       run: |
         echo "Listing contents of workspace after build:"
         Get-ChildItem -Recurse ${{ github.workspace }}
-
-    - name: List bin directory
-      run: |
-        echo "Listing contents of bin directory:"
-        if (Test-Path "${{ github.workspace }}\bin\${{ matrix.configuration }}") {
-          Get-ChildItem -Recurse "${{ github.workspace }}\bin\${{ matrix.configuration }}"
-        } else {
-          echo "Bin directory does not exist."
-          exit 1
-        }
 
     - name: Compress to ZIP
       run: |
