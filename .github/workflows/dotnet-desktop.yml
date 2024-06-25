@@ -88,13 +88,16 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    - name: Compress to RAR
-      run: 7z a -r ${{ github.workspace }}/build_output_${{ matrix.configuration }}.rar ${{ github.workspace }}/bin/${{ matrix.configuration }}/*
-      
-    - name: Upload RAR artifact
+    - name: Compress to ZIP
+      run: |
+        $outputPath = "${{ github.workspace }}\build_output_${{ matrix.configuration }}.zip"
+        $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath
+
+    - name: Upload ZIP artifact
       uses: actions/upload-artifact@v3
       with:
-        name: RAR Package
-        path: ${{ github.workspace }}/build_output_${{ matrix.configuration }}.rar
+        name: ZIP Package
+        path: ${{ github.workspace }}/build_output_${{ matrix.configuration }}.zip
 
 
