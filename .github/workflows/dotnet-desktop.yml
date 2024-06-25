@@ -73,10 +73,14 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore the application
-      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=Release
+      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
 
     - name: Build the application
-      run: msbuild ${{ env.Solution_Name }} /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/bin/Release
+      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }} /p:OutputPath=${{ github.workspace }}/bin/${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
 
     - name: List workspace after build
       run: |
@@ -85,7 +89,7 @@ jobs:
 
     - name: Compress to ZIP
       run: |
-        $customName = "Genshin Wish Counter.zip"
+        $customName = "Genshin Wish Counter - $env:Configuration.zip"
         $outputPath = "${{ github.workspace }}\$customName"
         $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
         Compress-Archive -Path $inputPath -DestinationPath $outputPath
@@ -97,7 +101,7 @@ jobs:
 
     - name: Commit ZIP file
       run: |
-        $customName = "Genshin Wish Counter.zip"
+        $customName = "Genshin Wish Counter - $env:Configuration.zip"
         git add $customName
         git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
 
@@ -107,7 +111,7 @@ jobs:
         $retry_count = 0
         $max_retries = 5
         $delay = 10
-        $customName = "Genshin Wish Counter.zip"
+        $customName = "Genshin Wish Counter - $env:Configuration.zip"
         while ($retry_count -lt $max_retries) {
           try {
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
