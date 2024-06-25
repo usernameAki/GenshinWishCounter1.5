@@ -99,7 +99,7 @@ jobs:
         git add build_output_Release.zip
         git commit -m "Add release build ZIP [skip ci]"
 
-    - name: Pull and Push with Retry
+    - name: Pull and Push with Force
       shell: pwsh
       run: |
         $retry_count = 0
@@ -108,8 +108,8 @@ jobs:
         while ($retry_count -lt $max_retries) {
           try {
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git pull --rebase
-            git push
+            git pull --no-rebase
+            git push --force
             break
           } catch {
             $retry_count++
