@@ -99,12 +99,23 @@ jobs:
         git add build_output_Release.zip
         git commit -m "Add release build ZIP [skip ci]"
 
-    - name: Pull latest changes
+    - name: Pull and Push with Retry
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git pull --rebase
-        
-    - name: Push changes
-      run: git push
+        retry_count=0
+        max_retries=5
+        delay=10
+        while [ $retry_count -lt $max_retries ]
+        do
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase && git push && break
+          retry_count=$((retry_count+1))
+          echo "Retry $retry_count/$max_retries..."
+          sleep $delay
+        done
+        if [ $retry_count -eq $max_retries ]
+        then
+          echo "Failed to push after $max_retries attempts."
+          exit 1
+        fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
