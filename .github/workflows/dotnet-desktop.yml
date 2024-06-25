@@ -85,9 +85,10 @@ jobs:
 
     - name: Compress to ZIP
       run: |
-        $outputPath = "${{ github.workspace }}\build_output_Release.zip"
-        $inputPath = "${{ github.workspace }}\bin\Release\*"
-        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
+        $customName = "Genshin Wish Counter.zip"
+        $outputPath = "${{ github.workspace }}\$customName"
+        $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath
 
     - name: Configure Git
       run: |
@@ -96,8 +97,9 @@ jobs:
 
     - name: Commit ZIP file
       run: |
-        git add build_output_Release.zip
-        git commit -m "Add release build ZIP [skip ci]"
+        $customName = "Genshin Wish Counter.zip"
+        git add $customName
+        git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
 
     - name: Pull and Push with Force
       shell: pwsh
@@ -105,6 +107,7 @@ jobs:
         $retry_count = 0
         $max_retries = 5
         $delay = 10
+        $customName = "Genshin Wish Counter.zip"
         while ($retry_count -lt $max_retries) {
           try {
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
@@ -120,6 +123,9 @@ jobs:
         if ($retry_count -eq $max_retries) {
           Write-Output "Failed to push after $max_retries attempts."
           exit 1
+        }
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         }
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
