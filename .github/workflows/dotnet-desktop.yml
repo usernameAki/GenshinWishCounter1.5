@@ -89,7 +89,7 @@ jobs:
 
     - name: Compress to ZIP
       run: |
-        $customName = "Genshin Wish Counter - $env:Configuration.zip"
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
         $outputPath = "${{ github.workspace }}\$customName"
         $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
         Compress-Archive -Path $inputPath -DestinationPath $outputPath
@@ -101,7 +101,7 @@ jobs:
 
     - name: Commit ZIP file
       run: |
-        $customName = "Genshin Wish Counter - $env:Configuration.zip"
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
         git add $customName
         git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
 
