@@ -64,22 +64,16 @@ jobs:
       with:
         fetch-depth: 0
 
-    # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
-      
-    - name: Install 7-Zip
-      run: choco install -y 7zip
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=${{ matrix.configuration }}
       env:
         Configuration: ${{ matrix.configuration }}
 
@@ -87,6 +81,21 @@ jobs:
       run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }}
       env:
         Configuration: ${{ matrix.configuration }}
+
+    - name: List workspace after build
+      run: |
+        echo "Listing contents of workspace after build:"
+        Get-ChildItem -Recurse ${{ github.workspace }}
+
+    - name: List bin directory
+      run: |
+        echo "Listing contents of bin directory:"
+        if (Test-Path "${{ github.workspace }}\bin\${{ matrix.configuration }}") {
+          Get-ChildItem -Recurse "${{ github.workspace }}\bin\${{ matrix.configuration }}"
+        } else {
+          echo "Bin directory does not exist."
+          exit 1
+        }
 
     - name: Compress to ZIP
       run: |
@@ -99,5 +108,3 @@ jobs:
       with:
         name: ZIP Package
         path: ${{ github.workspace }}/build_output_${{ matrix.configuration }}.zip
-
-
