@@ -111,7 +111,7 @@ jobs:
         $retry_count = 0
         $max_retries = 5
         $delay = 10
-        $customName = "Genshin Wish Counter - $env:Configuration.zip"
+        $customName = "Genshin Wish Counter $env:Configuration.zip"
         while ($retry_count -lt $max_retries) {
           try {
             git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
