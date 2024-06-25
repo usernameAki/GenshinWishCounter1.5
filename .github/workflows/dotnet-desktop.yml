@@ -87,7 +87,7 @@ jobs:
       run: |
         $outputPath = "${{ github.workspace }}\build_output_Release.zip"
         $inputPath = "${{ github.workspace }}\bin\Release\*"
-        Compress-Archive -Path $inputPath -DestinationPath $outputPath
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
 
     - name: Configure Git
       run: |
