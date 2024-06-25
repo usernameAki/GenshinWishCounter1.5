@@ -100,22 +100,26 @@ jobs:
         git commit -m "Add release build ZIP [skip ci]"
 
     - name: Pull and Push with Retry
+      shell: pwsh
       run: |
-        retry_count=0
-        max_retries=5
-        delay=10
-        while [ $retry_count -lt $max_retries ]
-        do
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          git pull --rebase && git push && break
-          retry_count=$((retry_count+1))
-          echo "Retry $retry_count/$max_retries..."
-          sleep $delay
-        done
-        if [ $retry_count -eq $max_retries ]
-        then
-          echo "Failed to push after $max_retries attempts."
+        $retry_count = 0
+        $max_retries = 5
+        $delay = 10
+        while ($retry_count -lt $max_retries) {
+          try {
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git pull --rebase
+            git push
+            break
+          } catch {
+            $retry_count++
+            Write-Output "Retry $retry_count/$max_retries..."
+            Start-Sleep -Seconds $delay
+          }
+        }
+        if ($retry_count -eq $max_retries) {
+          Write-Output "Failed to push after $max_retries attempts."
           exit 1
-        fi
+        }
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
