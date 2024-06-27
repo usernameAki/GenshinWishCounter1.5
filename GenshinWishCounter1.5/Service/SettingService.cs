@@ -13,10 +13,20 @@ namespace GenshinWishCounter1._5.Service
         private Banner _banner { get; set; }
         public Banner banner
         {
-            get => _banner; 
+            get => _banner;
             set
             {
                 _banner = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _backgroundImage { get; set; } = BackgroundImage.GetBackgroundImage(Banner.GenshinCharacter);
+        public string backgroundImage
+        {
+            get => _backgroundImage;
+            set
+            {
+                _backgroundImage = value;
                 OnPropertyChanged();
             }
         }

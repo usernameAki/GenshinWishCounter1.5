@@ -10,5 +10,7 @@ namespace GenshinWishCounter1._5.Service
     public interface ISettingService
     {
         Banner banner { get; set; }
+
+        string backgroundImage { get; set; }
     }
 }
