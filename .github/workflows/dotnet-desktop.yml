@@ -50,6 +50,7 @@ jobs:
         Get-ChildItem -Recurse ${{ github.workspace }}
 
     - name: Compress to ZIP
+      if: matrix.configuration == 'Release'
       run: |
         $customName = "Genshin Wish Counter$env:Configuration.zip"
         $outputPath = "${{ github.workspace }}\$customName"
@@ -57,17 +58,20 @@ jobs:
         Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
 
     - name: Configure Git
+      if: matrix.configuration == 'Release'
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
     - name: Commit ZIP file
+      if: matrix.configuration == 'Release'
       run: |
         $customName = "Genshin Wish Counter$env:Configuration.zip"
         git add $customName
         git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
 
     - name: Pull and Push with Retry
+      if: matrix.configuration == 'Release'
       shell: pwsh
       run: |
         $retry_count = 0
