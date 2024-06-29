@@ -7,18 +7,6 @@
         mc:Ignorable="d"
         Title="Genshin Wish Counter 1.5" Height="450" Width="740" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid RenderTransformOrigin="0.5,0.5">
-        <Canvas Height="225" Width="400" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <Image x:Name="Image1" Source="{Binding Settings.backgroundImage1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="0" Canvas.Top="0"/>
-            <Image x:Name="Image2" Source="{Binding Settings.backgroundImage2, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="400" Canvas.Top="0"/>
-            <Image x:Name="Image3" Source="{Binding Settings.backgroundImage1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="400" Canvas.Top="0"/>
-            <Canvas.Triggers>
-                <EventTrigger RoutedEvent="Canvas.Loaded">
-                    <BeginStoryboard Storyboard="{StaticResource SlideShowStoryboard}"/>
-                </EventTrigger>
-            </Canvas.Triggers>
-        </Canvas>
-        <Label Margin="400,0,0,0" Background="Gray"/>
-        <Label Margin="0,225,0,0" Background="Gray"/>
         <ContentControl Content="{Binding Navigation.CurrentView}"/>
     </Grid>
 </Window>

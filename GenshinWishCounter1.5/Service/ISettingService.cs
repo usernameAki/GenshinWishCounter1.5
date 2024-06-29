@@ -13,5 +13,7 @@ namespace GenshinWishCounter1._5.Service
 
         string backgroundImage1 { get; set; }
         string backgroundImage2 { get; set; }
+
+        void ChangeBanner(Banner banner);
     }
 }

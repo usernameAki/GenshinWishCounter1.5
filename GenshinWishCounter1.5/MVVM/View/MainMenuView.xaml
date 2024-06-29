@@ -22,6 +22,18 @@
             <RowDefinition/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
+        <Canvas Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="3" Height="225" Width="400" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Image x:Name="Image1" Source="{Binding Settings.backgroundImage1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="0" Canvas.Top="0"/>
+            <Image x:Name="Image2" Source="{Binding Settings.backgroundImage2, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="400" Canvas.Top="0"/>
+            <Image x:Name="Image3" Source="{Binding Settings.backgroundImage1, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SlideShowImageStyle}" Canvas.Left="400" Canvas.Top="0"/>
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="Canvas.Loaded">
+                    <BeginStoryboard Storyboard="{StaticResource SlideShowStoryboard}"/>
+                </EventTrigger>
+            </Canvas.Triggers>
+        </Canvas>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5"  Margin="400,0,0,0" Background="Gray"/>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="5"  Margin="0,225,0,0" Background="Gray"/>
 
         <!--Counter Grid-->
         <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1">

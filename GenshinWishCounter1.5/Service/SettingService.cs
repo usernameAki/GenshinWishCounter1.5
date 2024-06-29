@@ -40,5 +40,12 @@ namespace GenshinWishCounter1._5.Service
                 OnPropertyChanged();
             }
         }
+
+        public void ChangeBanner(Banner banner)
+        {
+            _banner = banner;
+            backgroundImage1 = BackgroundImage.GetBackgroundImage(banner);
+            backgroundImage2 = BackgroundImage.GetBackgroundImage(banner);
+        }
     }
 }
