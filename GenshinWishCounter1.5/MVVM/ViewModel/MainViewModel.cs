@@ -17,11 +17,22 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+        private ISettingService _settingService;
+        public ISettingService Settings
+        {
+            get => _settingService;
+            set
+            {
+                _settingService = value;
+                OnPropertyChanged();
+            }
+        }
         private RelayCommand _moveToMainMenu { get; set; }
 
-        public MainViewModel(INavigationService navigationService)
+        public MainViewModel(INavigationService navigationService, ISettingService settingService)
         {
             Navigation = navigationService;
+            Settings = settingService;
             _moveToMainMenu = new RelayCommand(o => 
             {
                 Navigation.NavigateTo<MainMenuViewModel>(); 

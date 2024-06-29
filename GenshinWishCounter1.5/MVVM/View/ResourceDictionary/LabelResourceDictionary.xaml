@@ -6,8 +6,8 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="52"/>
-        <Setter Property="Margin" Value="0,-12,0,0"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Margin" Value="0,-8,0,0"/>
     </Style>
 
 </ResourceDictionary>

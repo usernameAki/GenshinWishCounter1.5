@@ -5,13 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GenshinWishCounter1._5.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="600">
+             d:DesignHeight="450" d:DesignWidth="740">
     
     
     <Grid Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="390"/>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="20"/>
@@ -31,15 +31,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="225"/>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="90"/>
+                <RowDefinition Height="60"/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Content="★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15"/>
-            <Label Content="★★★★★" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                   FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15" Grid.Column="2"/>
+            <!-- <Label Content="★★★★" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15"/> -->
+            <!-- <Label Content="★★★★★" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="20" Margin="0,-4,0,0" Foreground="#FFCBAC15" Grid.Column="2"/> -->
 
             <Border Style="{StaticResource CounterBorderStyle}" Grid.Row="1">
                 <Label Style="{StaticResource CounterLabelStyle}"  
@@ -50,18 +49,18 @@
                        Content="{Binding CountersDisplayed[0], UpdateSourceTrigger=PropertyChanged}" />
             </Border>
 
-            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="2" Grid.ColumnSpan="3">
-                <Button Content="+1" Style="{StaticResource ButtonStyle}" Command="{Binding AddOnePull}"/>
-            </Border>
-
-            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.ColumnSpan="1">
-                <Button Content="★★★★" Foreground="#FFCBAC15" FontSize="20" 
+            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="2" Grid.ColumnSpan="1">
+                <Button Content="★★★★" Foreground="#FFCBAC15" FontSize="15" 
                         Style="{StaticResource ButtonStyle}" Command="{Binding AddFourStar}"/>
             </Border>
 
-            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="1">
-                <Button Content="★★★★★" Foreground="#FFCBAC15" FontSize="20" 
+            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1">
+                <Button Content="★★★★★" Foreground="#FFCBAC15" FontSize="15" 
                         Style="{StaticResource ButtonStyle}" Command="{Binding AddFiveStar}"/>
+            </Border>
+
+            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.ColumnSpan="3">
+                <Button Content="+1" Style="{StaticResource ButtonStyle}" Command="{Binding AddOnePull}"/>
             </Border>
 
 
