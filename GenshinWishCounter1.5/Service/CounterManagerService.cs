@@ -13,17 +13,19 @@ namespace GenshinWishCounter1._5.Service
 {
     public class CounterManagerService : ICounterManagerService
     {
-        public CounterModel genshinCharacterCounterModel { get; set; } = new CounterModel();
-        public CounterModel genshinWeaponCounterModel { get; set; } = new CounterModel();
-        public CounterModel starRailCharacterCounterModel { get; set; } = new CounterModel();
-        public CounterModel starRailWeaponCounterModel { get; set; } = new CounterModel();
+        public CounterModel genshinCharacterCounterModel { get; set; }
+        public CounterModel genshinWeaponCounterModel { get; set; }
+        public CounterModel starRailCharacterCounterModel { get; set; }
+        public CounterModel starRailWeaponCounterModel { get; set; }
+        public CounterModel zzzCharacterCounterModel { get; set; }
+        public CounterModel zzzWeaponCounterModel { get; set; }
 
         public CounterManagerService()
         {
             LoadCounters();
         }
 
-        public void SaveCounters() // Done
+        public void SaveCounters()
         {
             var counters = new Dictionary<string, CounterModel>() 
             {
@@ -31,14 +33,16 @@ namespace GenshinWishCounter1._5.Service
                 { "genshinWeaponCounterModel", genshinWeaponCounterModel },
                 { "starRailCharacterCounterModel", starRailCharacterCounterModel },
                 { "starRailWeaponCounterModel", starRailWeaponCounterModel },
+                { "zzzCharacterCounterModel", zzzCharacterCounterModel },
+                { "zzzWeaponCounterModel", zzzWeaponCounterModel },
             };
             string json = JsonConvert.SerializeObject(counters, Formatting.Indented);
             File.WriteAllText("Counter.json", json);
         }
 
-        public void LoadCounters() // Done
+        public void LoadCounters()
         {
-            if (File.Exists("Counters.json")) // TODO: remove this check after 3.0 patch
+            if (File.Exists("Counters.json")) // TODO: remove this check after 3.0 Star Rail patch
             {
                 string json = File.ReadAllText("Counters.json");
                 genshinCharacterCounterModel.Counters = JsonConvert.DeserializeObject<int[]>(json);
@@ -53,14 +57,16 @@ namespace GenshinWishCounter1._5.Service
             {
                 string json = File.ReadAllText("Counter.json");
                 var counters = JsonConvert.DeserializeObject<Dictionary<string, CounterModel>>(json);
-                genshinCharacterCounterModel = counters.Where(model => model.Key.Contains("genshinCharacterCounterModel")).Select(x => x.Value).First();
-                genshinWeaponCounterModel = counters.Where(model => model.Key.Contains("genshinWeaponCounterModel")).Select(x => x.Value).First();
-                starRailCharacterCounterModel = counters.Where(model => model.Key.Contains("starRailCharacterCounterModel")).Select(x => x.Value).First();
-                starRailWeaponCounterModel = counters.Where(model => model.Key.Contains("starRailWeaponCounterModel")).Select(x => x.Value).First();
+                genshinCharacterCounterModel = counters.Where(model => model.Key.Contains("genshinCharacterCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
+                genshinWeaponCounterModel = counters.Where(model => model.Key.Contains("genshinWeaponCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
+                starRailCharacterCounterModel = counters.Where(model => model.Key.Contains("starRailCharacterCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
+                starRailWeaponCounterModel = counters.Where(model => model.Key.Contains("starRailWeaponCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
+                zzzCharacterCounterModel = counters.Where(model => model.Key.Contains("zzzCharacterCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
+                zzzWeaponCounterModel = counters.Where(model => model.Key.Contains("zzzWeaponCounterModel")).Select(x => x.Value).FirstOrDefault() ?? new CounterModel();
             }
         }
 
-        public void PlusCounter(Banner banner) // Done
+        public void PlusCounter(Banner banner)
         {
             var counterModel = GetCounterModelFromBannerEnum(banner);
             counterModel.Counters[0]++;
@@ -69,7 +75,7 @@ namespace GenshinWishCounter1._5.Service
             SaveCounters();
         }
 
-        public void ResetCounter(Banner banner, int counterPlace) // Done
+        public void ResetCounter(Banner banner, int counterPlace)
         {
             var counterModel = GetCounterModelFromBannerEnum(banner);
             if (counterPlace == 0) counterModel.Counters[0] = 0;
@@ -84,13 +90,13 @@ namespace GenshinWishCounter1._5.Service
             SaveCounters();
         }
 
-        public void AddFourStar(Banner banner) // Done
+        public void AddFourStar(Banner banner)
         {
             PlusCounter(banner);
             ResetCounter(banner, 1);
         }
 
-        public void AddFiveStar(Banner banner) // Done
+        public void AddFiveStar(Banner banner)
         {
             var counterModel = GetCounterModelFromBannerEnum(banner);
             counterModel.Counters[0]++;
@@ -113,12 +119,16 @@ namespace GenshinWishCounter1._5.Service
                     return starRailWeaponCounterModel;
                 case Banner.StarRailCharacter:
                     return starRailCharacterCounterModel;
+                case Banner.ZzzWeapon:
+                    return zzzWeaponCounterModel;
+                case Banner.ZzzCharacter:
+                    return zzzCharacterCounterModel;
                 default:
                     return new CounterModel();
             }
-        } // Done
+        }
 
-        private void CheckIfCounterReachedMaxValue(Banner banner) // Done
+        private void CheckIfCounterReachedMaxValue(Banner banner)
         {
             var counterModel = GetCounterModelFromBannerEnum(banner);
             if (counterModel.Counters[0] == 90)

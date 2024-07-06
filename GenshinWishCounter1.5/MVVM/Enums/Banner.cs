@@ -12,5 +12,7 @@ namespace GenshinWishCounter1._5.MVVM.Enums
         GenshinWeapon = 1,
         StarRailCharacter = 2,
         StarRailWeapon = 3,
+        ZzzCharacter = 4,
+        ZzzWeapon = 5,
     }
 }

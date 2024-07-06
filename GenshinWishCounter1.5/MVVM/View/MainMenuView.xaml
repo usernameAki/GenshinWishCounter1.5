@@ -71,7 +71,7 @@
                         Style="{StaticResource ButtonStyle}" Command="{Binding AddFiveStar}"/>
             </Border>
 
-            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.ColumnSpan="3">
+            <Border Style="{StaticResource ButtonBorderStyle}"  Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="3">
                 <Button Content="+1" Style="{StaticResource ButtonStyle}" Command="{Binding AddOnePull}"/>
             </Border>
 
@@ -104,7 +104,10 @@
                 <MenuItem Header="Genshin Weapon Banner" Command="{Binding ChangeBanner}" CommandParameter="GenshinWeapon"/>
                 <Separator/>
                 <MenuItem Header="Star Rail Character Banner" Command="{Binding ChangeBanner}" CommandParameter="StarRailCharacter"/>
-                <MenuItem Header="Star Rail Weapon Banner" Command="{Binding ChangeBanner}" CommandParameter="StarRailWeapon"/>
+                <MenuItem Header="Star Rail Light Cone Banner" Command="{Binding ChangeBanner}" CommandParameter="StarRailWeapon"/>
+                <Separator/>
+                <MenuItem Header="ZZZ Character Banner" Command="{Binding ChangeBanner}" CommandParameter="ZzzCharacter"/>
+                <MenuItem Header="ZZZ W-Engine Banner" Command="{Binding ChangeBanner}" CommandParameter="ZzzWeapon"/>
             </MenuItem>
         </Menu>
     </Grid>

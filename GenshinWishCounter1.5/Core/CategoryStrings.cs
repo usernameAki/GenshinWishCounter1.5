@@ -8,6 +8,7 @@ namespace GenshinWishCounter1._5.Core
 {
     internal static class CategoryStrings
     {
+        //Genshin
         public const string Anemo = "anemo";
         public const string Geo = "geo";
         public const string Pyro = "pyro";
@@ -22,6 +23,7 @@ namespace GenshinWishCounter1._5.Core
         public const string Polearm = "polearm";
         public const string Claymore = "claymore";
 
+        //Star Rail
         public const string Lightning = "Lightning";
         public const string Physical = "Physical";
         public const string Imaginary = "Imaginary";
@@ -37,5 +39,18 @@ namespace GenshinWishCounter1._5.Core
         public const string Harmony = "Harmony";
         public const string Abundance = "Abundance";
         public const string Preservation = "Preservation";
+
+        //ZZZ
+        public const string ZzzPhysical = "ZzzPhysical";
+        public const string ZzzFire = "ZzzFire";
+        public const string ZzzIce = "ZzzIce";
+        public const string ZzzElectric = "ZzzElectric";
+        public const string ZzzEther = "ZzzEther";
+
+        public const string ZzzAttack = "ZzzAttack";
+        public const string ZzzStun = "ZzzStun";
+        public const string ZzzSupport = "ZzzSupport";
+        public const string ZzzAnomaly = "ZzzAnomaly";
+        public const string ZzzDefense = "ZzzDefense";
     }
 }

@@ -171,6 +171,27 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Whereabouts Should Dreams Rest", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Worrisome, Blissful", Type = CategoryStrings.Hunt, IsStandard = false },
         };
+        private List<FiveStarModel> ZzzCharacterList = new List<FiveStarModel>
+        {
+            new FiveStarModel { Name = "Ellen", Type = CategoryStrings.ZzzIce, IsStandard = false },
+            new FiveStarModel { Name = "Grace", Type = CategoryStrings.ZzzElectric, IsStandard = true },
+            new FiveStarModel { Name = "Koleda", Type = CategoryStrings.ZzzFire, IsStandard = true },
+            new FiveStarModel { Name = "Lycaon", Type = CategoryStrings.ZzzIce, IsStandard = true },
+            new FiveStarModel { Name = "Nekomata", Type = CategoryStrings.ZzzPhysical, IsStandard = true },
+            new FiveStarModel { Name = "Rina", Type = CategoryStrings.ZzzElectric, IsStandard = true },
+            new FiveStarModel { Name = "Soldier 11", Type = CategoryStrings.ZzzFire, IsStandard = true },
+        };
+        private List<FiveStarModel> ZzzWeaponList = new List<FiveStarModel>
+        {
+            new FiveStarModel { Name = "Deep Sea Visitor", Type = CategoryStrings.ZzzAttack, IsStandard = false },
+            new FiveStarModel { Name = "Fusion Compiler", Type = CategoryStrings.ZzzAnomaly, IsStandard = true },
+            new FiveStarModel { Name = "Hellfire Gears", Type = CategoryStrings.ZzzStun, IsStandard = true },
+            new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
+            new FiveStarModel { Name = "Steel Cushion", Type = CategoryStrings.ZzzAttack, IsStandard = true },
+            new FiveStarModel { Name = "The Brimstone", Type = CategoryStrings.ZzzAttack, IsStandard = true },
+            new FiveStarModel { Name = "The Restrained", Type = CategoryStrings.ZzzStun, IsStandard = true },
+            new FiveStarModel { Name = "Weeping Cradle", Type = CategoryStrings.ZzzSupport, IsStandard = true },
+        };
     public List<FiveStarModel> GetFiveStarList(Banner banner)
         {
             switch (banner)
@@ -179,6 +200,8 @@ namespace GenshinWishCounter1._5.Service
                 case Banner.StarRailCharacter: return StarRailCharacterList;
                 case Banner.GenshinWeapon: return GenshinWeaponList;
                 case Banner.StarRailWeapon: return StarRailWeaponList;
+                case Banner.ZzzCharacter: return ZzzCharacterList;
+                case Banner.ZzzWeapon: return ZzzWeaponList;
                 default: return new List<FiveStarModel>();
             }
         }

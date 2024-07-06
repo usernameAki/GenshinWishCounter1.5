@@ -16,6 +16,8 @@ namespace GenshinWishCounter1._5.Core
         private static readonly string GenshinWeaponBanner = "GenshinWeaponBanner";
         private static readonly string StarRailCharacterBanner = "StarRailCharacterBanner";
         private static readonly string StarRailWeaponBanner = "StarRailWeaponBanner";
+        private static readonly string ZzzCharacterBanner = "ZzzCharacterBanner";
+        private static readonly string ZzzWeaponBanner = "ZzzWeaponBanner";
 
         public static string GetBackgroundImage(Banner banner)
         {
@@ -31,6 +33,10 @@ namespace GenshinWishCounter1._5.Core
                     return getPath(StarRailCharacterBanner + bannerNumber);
                 case Banner.StarRailWeapon:
                     return getPath(StarRailWeaponBanner + bannerNumber);
+                case Banner.ZzzCharacter:
+                    return getPath(ZzzCharacterBanner + bannerNumber);
+                case Banner.ZzzWeapon:
+                    return getPath(ZzzWeaponBanner + bannerNumber);
                 default:
                     return "";
             }

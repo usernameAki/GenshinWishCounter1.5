@@ -39,6 +39,8 @@
     <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner2.png" />
+    <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
+    <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
     <None Remove="Images\Baptism of Pure Thought.png" />
     <None Remove="Images\bcg.png" />
     <None Remove="Images\Beacon of the Reed Sea.png" />
@@ -62,6 +64,7 @@
     <None Remove="Images\Cruising in the Stellar Sea.png" />
     <None Remove="Images\cryo.png" />
     <None Remove="Images\Cyno.png" />
+    <None Remove="Images\Deep Sea Visitor.png" />
     <None Remove="Images\Dehya.png" />
     <None Remove="Images\dendro.png" />
     <None Remove="Images\Destruction.png" />
@@ -71,6 +74,7 @@
     <None Remove="Images\Echoes of the Coffin.png" />
     <None Remove="Images\electro.png" />
     <None Remove="Images\Elegy for the End.png" />
+    <None Remove="Images\Ellen.png" />
     <None Remove="Images\Engulfing Lightning.png" />
     <None Remove="Images\Erudition.png" />
     <None Remove="Images\Eula.png" />
@@ -81,11 +85,14 @@
     <None Remove="Images\Freedom-Sworn.png" />
     <None Remove="Images\Fu Xuan.png" />
     <None Remove="Images\Furina.png" />
+    <None Remove="Images\Fusion Compiler.png" />
     <None Remove="Images\Ganyu.png" />
     <None Remove="Images\geo.png" />
     <None Remove="Images\Gepard.png" />
+    <None Remove="Images\Grace.png" />
     <None Remove="Images\Haran Geppaku Futsu.png" />
     <None Remove="Images\Harmony.png" />
+    <None Remove="Images\Hellfire Gears.png" />
     <None Remove="Images\Himeko.png" />
     <None Remove="Images\Hu Tao.png" />
     <None Remove="Images\Hunt.png" />
@@ -111,10 +118,12 @@
     <None Remove="Images\Key of Khaj-Nisut.png" />
     <None Remove="Images\Klee.png" />
     <None Remove="Images\Kokomi.png" />
+    <None Remove="Images\Koleda.png" />
     <None Remove="Images\Light of Foliar Incision.png" />
     <None Remove="Images\Lightning.png" />
     <None Remove="Images\Lost Prayer to the Sacred Winds.png" />
     <None Remove="Images\Luocha.png" />
+    <None Remove="Images\Lycaon.png" />
     <None Remove="Images\Lyney.png" />
     <None Remove="Images\Memory of Dust.png" />
     <None Remove="Images\Mistsplitter Reforged.png" />
@@ -122,6 +131,7 @@
     <None Remove="Images\Mona.png" />
     <None Remove="Images\Nahida.png" />
     <None Remove="Images\Navia.png" />
+    <None Remove="Images\Nekomata.png" />
     <None Remove="Images\Neuvillette.png" />
     <None Remove="Images\Night of Fright.png" />
     <None Remove="Images\Night on the Milky Way.png" />
@@ -142,6 +152,8 @@
     <None Remove="Images\Raiden Shogun.png" />
     <None Remove="Images\Redhorn Stonethresher.png" />
     <None Remove="Images\Reforged Remembrance.png" />
+    <None Remove="Images\Rina.png" />
+    <None Remove="Images\Riot Suppressor Mark VI.png" />
     <None Remove="Images\Robin.png" />
     <None Remove="Images\Ruan Mei.png" />
     <None Remove="Images\Sailing Towards A Second Life.png" />
@@ -157,6 +169,7 @@
     <None Remove="Images\Skyward Pride.png" />
     <None Remove="Images\Skyward Spine.png" />
     <None Remove="Images\Sleep Like the Dead.png" />
+    <None Remove="Images\Soldier 11.png" />
     <None Remove="Images\Solitary Healing.png" />
     <None Remove="Images\Something Irreplaceable.png" />
     <None Remove="Images\Song of Broken Pines.png" />
@@ -164,11 +177,14 @@
     <None Remove="Images\Splendor of Tranquil Waters.png" />
     <None Remove="Images\Staff of Homa.png" />
     <None Remove="Images\Staff of the Scarlet Sands.png" />
+    <None Remove="Images\Steel Cushion.png" />
     <None Remove="Images\Summit Shaper.png" />
     <None Remove="Images\sword.png" />
     <None Remove="Images\Tartaglia.png" />
     <None Remove="Images\Texture of Memories.png" />
+    <None Remove="Images\The Brimstone.png" />
     <None Remove="Images\The First Great Magic.png" />
+    <None Remove="Images\The Restrained.png" />
     <None Remove="Images\The Unforged.png" />
     <None Remove="Images\The Unreachable Side.png" />
     <None Remove="Images\Thundering Pulse.png" />
@@ -182,6 +198,7 @@
     <None Remove="Images\Verdict.png" />
     <None Remove="Images\Vortex Vanquisher.png" />
     <None Remove="Images\Wanderer.png" />
+    <None Remove="Images\Weeping Cradle.png" />
     <None Remove="Images\Welt.png" />
     <None Remove="Images\Whereabouts Should Dreams Rest.png" />
     <None Remove="Images\Wind.png" />
@@ -195,6 +212,16 @@
     <None Remove="Images\Yelan.png" />
     <None Remove="Images\Yoimiya.png" />
     <None Remove="Images\Zhongli.png" />
+    <None Remove="Images\ZzzAnomaly.png" />
+    <None Remove="Images\ZzzAttack.png" />
+    <None Remove="Images\ZzzDefense.png" />
+    <None Remove="Images\ZzzElectric.png" />
+    <None Remove="Images\ZzzEther.png" />
+    <None Remove="Images\ZzzFire.png" />
+    <None Remove="Images\ZzzIce.png" />
+    <None Remove="Images\ZzzPhysical.png" />
+    <None Remove="Images\ZzzStun.png" />
+    <None Remove="Images\ZzzSupport.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -280,6 +307,12 @@
     <Content Include="Images\Banner\StarRailWeaponBanner2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Banner\ZzzCharacterBanner1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Banner\ZzzWeaponBanner1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Baptism of Pure Thought.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -349,6 +382,9 @@
     <Content Include="Images\Cyno.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Deep Sea Visitor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Dehya.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -374,6 +410,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Elegy for the End.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Ellen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Engulfing Lightning.png">
@@ -406,6 +445,9 @@
     <Content Include="Images\Furina.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Fusion Compiler.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Ganyu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -415,10 +457,16 @@
     <Content Include="Images\Gepard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Grace.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Haran Geppaku Futsu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Harmony.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Hellfire Gears.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Himeko.png">
@@ -499,6 +547,9 @@
     <Content Include="Images\Kokomi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Koleda.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Light of Foliar Incision.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -509,6 +560,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Luocha.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Lycaon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Lyney.png">
@@ -530,6 +584,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Navia.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Nekomata.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Night of Fright.png">
@@ -592,6 +649,12 @@
     <Content Include="Images\Reforged Remembrance.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Rina.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Riot Suppressor Mark VI.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Robin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -637,6 +700,9 @@
     <Content Include="Images\Sleep Like the Dead.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Soldier 11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Solitary Healing.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -658,6 +724,9 @@
     <Content Include="Images\Staff of the Scarlet Sands.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Steel Cushion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Summit Shaper.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -670,7 +739,13 @@
     <Content Include="Images\Texture of Memories.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\The Brimstone.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\The First Great Magic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\The Restrained.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\The Unforged.png">
@@ -712,6 +787,9 @@
     <Content Include="Images\Wanderer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Weeping Cradle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Welt.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -749,6 +827,36 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Zhongli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzAnomaly.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzAttack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzDefense.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzElectric.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzEther.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzFire.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzIce.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzPhysical.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzStun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ZzzSupport.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

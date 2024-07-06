@@ -12,10 +12,12 @@ namespace GenshinWishCounter1._5.Service
 {
     public class PullManagerService : IPullManagerService
     {
-        public PullHistoryModel genshinCharacterPullHistoryModel { get; set; } = new PullHistoryModel();
-        public PullHistoryModel genshinWeaponPullHistoryModel { get; set; } = new PullHistoryModel();
-        public PullHistoryModel starRailCharacterPullHistoryModel { get; set; } = new PullHistoryModel();
-        public PullHistoryModel starRailWeaponPullHistoryModel { get; set; } = new PullHistoryModel();
+        public PullHistoryModel genshinCharacterPullHistoryModel { get; set; }
+        public PullHistoryModel genshinWeaponPullHistoryModel { get; set; }
+        public PullHistoryModel starRailCharacterPullHistoryModel { get; set; }
+        public PullHistoryModel starRailWeaponPullHistoryModel { get; set; }
+        public PullHistoryModel zzzCharacterPullHistoryModel { get; set; }
+        public PullHistoryModel zzzWeaponPullHistoryModel { get; set; }
 
         public PullManagerService()
         {
@@ -46,10 +48,12 @@ namespace GenshinWishCounter1._5.Service
             {
                 string json = File.ReadAllText("Pulls.json");
                 var pulls = JsonConvert.DeserializeObject<Dictionary<string, PullHistoryModel>>(json);
-                genshinCharacterPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("genshinCharacterPullHistoryModel")).Select(x => x.Value).First();
-                genshinWeaponPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("genshinWeaponPullHistoryModel")).Select(x => x.Value).First();
-                starRailCharacterPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("starRailCharacterPullHistoryModel")).Select(x => x.Value).First();
-                starRailWeaponPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("starRailWeaponPullHistoryModel")).Select(x => x.Value).First();
+                genshinCharacterPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("genshinCharacterPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
+                genshinWeaponPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("genshinWeaponPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
+                starRailCharacterPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("starRailCharacterPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
+                starRailWeaponPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("starRailWeaponPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
+                zzzCharacterPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("zzzCharacterPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
+                zzzWeaponPullHistoryModel = pulls.Where(pullModel => pullModel.Key.Contains("zzzWeaponPullHistoryModel")).Select(x => x.Value).FirstOrDefault() ?? new PullHistoryModel();
             }
         }
 
@@ -61,6 +65,8 @@ namespace GenshinWishCounter1._5.Service
                 { "genshinWeaponPullHistoryModel", genshinWeaponPullHistoryModel },
                 { "starRailCharacterPullHistoryModel", starRailCharacterPullHistoryModel },
                 { "starRailWeaponPullHistoryModel", starRailWeaponPullHistoryModel },
+                { "zzzCharacterPullHistoryModel", zzzCharacterPullHistoryModel },
+                { "zzzWeaponPullHistoryModel", zzzWeaponPullHistoryModel },
             };
             string json = JsonConvert.SerializeObject(pulls, Formatting.Indented);
             File.WriteAllText("Pulls.json", json);
@@ -102,6 +108,10 @@ namespace GenshinWishCounter1._5.Service
                     return starRailWeaponPullHistoryModel;
                 case Banner.StarRailCharacter:
                     return starRailCharacterPullHistoryModel;
+                case Banner.ZzzWeapon:
+                    return zzzWeaponPullHistoryModel;
+                case Banner.ZzzCharacter:
+                    return zzzCharacterPullHistoryModel;
                 default:
                     return new PullHistoryModel();
             }
