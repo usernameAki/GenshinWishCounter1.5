@@ -34,9 +34,9 @@ namespace GenshinWishCounter1._5.Core
                 case Banner.StarRailWeapon:
                     return getPath(StarRailWeaponBanner + bannerNumber);
                 case Banner.ZzzCharacter:
-                    return getPath(ZzzCharacterBanner + bannerNumber);
+                    return getPath(ZzzCharacterBanner + 1);
                 case Banner.ZzzWeapon:
-                    return getPath(ZzzWeaponBanner + bannerNumber);
+                    return getPath(ZzzWeaponBanner + 1);
                 default:
                     return "";
             }
