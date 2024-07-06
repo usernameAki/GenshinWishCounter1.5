@@ -3,7 +3,7 @@
 
 Welcome!
 
-This app helps you count your pity in Ganehin Impact and Honkai Star Rail game for limited banners.
+This app helps you count your pity in Ganehin Impact, Honkai Star Rail, and Zenless Zone Zero game for limited banners.
 If you are not familiar with pity system check [this article](https://game8.co/games/Genshin-Impact/archives/305937).
 
 This app displays your 4 and 5 star counter, and history of your 5* pulls.
