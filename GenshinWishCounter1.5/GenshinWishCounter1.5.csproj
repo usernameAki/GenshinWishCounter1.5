@@ -107,6 +107,7 @@
     <None Remove="Images\In the Night.png" />
     <None Remove="Images\Incessant Rain.png" />
     <None Remove="Images\Inherently Unjust Destiny.png" />
+    <None Remove="Images\Jade.png" />
     <None Remove="Images\Jadefall%27s Splendor.png" />
     <None Remove="Images\Jean.png" />
     <None Remove="Images\Jing Yuan.png" />
@@ -210,6 +211,7 @@
     <None Remove="Images\Yae Miko.png" />
     <None Remove="Images\Yanqing.png" />
     <None Remove="Images\Yelan.png" />
+    <None Remove="Images\Yet Hope Is Priceless.png" />
     <None Remove="Images\Yoimiya.png" />
     <None Remove="Images\Zhongli.png" />
     <None Remove="Images\ZzzAnomaly.png" />
@@ -512,6 +514,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Inherently Unjust Destiny.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Jade.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Jadefall's Splendor.png">
@@ -821,6 +826,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Yelan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Yet Hope Is Priceless.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Yoimiya.png">
