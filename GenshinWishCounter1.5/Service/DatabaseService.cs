@@ -182,6 +182,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Nekomata", Type = CategoryStrings.ZzzPhysical, IsStandard = true },
             new FiveStarModel { Name = "Rina", Type = CategoryStrings.ZzzElectric, IsStandard = true },
             new FiveStarModel { Name = "Soldier 11", Type = CategoryStrings.ZzzFire, IsStandard = true },
+            new FiveStarModel { Name = "Zhu Yuan", Type = CategoryStrings.ZzzEther, IsStandard = false },
         };
         private List<FiveStarModel> ZzzWeaponList = new List<FiveStarModel>
         {

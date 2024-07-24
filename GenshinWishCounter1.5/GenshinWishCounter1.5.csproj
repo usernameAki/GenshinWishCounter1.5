@@ -214,6 +214,7 @@
     <None Remove="Images\Yet Hope Is Priceless.png" />
     <None Remove="Images\Yoimiya.png" />
     <None Remove="Images\Zhongli.png" />
+    <None Remove="Images\Zhu Yuan.png" />
     <None Remove="Images\ZzzAnomaly.png" />
     <None Remove="Images\ZzzAttack.png" />
     <None Remove="Images\ZzzDefense.png" />
@@ -835,6 +836,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Zhongli.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Zhu Yuan.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ZzzAnomaly.png">
