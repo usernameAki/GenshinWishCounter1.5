@@ -76,7 +76,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Himeko", Type = CategoryStrings.Fire, IsStandard = true },
             new FiveStarModel{ Name = "Huohuo", Type = CategoryStrings.Wind, IsStandard = false },
             new FiveStarModel{ Name = "Imbibitor Lunae", Type = CategoryStrings.Imaginary, IsStandard = false },
-            new FiveStarModel{ Name = "Jade", Type = CategoryStrings.Nihility, IsStandard = false },
+            new FiveStarModel{ Name = "Jade", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Jing Yuan", Type = CategoryStrings.Lightning, IsStandard = false },
             new FiveStarModel{ Name = "Jingliu", Type = CategoryStrings.Ice, IsStandard = false },
             new FiveStarModel{ Name = "Kafka", Type = CategoryStrings.Lightning, IsStandard = false },
