@@ -64,6 +64,7 @@
     <None Remove="Images\Cruising in the Stellar Sea.png" />
     <None Remove="Images\cryo.png" />
     <None Remove="Images\Cyno.png" />
+    <None Remove="Images\Dance at Sunset.png" />
     <None Remove="Images\Deep Sea Visitor.png" />
     <None Remove="Images\Dehya.png" />
     <None Remove="Images\dendro.png" />
@@ -213,6 +214,7 @@
     <None Remove="Images\Yelan.png" />
     <None Remove="Images\Yet Hope Is Priceless.png" />
     <None Remove="Images\Yoimiya.png" />
+    <None Remove="Images\Yunli.png" />
     <None Remove="Images\Zhongli.png" />
     <None Remove="Images\Zhu Yuan.png" />
     <None Remove="Images\ZzzAnomaly.png" />
@@ -383,6 +385,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Cyno.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Dance at Sunset.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Deep Sea Visitor.png">
@@ -833,6 +838,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Yoimiya.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Yunli.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Zhongli.png">

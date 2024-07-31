@@ -89,6 +89,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Topaz", Type = CategoryStrings.Fire, IsStandard = false },
             new FiveStarModel{ Name = "Welt", Type = CategoryStrings.Imaginary, IsStandard = true },
             new FiveStarModel{ Name = "Yanqing", Type = CategoryStrings.Ice, IsStandard = true },
+            new FiveStarModel{ Name = "Yunli", Type = CategoryStrings.Physical, IsStandard = true },
         };
         private List<FiveStarModel> GenshinWeaponList = new List<FiveStarModel>()
         {
@@ -148,6 +149,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Before Dawn", Type = CategoryStrings.Erudition, IsStandard = false },
             new FiveStarModel { Name = "Brighter Than the Sun", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "But the Battle Isn't Over", Type = CategoryStrings.Harmony, IsStandard = true },
+            new FiveStarModel { Name = "Dance at Sunset", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Earthly Escapade", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "Echoes of the Coffin", Type = CategoryStrings.Abundance, IsStandard = false },
             new FiveStarModel { Name = "Flowing Nightglow", Type = CategoryStrings.Harmony, IsStandard = false },
