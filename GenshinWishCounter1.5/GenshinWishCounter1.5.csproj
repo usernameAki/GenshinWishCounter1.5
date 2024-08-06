@@ -76,6 +76,7 @@
     <None Remove="Images\electro.png" />
     <None Remove="Images\Elegy for the End.png" />
     <None Remove="Images\Ellen.png" />
+    <None Remove="Images\Emilie.png" />
     <None Remove="Images\Engulfing Lightning.png" />
     <None Remove="Images\Erudition.png" />
     <None Remove="Images\Eula.png" />
@@ -124,6 +125,7 @@
     <None Remove="Images\Light of Foliar Incision.png" />
     <None Remove="Images\Lightning.png" />
     <None Remove="Images\Lost Prayer to the Sacred Winds.png" />
+    <None Remove="Images\Lumidouce Elegy.png" />
     <None Remove="Images\Luocha.png" />
     <None Remove="Images\Lycaon.png" />
     <None Remove="Images\Lyney.png" />
@@ -423,6 +425,9 @@
     <Content Include="Images\Ellen.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Emilie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Engulfing Lightning.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -568,6 +573,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Lost Prayer to the Sacred Winds.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Lumidouce Elegy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Luocha.png">
