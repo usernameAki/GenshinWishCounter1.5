@@ -134,6 +134,7 @@
     <None Remove="Images\Mistsplitter Reforged.png" />
     <None Remove="Images\Moment of Victory.png" />
     <None Remove="Images\Mona.png" />
+    <None Remove="Images\Mualani.png" />
     <None Remove="Images\Nahida.png" />
     <None Remove="Images\Navia.png" />
     <None Remove="Images\Nekomata.png" />
@@ -185,6 +186,7 @@
     <None Remove="Images\Staff of the Scarlet Sands.png" />
     <None Remove="Images\Steel Cushion.png" />
     <None Remove="Images\Summit Shaper.png" />
+    <None Remove="Images\Surf%27s Up.png" />
     <None Remove="Images\sword.png" />
     <None Remove="Images\Tartaglia.png" />
     <None Remove="Images\Texture of Memories.png" />
