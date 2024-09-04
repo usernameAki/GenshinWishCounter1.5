@@ -185,6 +185,7 @@ namespace GenshinWishCounter1._5.Service
         {
             new FiveStarModel { Name = "Ellen", Type = CategoryStrings.ZzzIce, IsStandard = false },
             new FiveStarModel { Name = "Grace", Type = CategoryStrings.ZzzElectric, IsStandard = true },
+            new FiveStarModel { Name = "Jane", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Koleda", Type = CategoryStrings.ZzzFire, IsStandard = true },
             new FiveStarModel { Name = "Lycaon", Type = CategoryStrings.ZzzIce, IsStandard = true },
             new FiveStarModel { Name = "Nekomata", Type = CategoryStrings.ZzzPhysical, IsStandard = true },
@@ -200,6 +201,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Hellfire Gears", Type = CategoryStrings.ZzzStun, IsStandard = true },
             new FiveStarModel { Name = "Ice-Jade Teapot", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
+            new FiveStarModel { Name = "Sharpened Stinger", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Steel Cushion", Type = CategoryStrings.ZzzAttack, IsStandard = true },
             new FiveStarModel { Name = "The Brimstone", Type = CategoryStrings.ZzzAttack, IsStandard = true },
             new FiveStarModel { Name = "The Restrained", Type = CategoryStrings.ZzzStun, IsStandard = true },
