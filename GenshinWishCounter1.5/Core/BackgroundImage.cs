@@ -10,36 +10,24 @@ namespace GenshinWishCounter1._5.Core
 {
     public static class BackgroundImage
     {
-        private static int bannerSwapper = 1;
         private static Func<string, string> getPath = value => "/Images/Banner/" + value + ".png";
-        private static readonly string GenshinCharacterBanner = "GenshinCharacterBanner";
-        private static readonly string GenshinWeaponBanner = "GenshinWeaponBanner";
-        private static readonly string StarRailCharacterBanner = "StarRailCharacterBanner";
-        private static readonly string StarRailWeaponBanner = "StarRailWeaponBanner";
-        private static readonly string ZzzCharacterBanner = "ZzzCharacterBanner";
-        private static readonly string ZzzWeaponBanner = "ZzzWeaponBanner";
 
-        public static string GetBackgroundImage(Banner banner)
+        public static string GetBackgroundImage(Banner banner, int bannerNumber)
         {
-            var bannerNumber = bannerSwapper;
-            bannerSwapper = bannerSwapper == 1 ? 2 : 1;
-            switch (banner)
+            var BannerCount = DetectBannerCount(banner);
+            bannerNumber = bannerNumber > BannerCount ? 1 : bannerNumber;
+            return getPath(banner.ToString() + "Banner" + bannerNumber);
+        }
+        public static int DetectBannerCount(Banner banner)
+        {
+            for(int i = 1; i<10; i++)
             {
-                case Banner.GenshinCharacter:
-                    return getPath(GenshinCharacterBanner + bannerNumber);
-                case Banner.GenshinWeapon:
-                    return getPath(GenshinWeaponBanner);
-                case Banner.StarRailCharacter:
-                    return getPath(StarRailCharacterBanner + bannerNumber);
-                case Banner.StarRailWeapon:
-                    return getPath(StarRailWeaponBanner + bannerNumber);
-                case Banner.ZzzCharacter:
-                    return getPath(ZzzCharacterBanner + 1);
-                case Banner.ZzzWeapon:
-                    return getPath(ZzzWeaponBanner + 1);
-                default:
-                    return "";
+                if(!File.Exists("." + getPath(banner.ToString() + "Banner" + i)))
+                {
+                    return i-1;
+                }
             }
+            return 0;
         }
     }
 }

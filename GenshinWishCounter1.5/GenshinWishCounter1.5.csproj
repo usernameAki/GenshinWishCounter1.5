@@ -34,11 +34,15 @@
     <None Remove="Images\Baizhu.png" />
     <None Remove="Images\Banner\GenshinCharacterBanner1.png" />
     <None Remove="Images\Banner\GenshinCharacterBanner2.png" />
-    <None Remove="Images\Banner\GenshinWeaponBanner.png" />
+    <None Remove="Images\Banner\GenshinWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner3.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner4.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner2.png" />
+    <None Remove="Images\Banner\StarRailWeaponBanner3.png" />
+    <None Remove="Images\Banner\StarRailWeaponBanner4.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
     <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
     <None Remove="Images\Baptism of Pure Thought.png" />
@@ -81,6 +85,7 @@
     <None Remove="Images\Erudition.png" />
     <None Remove="Images\Eula.png" />
     <None Remove="Images\Everlasting Moonglow.png" />
+    <None Remove="Images\Feixiao.png" />
     <None Remove="Images\Fire.png" />
     <None Remove="Images\Firefly.png" />
     <None Remove="Images\Flowing Nightglow.png" />
@@ -102,6 +107,7 @@
     <None Remove="Images\Huohuo.png" />
     <None Remove="Images\hydro.png" />
     <None Remove="Images\I Shall Be My Own Sword.png" />
+    <None Remove="Images\I Venture Forth to Hunt.png" />
     <None Remove="Images\Ice-Jade Teapot.png" />
     <None Remove="Images\Ice.png" />
     <None Remove="Images\Imaginary.png" />

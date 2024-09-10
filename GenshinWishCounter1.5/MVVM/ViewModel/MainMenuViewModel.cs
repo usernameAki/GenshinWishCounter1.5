@@ -4,6 +4,11 @@ using GenshinWishCounter1._5.MVVM.Model;
 using GenshinWishCounter1._5.Service;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 
 namespace GenshinWishCounter1._5.MVVM.ViewModel
 {
@@ -53,6 +58,28 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             }
         }
 
+        //Buttons
+        private ObservableCollection<Image> _bannerCanvas;
+        public ObservableCollection<Image> BannerCanvas
+        {
+            get => _bannerCanvas;
+            set
+            {
+                _bannerCanvas = value;
+                OnPropertyChanged();
+            }
+        }
+        private Storyboard _storyboard;
+        public Storyboard BannerStoryboard
+        {
+            get => _storyboard;
+            set
+            {
+                _storyboard = value;
+                OnPropertyChanged();
+            }
+        }
+
         public RelayCommand AddOnePull { get; set; }
         public RelayCommand AddFourStar { get; set; }
         public RelayCommand AddFiveStar { get; set; }
@@ -70,6 +97,7 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             _addFiveStarViewModel = addFiveStarViewModel;
             _counterManagerService = counterManagerService;
             Settings = settingService;
+            GenerateBannerSlider();
 
             //Commands
             AddOnePull = new RelayCommand(o => 
@@ -100,9 +128,58 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 string value = (string)o;
                 Enum.TryParse(value, out Banner banner);
                 Settings.ChangeBanner(banner);
+                GenerateBannerSlider();
                 OnPropertyChanged("CountersDisplayed");
                 OnPropertyChanged("PullHistoryList");
             }, o => true);
+
+        }
+
+        private void GenerateBannerSlider()
+        {
+            var stBoard = new Storyboard();
+            var canvas = new ObservableCollection<Image>();
+            int bannerCount = BackgroundImage.DetectBannerCount(_settingService.banner);
+            stBoard.RepeatBehavior = RepeatBehavior.Forever;
+            double animationDuration = 1;
+            double wait = 9;
+            double currentTime = wait;
+
+            for(int i = 0; i <= bannerCount; i++)
+            {
+                Image image = new Image();
+                image.Width = 400;
+                image.Height = 225;
+                image.Source = new BitmapImage(new Uri(BackgroundImage.GetBackgroundImage(_settingService.banner, i == bannerCount ? 1 : i+1), UriKind.Relative));
+                canvas.Add(image);
+
+                Canvas.SetLeft(image, i > 0 ? 400 : 0);
+
+                DoubleAnimationUsingKeyFrames animation = new DoubleAnimationUsingKeyFrames();
+                Storyboard.SetTarget(animation, image);
+                Storyboard.SetTargetProperty(animation, new PropertyPath("(Canvas.Left)"));
+
+                if(i > 0 && i < bannerCount)
+                {
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(400, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime))));
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime + animationDuration))));
+                    currentTime += wait + animationDuration;
+                }
+                if(i < bannerCount)
+                {
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime))));
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(-400, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime + animationDuration))));
+                }
+                if(i == bannerCount)
+                {
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(400, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime))));
+                    animation.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(currentTime + animationDuration))));
+                }
+                if(bannerCount != 1) stBoard.Children.Add(animation);
+            }
+            stBoard.Begin();
+            BannerCanvas = canvas;
+            BannerStoryboard = stBoard;
 
         }
 

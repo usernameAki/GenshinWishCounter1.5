@@ -20,32 +20,10 @@ namespace GenshinWishCounter1._5.Service
                 OnPropertyChanged();
             }
         }
-        private string _backgroundImage1 { get; set; } = BackgroundImage.GetBackgroundImage(Banner.GenshinCharacter);
-        public string backgroundImage1
-        {
-            get => _backgroundImage1;
-            set
-            {
-                _backgroundImage1 = value;
-                OnPropertyChanged();
-            }
-        }
-        private string _backgroundImage2 { get; set; } = BackgroundImage.GetBackgroundImage(Banner.GenshinCharacter);
-        public string backgroundImage2
-        {
-            get => _backgroundImage2;
-            set
-            {
-                _backgroundImage2 = value;
-                OnPropertyChanged();
-            }
-        }
 
         public void ChangeBanner(Banner banner)
         {
             _banner = banner;
-            backgroundImage1 = BackgroundImage.GetBackgroundImage(banner);
-            backgroundImage2 = BackgroundImage.GetBackgroundImage(banner);
         }
     }
 }
