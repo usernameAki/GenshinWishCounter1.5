@@ -85,6 +85,7 @@
     <None Remove="Images\Erudition.png" />
     <None Remove="Images\Eula.png" />
     <None Remove="Images\Everlasting Moonglow.png" />
+    <None Remove="Images\Fang of the Mountain King.png" />
     <None Remove="Images\Feixiao.png" />
     <None Remove="Images\Fire.png" />
     <None Remove="Images\Firefly.png" />
@@ -127,6 +128,7 @@
     <None Remove="Images\Kazuha.png" />
     <None Remove="Images\Keqing.png" />
     <None Remove="Images\Key of Khaj-Nisut.png" />
+    <None Remove="Images\Kinich.png" />
     <None Remove="Images\Klee.png" />
     <None Remove="Images\Kokomi.png" />
     <None Remove="Images\Koleda.png" />
