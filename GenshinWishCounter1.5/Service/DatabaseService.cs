@@ -187,6 +187,7 @@ namespace GenshinWishCounter1._5.Service
         };
         private List<FiveStarModel> ZzzCharacterList = new List<FiveStarModel>
         {
+            new FiveStarModel { Name = "Caesar King", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Ellen", Type = CategoryStrings.ZzzIce, IsStandard = false },
             new FiveStarModel { Name = "Grace", Type = CategoryStrings.ZzzElectric, IsStandard = true },
             new FiveStarModel { Name = "Jane", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
@@ -209,6 +210,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Steel Cushion", Type = CategoryStrings.ZzzAttack, IsStandard = true },
             new FiveStarModel { Name = "The Brimstone", Type = CategoryStrings.ZzzAttack, IsStandard = true },
             new FiveStarModel { Name = "The Restrained", Type = CategoryStrings.ZzzStun, IsStandard = true },
+            new FiveStarModel { Name = "Tusks of Fury", Type = CategoryStrings.ZzzDefense, IsStandard = false },
             new FiveStarModel { Name = "Weeping Cradle", Type = CategoryStrings.ZzzSupport, IsStandard = true },
         };
     public List<FiveStarModel> GetFiveStarList(Banner banner)

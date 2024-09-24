@@ -56,6 +56,7 @@
     <None Remove="Images\Brighter Than the Sun.png" />
     <None Remove="Images\Bronya.png" />
     <None Remove="Images\But the Battle Isn%27t Over.png" />
+    <None Remove="Images\Caesar King.png" />
     <None Remove="Images\Calamity Queller.png" />
     <None Remove="Images\Cashflow Supervision.png" />
     <None Remove="Images\catalyst.png" />
@@ -211,6 +212,7 @@
     <None Remove="Images\Tome of the Eternal Flow.png" />
     <None Remove="Images\Topaz.png" />
     <None Remove="Images\Tulaytullah%27s Remembrance.png" />
+    <None Remove="Images\Tusks of Fury.png" />
     <None Remove="Images\Uraku Misugiri.png" />
     <None Remove="Images\Venti.png" />
     <None Remove="Images\Verdict.png" />
