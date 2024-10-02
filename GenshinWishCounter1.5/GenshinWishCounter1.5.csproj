@@ -37,12 +37,8 @@
     <None Remove="Images\Banner\GenshinWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
-    <None Remove="Images\Banner\StarRailCharacterBanner3.png" />
-    <None Remove="Images\Banner\StarRailCharacterBanner4.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner2.png" />
-    <None Remove="Images\Banner\StarRailWeaponBanner3.png" />
-    <None Remove="Images\Banner\StarRailWeaponBanner4.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
     <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
     <None Remove="Images\Baptism of Pure Thought.png" />
@@ -135,6 +131,7 @@
     <None Remove="Images\Koleda.png" />
     <None Remove="Images\Light of Foliar Incision.png" />
     <None Remove="Images\Lightning.png" />
+    <None Remove="Images\Lingsha.png" />
     <None Remove="Images\Lost Prayer to the Sacred Winds.png" />
     <None Remove="Images\Lumidouce Elegy.png" />
     <None Remove="Images\Luocha.png" />
@@ -174,6 +171,7 @@
     <None Remove="Images\Robin.png" />
     <None Remove="Images\Ruan Mei.png" />
     <None Remove="Images\Sailing Towards A Second Life.png" />
+    <None Remove="Images\Scent Alone Stays True.png" />
     <None Remove="Images\Seele.png" />
     <None Remove="Images\Sharpened Stinger.png" />
     <None Remove="Images\She Already Shut Her Eyes.png" />
