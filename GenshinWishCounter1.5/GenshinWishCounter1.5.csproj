@@ -153,6 +153,7 @@
     <None Remove="Images\On the Fall of an Aeon.png" />
     <None Remove="Images\Past Self in Mirror.png" />
     <None Remove="Images\Patience Is All You Need.png" />
+    <None Remove="Images\Peak Patrol Song.png" />
     <None Remove="Images\Physical.png" />
     <None Remove="Images\Polar Star.png" />
     <None Remove="Images\polearm.png" />
@@ -225,6 +226,7 @@
     <None Remove="Images\Wriothesley.png" />
     <None Remove="Images\Xianyun.png" />
     <None Remove="Images\Xiao.png" />
+    <None Remove="Images\Xilonen.png" />
     <None Remove="Images\Yae Miko.png" />
     <None Remove="Images\Yanqing.png" />
     <None Remove="Images\Yelan.png" />
