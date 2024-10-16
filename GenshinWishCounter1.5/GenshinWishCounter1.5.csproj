@@ -51,6 +51,7 @@
     <None Remove="Images\bow.png" />
     <None Remove="Images\Brighter Than the Sun.png" />
     <None Remove="Images\Bronya.png" />
+    <None Remove="Images\Burnice.png" />
     <None Remove="Images\But the Battle Isn%27t Over.png" />
     <None Remove="Images\Caesar King.png" />
     <None Remove="Images\Calamity Queller.png" />
@@ -86,6 +87,7 @@
     <None Remove="Images\Feixiao.png" />
     <None Remove="Images\Fire.png" />
     <None Remove="Images\Firefly.png" />
+    <None Remove="Images\Flamemaker Shaker.png" />
     <None Remove="Images\Flowing Nightglow.png" />
     <None Remove="Images\Freedom-Sworn.png" />
     <None Remove="Images\Fu Xuan.png" />
