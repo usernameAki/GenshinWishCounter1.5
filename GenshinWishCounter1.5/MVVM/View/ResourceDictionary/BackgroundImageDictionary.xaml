@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!-- Storyboard for SlideShow -->
+    <Storyboard x:Key="SlideShowStoryboard" RepeatBehavior="Forever">
+        <!-- Image1 animation -->
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="Image1">
+            <LinearDoubleKeyFrame KeyTime="0:0:10" Value="0" />
+            <LinearDoubleKeyFrame KeyTime="0:0:11" Value="-400" />
+        </DoubleAnimationUsingKeyFrames>
+
+        <!-- Image2 animation -->
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="Image2">
+            <LinearDoubleKeyFrame KeyTime="0:0:10" Value="400" />
+            <LinearDoubleKeyFrame KeyTime="0:0:11" Value="0" />
+            <LinearDoubleKeyFrame KeyTime="0:0:21" Value="0" />
+            <LinearDoubleKeyFrame KeyTime="0:0:22" Value="-400" />
+        </DoubleAnimationUsingKeyFrames>
+
+        <!-- Image3 animation -->
+        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="Image3">
+            <LinearDoubleKeyFrame KeyTime="0:0:21" Value="400" />
+            <LinearDoubleKeyFrame KeyTime="0:0:22" Value="0" />
+        </DoubleAnimationUsingKeyFrames>
+    </Storyboard>
+
+    <!-- Style for Image elements -->
+    <Style x:Key="SlideShowImageStyle" TargetType="Image">
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Height" Value="225"/>
+    </Style>
+</ResourceDictionary>

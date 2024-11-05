@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="GenshinWishCounter1._5.MVVM.View.AddFiveStarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GenshinWishCounter1._5.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="1" Grid.Row="1" CornerRadius="10 10 0 0" Width="270">
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </Border.Background>
+            <Label Content="Choose character:"  HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontWeight="Bold" FontSize="30"/>
+        </Border>
+        
+        
+        <!--Character Buttons-->
+        <Border Grid.Column="1" Grid.Row="2" CornerRadius="10">
+            <Border.Background>
+                <SolidColorBrush Color="White" Opacity="0.75"/>
+            </Border.Background>
+            <ScrollViewer Padding="0 10 0 10">
+                <ItemsControl ItemsSource="{Binding FiveStarButtons}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </ScrollViewer>
+
+        </Border>
+    </Grid>
+</UserControl>

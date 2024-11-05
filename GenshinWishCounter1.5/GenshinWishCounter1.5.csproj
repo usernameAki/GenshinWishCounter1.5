@@ -1,0 +1,292 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+	<AssemblyName>GenshinWishCounter1_5</AssemblyName>
+    <RootNamespace>GenshinWishCounter1_5</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>GenshinWishCounter1.5.ico</ApplicationIcon>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\A Thousand Floating Dreams.png" />
+    <None Remove="Images\Absolution.png" />
+    <None Remove="Images\Abundance.png" />
+    <None Remove="Images\Acheron.png" />
+    <None Remove="Images\Albedo.png" />
+    <None Remove="Images\Alhaitham.png" />
+    <None Remove="Images\Along the Passing Shore.png" />
+    <None Remove="Images\Aloy.png" />
+    <None Remove="Images\Amos%27 Bow.png" />
+    <None Remove="Images\An Instant Before A Gaze.png" />
+    <None Remove="Images\anemo.png" />
+    <None Remove="Images\Aqua Simulacra.png" />
+    <None Remove="Images\Aquila Favonia.png" />
+    <None Remove="Images\Arataki Itto.png" />
+    <None Remove="Images\Argenti.png" />
+    <None Remove="Images\Arlecchino.png" />
+    <None Remove="Images\Aventurine.png" />
+    <None Remove="Images\Ayaka.png" />
+    <None Remove="Images\Ayato.png" />
+    <None Remove="Images\Bailu.png" />
+    <None Remove="Images\Baizhu.png" />
+    <None Remove="Images\Banner\GenshinCharacterBanner1.png" />
+    <None Remove="Images\Banner\GenshinCharacterBanner2.png" />
+    <None Remove="Images\Banner\GenshinWeaponBanner1.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner1.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
+    <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
+    <None Remove="Images\Banner\StarRailWeaponBanner2.png" />
+    <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
+    <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
+    <None Remove="Images\Baptism of Pure Thought.png" />
+    <None Remove="Images\bcg.png" />
+    <None Remove="Images\Beacon of the Reed Sea.png" />
+    <None Remove="Images\Before Dawn.png" />
+    <None Remove="Images\Black Swan.png" />
+    <None Remove="Images\Blade.png" />
+    <None Remove="Images\Boothill.png" />
+    <None Remove="Images\bow.png" />
+    <None Remove="Images\Brighter Than the Sun.png" />
+    <None Remove="Images\Bronya.png" />
+    <None Remove="Images\Burnice.png" />
+    <None Remove="Images\But the Battle Isn%27t Over.png" />
+    <None Remove="Images\Caesar King.png" />
+    <None Remove="Images\Calamity Queller.png" />
+    <None Remove="Images\Cashflow Supervision.png" />
+    <None Remove="Images\catalyst.png" />
+    <None Remove="Images\Chiori.png" />
+    <None Remove="Images\Clara.png" />
+    <None Remove="Images\claymore.png" />
+    <None Remove="Images\Clorinde.png" />
+    <None Remove="Images\Crane%27s Echoing Call.png" />
+    <None Remove="Images\Crimson Moon%27s Semblance.png" />
+    <None Remove="Images\Cruising in the Stellar Sea.png" />
+    <None Remove="Images\cryo.png" />
+    <None Remove="Images\Cyno.png" />
+    <None Remove="Images\Dance at Sunset.png" />
+    <None Remove="Images\Deep Sea Visitor.png" />
+    <None Remove="Images\Dehya.png" />
+    <None Remove="Images\dendro.png" />
+    <None Remove="Images\Destruction.png" />
+    <None Remove="Images\Diluc.png" />
+    <None Remove="Images\Dr Ratio.png" />
+    <None Remove="Images\Earthly Escapade.png" />
+    <None Remove="Images\Echoes of the Coffin.png" />
+    <None Remove="Images\electro.png" />
+    <None Remove="Images\Elegy for the End.png" />
+    <None Remove="Images\Ellen.png" />
+    <None Remove="Images\Emilie.png" />
+    <None Remove="Images\Engulfing Lightning.png" />
+    <None Remove="Images\Erudition.png" />
+    <None Remove="Images\Eula.png" />
+    <None Remove="Images\Everlasting Moonglow.png" />
+    <None Remove="Images\Fang of the Mountain King.png" />
+    <None Remove="Images\Feixiao.png" />
+    <None Remove="Images\Fire.png" />
+    <None Remove="Images\Firefly.png" />
+    <None Remove="Images\Flamemaker Shaker.png" />
+    <None Remove="Images\Flowing Nightglow.png" />
+    <None Remove="Images\Freedom-Sworn.png" />
+    <None Remove="Images\Fu Xuan.png" />
+    <None Remove="Images\Furina.png" />
+    <None Remove="Images\Fusion Compiler.png" />
+    <None Remove="Images\Ganyu.png" />
+    <None Remove="Images\geo.png" />
+    <None Remove="Images\Gepard.png" />
+    <None Remove="Images\Grace.png" />
+    <None Remove="Images\Haran Geppaku Futsu.png" />
+    <None Remove="Images\Harmony.png" />
+    <None Remove="Images\Hellfire Gears.png" />
+    <None Remove="Images\Himeko.png" />
+    <None Remove="Images\Hu Tao.png" />
+    <None Remove="Images\Hunt.png" />
+    <None Remove="Images\Hunter%27s Path.png" />
+    <None Remove="Images\Huohuo.png" />
+    <None Remove="Images\hydro.png" />
+    <None Remove="Images\I Shall Be My Own Sword.png" />
+    <None Remove="Images\I Venture Forth to Hunt.png" />
+    <None Remove="Images\Ice-Jade Teapot.png" />
+    <None Remove="Images\Ice.png" />
+    <None Remove="Images\Imaginary.png" />
+    <None Remove="Images\Imbibitor Lunae.png" />
+    <None Remove="Images\In the Name of the World.png" />
+    <None Remove="Images\In the Night.png" />
+    <None Remove="Images\Incessant Rain.png" />
+    <None Remove="Images\Inherently Unjust Destiny.png" />
+    <None Remove="Images\Jade.png" />
+    <None Remove="Images\Jadefall%27s Splendor.png" />
+    <None Remove="Images\Jane.png" />
+    <None Remove="Images\Jean.png" />
+    <None Remove="Images\Jing Yuan.png" />
+    <None Remove="Images\Jingliu.png" />
+    <None Remove="Images\Kafka.png" />
+    <None Remove="Images\Kagura%27s Verity.png" />
+    <None Remove="Images\Kazuha.png" />
+    <None Remove="Images\Keqing.png" />
+    <None Remove="Images\Key of Khaj-Nisut.png" />
+    <None Remove="Images\Kinich.png" />
+    <None Remove="Images\Klee.png" />
+    <None Remove="Images\Kokomi.png" />
+    <None Remove="Images\Koleda.png" />
+    <None Remove="Images\Light of Foliar Incision.png" />
+    <None Remove="Images\Lightning.png" />
+    <None Remove="Images\Lingsha.png" />
+    <None Remove="Images\Lost Prayer to the Sacred Winds.png" />
+    <None Remove="Images\Lumidouce Elegy.png" />
+    <None Remove="Images\Luocha.png" />
+    <None Remove="Images\Lycaon.png" />
+    <None Remove="Images\Lyney.png" />
+    <None Remove="Images\Memory of Dust.png" />
+    <None Remove="Images\Mistsplitter Reforged.png" />
+    <None Remove="Images\Moment of Victory.png" />
+    <None Remove="Images\Mona.png" />
+    <None Remove="Images\Mualani.png" />
+    <None Remove="Images\Nahida.png" />
+    <None Remove="Images\Navia.png" />
+    <None Remove="Images\Nekomata.png" />
+    <None Remove="Images\Neuvillette.png" />
+    <None Remove="Images\Night of Fright.png" />
+    <None Remove="Images\Night on the Milky Way.png" />
+    <None Remove="Images\Nihility.png" />
+    <None Remove="Images\Nilou.png" />
+    <None Remove="Images\Ninjutsu Inscription Dazzling Evilbreaker.png" />
+    <None Remove="Images\On the Fall of an Aeon.png" />
+    <None Remove="Images\Past Self in Mirror.png" />
+    <None Remove="Images\Patience Is All You Need.png" />
+    <None Remove="Images\Peak Patrol Song.png" />
+    <None Remove="Images\Physical.png" />
+    <None Remove="Images\Polar Star.png" />
+    <None Remove="Images\polearm.png" />
+    <None Remove="Images\Preservation.png" />
+    <None Remove="Images\Primordial Jade Cutter.png" />
+    <None Remove="Images\Primordial Jade Winged-Spear.png" />
+    <None Remove="Images\pyro.png" />
+    <None Remove="Images\Qingyi.png" />
+    <None Remove="Images\Qiqi.png" />
+    <None Remove="Images\Quantum.png" />
+    <None Remove="Images\Raiden Shogun.png" />
+    <None Remove="Images\Rappa.png" />
+    <None Remove="Images\Redhorn Stonethresher.png" />
+    <None Remove="Images\Reforged Remembrance.png" />
+    <None Remove="Images\Rina.png" />
+    <None Remove="Images\Riot Suppressor Mark VI.png" />
+    <None Remove="Images\Robin.png" />
+    <None Remove="Images\Ruan Mei.png" />
+    <None Remove="Images\Sailing Towards A Second Life.png" />
+    <None Remove="Images\Scent Alone Stays True.png" />
+    <None Remove="Images\Seele.png" />
+    <None Remove="Images\Sharpened Stinger.png" />
+    <None Remove="Images\She Already Shut Her Eyes.png" />
+    <None Remove="Images\Shenhe.png" />
+    <None Remove="Images\Sigewinne.png" />
+    <None Remove="Images\Silver Wolf.png" />
+    <None Remove="Images\Silvershower Heartstrings.png" />
+    <None Remove="Images\Skyward Atlas.png" />
+    <None Remove="Images\Skyward Blade.png" />
+    <None Remove="Images\Skyward Harp.png" />
+    <None Remove="Images\Skyward Pride.png" />
+    <None Remove="Images\Skyward Spine.png" />
+    <None Remove="Images\Sleep Like the Dead.png" />
+    <None Remove="Images\Soldier 11.png" />
+    <None Remove="Images\Solitary Healing.png" />
+    <None Remove="Images\Something Irreplaceable.png" />
+    <None Remove="Images\Song of Broken Pines.png" />
+    <None Remove="Images\Sparkle.png" />
+    <None Remove="Images\Splendor of Tranquil Waters.png" />
+    <None Remove="Images\Staff of Homa.png" />
+    <None Remove="Images\Staff of the Scarlet Sands.png" />
+    <None Remove="Images\Steel Cushion.png" />
+    <None Remove="Images\Summit Shaper.png" />
+    <None Remove="Images\Surf%27s Up.png" />
+    <None Remove="Images\sword.png" />
+    <None Remove="Images\Tartaglia.png" />
+    <None Remove="Images\Texture of Memories.png" />
+    <None Remove="Images\The Brimstone.png" />
+    <None Remove="Images\The First Great Magic.png" />
+    <None Remove="Images\The Restrained.png" />
+    <None Remove="Images\The Unforged.png" />
+    <None Remove="Images\The Unreachable Side.png" />
+    <None Remove="Images\Thundering Pulse.png" />
+    <None Remove="Images\Tighnari.png" />
+    <None Remove="Images\Time Waits for No One.png" />
+    <None Remove="Images\Timeweaver.png" />
+    <None Remove="Images\Tome of the Eternal Flow.png" />
+    <None Remove="Images\Topaz.png" />
+    <None Remove="Images\Tulaytullah%27s Remembrance.png" />
+    <None Remove="Images\Tusks of Fury.png" />
+    <None Remove="Images\Uraku Misugiri.png" />
+    <None Remove="Images\Venti.png" />
+    <None Remove="Images\Verdict.png" />
+    <None Remove="Images\Vortex Vanquisher.png" />
+    <None Remove="Images\Wanderer.png" />
+    <None Remove="Images\Weeping Cradle.png" />
+    <None Remove="Images\Welt.png" />
+    <None Remove="Images\Whereabouts Should Dreams Rest.png" />
+    <None Remove="Images\Wind.png" />
+    <None Remove="Images\Wolf%27s Gravestone.png" />
+    <None Remove="Images\Worrisome, Blissful.png" />
+    <None Remove="Images\Wriothesley.png" />
+    <None Remove="Images\Xianyun.png" />
+    <None Remove="Images\Xiao.png" />
+    <None Remove="Images\Xilonen.png" />
+    <None Remove="Images\Yae Miko.png" />
+    <None Remove="Images\Yanagi.png" />
+    <None Remove="Images\Yanqing.png" />
+    <None Remove="Images\Yelan.png" />
+    <None Remove="Images\Yet Hope Is Priceless.png" />
+    <None Remove="Images\Yoimiya.png" />
+    <None Remove="Images\Yunli.png" />
+    <None Remove="Images\Zhongli.png" />
+    <None Remove="Images\Zhu Yuan.png" />
+    <None Remove="Images\ZzzAnomaly.png" />
+    <None Remove="Images\ZzzAttack.png" />
+    <None Remove="Images\ZzzDefense.png" />
+    <None Remove="Images\ZzzElectric.png" />
+    <None Remove="Images\ZzzEther.png" />
+    <None Remove="Images\ZzzFire.png" />
+    <None Remove="Images\ZzzIce.png" />
+    <None Remove="Images\ZzzPhysical.png" />
+    <None Remove="Images\ZzzStun.png" />
+    <None Remove="Images\ZzzSupport.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Resource Include="Images\**\*.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Update="Images\Banner\GenshinCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\GenshinCharacterBanner2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\GenshinWeaponBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\StarRailCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\StarRailCharacterBanner2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\ZzzCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\ZzzWeaponBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
