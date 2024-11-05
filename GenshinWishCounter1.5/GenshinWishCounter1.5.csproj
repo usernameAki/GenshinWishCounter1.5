@@ -3,7 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <RootNamespace>GenshinWishCounter1._5</RootNamespace>
+	<AssemblyName>GenshinWishCounter1_5</AssemblyName>
+    <RootNamespace>GenshinWishCounter1_5</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>GenshinWishCounter1.5.ico</ApplicationIcon>
@@ -212,6 +213,7 @@
     <None Remove="Images\Thundering Pulse.png" />
     <None Remove="Images\Tighnari.png" />
     <None Remove="Images\Time Waits for No One.png" />
+    <None Remove="Images\Timeweaver.png" />
     <None Remove="Images\Tome of the Eternal Flow.png" />
     <None Remove="Images\Topaz.png" />
     <None Remove="Images\Tulaytullah%27s Remembrance.png" />
@@ -232,6 +234,7 @@
     <None Remove="Images\Xiao.png" />
     <None Remove="Images\Xilonen.png" />
     <None Remove="Images\Yae Miko.png" />
+    <None Remove="Images\Yanagi.png" />
     <None Remove="Images\Yanqing.png" />
     <None Remove="Images\Yelan.png" />
     <None Remove="Images\Yet Hope Is Priceless.png" />
@@ -252,14 +255,38 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <Content Include="Images\**\*.png">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
+	  <Resource Include="Images\**\*.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Update="Images\Banner\GenshinCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\GenshinCharacterBanner2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\GenshinWeaponBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\StarRailCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\StarRailCharacterBanner2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\ZzzCharacterBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Update="Images\Banner\ZzzWeaponBanner1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

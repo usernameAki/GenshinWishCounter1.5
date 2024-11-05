@@ -92,8 +92,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             fiveStarModelList = _databaseService.GetFiveStarList(_settingService.banner);
             FiveStarButtons = new ObservableCollection<Button>();
             int ID = 0;
-            Style fiveStarButtonStyle = Application.Current.FindResource("FiveStarButtonStyle") as Style;
-            Style fiveStarImageStyle = Application.Current.FindResource("FiveStarImageStyle") as Style;
+            Style? fiveStarButtonStyle = Application.Current.FindResource("FiveStarButtonStyle") as Style;
+            Style? fiveStarImageStyle = Application.Current.FindResource("FiveStarImageStyle") as Style;
             Binding addFiveStarCommandBinding = new Binding("AddFiveStarCommand");
             Binding buttonVisibility = new Binding("StandardFiveStarVisibility");
 

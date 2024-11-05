@@ -150,7 +150,8 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 Image image = new Image();
                 image.Width = 400;
                 image.Height = 225;
-                image.Source = new BitmapImage(new Uri(BackgroundImage.GetBackgroundImage(_settingService.banner, i == bannerCount ? 1 : i+1), UriKind.Relative));
+                string uri = "pack://application:,,,/GenshinWishCounter1_5;component" + BackgroundImage.GetBackgroundImage(_settingService.banner, i == bannerCount ? 1 : i + 1);
+                image.Source = new BitmapImage(new Uri(uri, UriKind.Absolute));
                 canvas.Add(image);
 
                 Canvas.SetLeft(image, i > 0 ? 400 : 0);
