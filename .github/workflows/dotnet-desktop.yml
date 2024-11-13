@@ -14,8 +14,7 @@ jobs:
       matrix:
         configuration: [Debug, Release]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: windows-latest
 
     env:
       Solution_Name: GenshinWishCounter1.5.sln
@@ -26,6 +25,12 @@ jobs:
       with:
         fetch-depth: 0
 
+    # Czyszczenie cache i artefaktów przed buildem
+    - name: Clean cache and artifacts before build
+      run: |
+        echo "Cleaning previous build artifacts and cache..."
+        if (Test-Path "${{ github.workspace }}\bin") { Remove-Item -Recurse -Force "${{ github.workspace }}\bin" }
+        if (Test-Path "${{ github.workspace }}\obj") { Remove-Item -Recurse -Force "${{ github.workspace }}\obj" }
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
       with:
@@ -48,7 +53,13 @@ jobs:
       run: |
         echo "Listing contents of workspace after build:"
         Get-ChildItem -Recurse ${{ github.workspace }}
-
+    # Czyszczenie starych ZIP-ów przed kompresją
+    - name: Clean old ZIP files
+      if: matrix.configuration == 'Release'
+      run: |
+        echo "Cleaning old ZIP files..."
+        $oldZip = "${{ github.workspace }}\Genshin Wish Counter*.zip"
+        if (Test-Path $oldZip) { Remove-Item -Force $oldZip }
     - name: Compress to ZIP
       if: matrix.configuration == 'Release'
       run: |
@@ -56,20 +67,17 @@ jobs:
         $outputPath = "${{ github.workspace }}\$customName"
         $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
         Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
-
     - name: Configure Git
       if: matrix.configuration == 'Release'
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
     - name: Commit ZIP file
       if: matrix.configuration == 'Release'
       run: |
         $customName = "Genshin Wish Counter$env:Configuration.zip"
         git add $customName
-        git commit -m "Add ${matrix.configuration} build ZIP [skip ci]"
-
+        git commit -m "Add ${matrix.configuration} genshin Wish Counter"
     - name: Pull and Push with Retry
       if: matrix.configuration == 'Release'
       shell: pwsh
