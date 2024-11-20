@@ -28,15 +28,12 @@ jobs:
       - name: Restore dependencies
         run: msbuild GenshinWishCounter1.5.sln /t:Restore /p:Configuration=Release
 
-      # Build aplikacji
+      # Build aplikacji z debugowaniem ścieżki
       - name: Build solution
-        run: msbuild GenshinWishCounter1.5.sln /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/build_output
-
-      # Listowanie zawartości po buildzie
-      - name: List workspace after build
         run: |
-          echo "Listing all files and folders in the workspace:"
-          Get-ChildItem -Path ${{ github.workspace }} -Recurse
+          msbuild GenshinWishCounter1.5.sln /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/build_output
+          echo "Listing build_output contents:"
+          Get-ChildItem -Path "${{ github.workspace }}/build_output" -Recurse
         shell: pwsh
 
       # Tworzenie pliku ZIP
