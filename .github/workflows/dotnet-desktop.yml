@@ -32,7 +32,7 @@ jobs:
 
       # Build aplikacji
       - name: Build solution
-        run: msbuild GenshinWishCounter1.5.sln /p:Configuration=Release
+        run: msbuild GenshinWishCounter1.5.sln /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/build_output
 
       # Listowanie zawartości po buildzie
       - name: List workspace after build
@@ -52,7 +52,7 @@ jobs:
       - name: Create ZIP file
         run: |
           $outputPath = "${{ github.workspace }}\releases\GenshinWishCounter_Release.zip"
-          $inputPath = "${{ github.workspace }}\bin\Release\*"
+          $inputPath = "${{ github.workspace }}\build_output\*"
           if (Test-Path $inputPath) {
             Compress-Archive -Path $inputPath -DestinationPath $outputPath
           } else {
