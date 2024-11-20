@@ -10,6 +10,7 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write
+      packages: write
 
     steps:
       # Checkout kodu
@@ -30,7 +31,7 @@ jobs:
       - name: Restore dependencies
         run: msbuild GenshinWishCounter1.5.sln /t:Restore /p:Configuration=Release
 
-      # Build aplikacji z debugowaniem ścieżki
+      # Build aplikacji
       - name: Build solution
         run: |
           msbuild GenshinWishCounter1.5.sln /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/build_output
@@ -63,7 +64,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
 
       # Dodanie pliku ZIP do wydania
       - name: Upload Release Asset
