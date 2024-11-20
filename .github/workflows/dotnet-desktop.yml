@@ -1,4 +1,4 @@
-name: .NET Core Desktop - Release
+name: .NET Core Desktop - Release Commit
 
 on:
   push:
@@ -6,13 +6,15 @@ on:
       - master
 
 jobs:
-  build-and-release:
+  build-and-commit:
     runs-on: windows-latest
 
     steps:
       # Checkout kodu
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Pobierz całą historię repozytorium
 
       # Zainstalowanie .NET
       - name: Setup .NET
@@ -20,26 +22,51 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      # Instalacja MSBuild
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      # Restore dependencies
+      - name: Restore dependencies
+        run: msbuild GenshinWishCounter1.5.sln /t:Restore /p:Configuration=Release
+
       # Build aplikacji
       - name: Build solution
-        run: dotnet build GenshinWishCounter1.5.sln --configuration Release
+        run: msbuild GenshinWishCounter1.5.sln /p:Configuration=Release
+
+      # Listowanie zawartości po buildzie
+      - name: List workspace after build
+        run: |
+          echo "Listing all files and folders in the workspace:"
+          Get-ChildItem -Path ${{ github.workspace }} -Recurse
+        shell: pwsh
+
+      # Tworzenie katalogu na release
+      - name: Prepare release directory
+        run: |
+          $releaseDir = "${{ github.workspace }}\releases"
+          if (-Not (Test-Path $releaseDir)) { New-Item -ItemType Directory -Path $releaseDir }
+        shell: pwsh
 
       # Tworzenie pliku ZIP
       - name: Create ZIP file
         run: |
-          $outputPath = "${{ github.workspace }}\GenshinWishCounter_Release.zip"
-          Compress-Archive -Path "${{ github.workspace }}\bin\Release\*" -DestinationPath $outputPath
+          $outputPath = "${{ github.workspace }}\releases\GenshinWishCounter_Release.zip"
+          $inputPath = "${{ github.workspace }}\bin\Release\*"
+          if (Test-Path $inputPath) {
+            Compress-Archive -Path $inputPath -DestinationPath $outputPath
+          } else {
+            Write-Error "Input path does not exist: $inputPath"
+          }
         shell: pwsh
 
-      # Utworzenie nowego release i upload ZIP
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: "Release v1.0.${{ github.run_number }}"
-          body: "Automatyczny release z plikiem aplikacji"
-          draft: false
-          prerelease: false
-          files: ${{ github.workspace }}\GenshinWishCounter_Release.zip
+      # Commit i push pliku release
+      - name: Commit Release ZIP
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add releases/GenshinWishCounter_Release.zip
+          git commit -m "Dodano plik release GenshinWishCounter_Release.zip"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
