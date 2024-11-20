@@ -1,4 +1,4 @@
-name: .NET Core Desktop - Release Commit
+name: .NET Core Desktop - Release to GitHub
 
 on:
   push:
@@ -6,15 +6,13 @@ on:
       - master
 
 jobs:
-  build-and-commit:
+  build-and-release:
     runs-on: windows-latest
 
     steps:
       # Checkout kodu
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Pobierz całą historię repozytorium
 
       # Zainstalowanie .NET
       - name: Setup .NET
@@ -41,17 +39,10 @@ jobs:
           Get-ChildItem -Path ${{ github.workspace }} -Recurse
         shell: pwsh
 
-      # Tworzenie katalogu na release
-      - name: Prepare release directory
-        run: |
-          $releaseDir = "${{ github.workspace }}\releases"
-          if (-Not (Test-Path $releaseDir)) { New-Item -ItemType Directory -Path $releaseDir }
-        shell: pwsh
-
       # Tworzenie pliku ZIP
       - name: Create ZIP file
         run: |
-          $outputPath = "${{ github.workspace }}\releases\GenshinWishCounter_Release.zip"
+          $outputPath = "${{ github.workspace }}\GenshinWishCounter_Release.zip"
           $inputPath = "${{ github.workspace }}\build_output\*"
           if (Test-Path $inputPath) {
             Compress-Archive -Path $inputPath -DestinationPath $outputPath
@@ -60,13 +51,25 @@ jobs:
           }
         shell: pwsh
 
-      # Commit i push pliku release
-      - name: Commit Release ZIP
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add releases/GenshinWishCounter_Release.zip
-          git commit -m "Dodano plik release GenshinWishCounter_Release.zip"
-          git push
+      # Tworzenie GitHub Release
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: "Release v1.0.${{ github.run_number }}"
+          body: |
+            Automatyczne wydanie dla aplikacji Genshin Wish Counter.
+            Plik zawiera build w konfiguracji Release.
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Dodanie pliku ZIP do wydania
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}/GenshinWishCounter_Release.zip
+          asset_name: GenshinWishCounter_Release.zip
+          asset_content_type: application/zip
