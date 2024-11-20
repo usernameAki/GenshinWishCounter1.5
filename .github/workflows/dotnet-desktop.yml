@@ -64,7 +64,7 @@ jobs:
           draft: false
           prerelease: false
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
       # Dodanie pliku ZIP do wydania
       - name: Upload Release Asset
