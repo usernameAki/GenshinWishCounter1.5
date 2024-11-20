@@ -1,106 +1,45 @@
-name: .NET Core Desktop
+name: .NET Core Desktop - Release
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
-
-  build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
+  build-and-release:
     runs-on: windows-latest
 
-    env:
-      Solution_Name: GenshinWishCounter1.5.sln
-
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      # Checkout kodu
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    # Czyszczenie cache i artefaktów przed buildem
-    - name: Clean cache and artifacts before build
-      run: |
-        echo "Cleaning previous build artifacts and cache..."
-        if (Test-Path "${{ github.workspace }}\bin") { Remove-Item -Recurse -Force "${{ github.workspace }}\bin" }
-        if (Test-Path "${{ github.workspace }}\obj") { Remove-Item -Recurse -Force "${{ github.workspace }}\obj" }
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      # Zainstalowanie .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
 
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v2
+      # Build aplikacji
+      - name: Build solution
+        run: dotnet build GenshinWishCounter1.5.sln --configuration Release
 
-    - name: Restore the application
-      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=${{ matrix.configuration }}
-      env:
-        Configuration: ${{ matrix.configuration }}
+      # Tworzenie pliku ZIP
+      - name: Create ZIP file
+        run: |
+          $outputPath = "${{ github.workspace }}\GenshinWishCounter_Release.zip"
+          Compress-Archive -Path "${{ github.workspace }}\bin\Release\*" -DestinationPath $outputPath
+        shell: pwsh
 
-    - name: Build the application
-      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }} /p:OutputPath=${{ github.workspace }}/bin/${{ matrix.configuration }}
-      env:
-        Configuration: ${{ matrix.configuration }}
-
-    - name: List workspace after build
-      run: |
-        echo "Listing contents of workspace after build:"
-        Get-ChildItem -Recurse ${{ github.workspace }}
-    # Czyszczenie starych ZIP-ów przed kompresją
-    - name: Clean old ZIP files
-      if: matrix.configuration == 'Release'
-      run: |
-        echo "Cleaning old ZIP files..."
-        $oldZip = "${{ github.workspace }}\Genshin Wish Counter*.zip"
-        if (Test-Path $oldZip) { Remove-Item -Force $oldZip }
-    - name: Compress to ZIP
-      if: matrix.configuration == 'Release'
-      run: |
-        $customName = "Genshin Wish Counter$env:Configuration.zip"
-        $outputPath = "${{ github.workspace }}\$customName"
-        $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
-        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
-    - name: Configure Git
-      if: matrix.configuration == 'Release'
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-    - name: Commit ZIP file
-      if: matrix.configuration == 'Release'
-      run: |
-        $customName = "Genshin Wish Counter$env:Configuration.zip"
-        git add $customName
-        git commit -m "Add ${matrix.configuration} genshin Wish Counter"
-    - name: Pull and Push with Retry
-      if: matrix.configuration == 'Release'
-      shell: pwsh
-      run: |
-        $retry_count = 0
-        $max_retries = 5
-        $delay = 15
-        $customName = "Genshin Wish Counter $env:Configuration.zip"
-        while ($retry_count -lt $max_retries) {
-          try {
-            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-            git pull --no-rebase
-            git push --force
-            break
-          } catch {
-            $retry_count++
-            Write-Output "Retry $retry_count/$max_retries..."
-            Start-Sleep -Seconds $delay
-          }
-        }
-        if ($retry_count -eq $max_retries) {
-          Write-Output "Failed to push after $max_retries attempts."
-          exit 1
-        }
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Utworzenie nowego release i upload ZIP
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          release_name: "Release v1.0.${{ github.run_number }}"
+          body: "Automatyczny release z plikiem aplikacji"
+          draft: false
+          prerelease: false
+          files: ${{ github.workspace }}\GenshinWishCounter_Release.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
