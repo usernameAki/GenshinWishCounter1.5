@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-release:
     runs-on: windows-latest
+    permissions:
+      contents: write
 
     steps:
       # Checkout kodu
@@ -50,7 +52,7 @@ jobs:
 
       # Tworzenie GitHub Release
       - name: Create GitHub Release
-        id: create_release  # ID kroku, potrzebne do pobrania upload_url
+        id: create_release
         uses: actions/create-release@v1
         with:
           tag_name: v1.0.${{ github.run_number }}
