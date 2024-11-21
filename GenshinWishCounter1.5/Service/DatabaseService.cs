@@ -21,6 +21,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Ayaka", Type = CategoryStrings.Cryo, IsStandard =  false },
             new FiveStarModel{ Name = "Ayato", Type = CategoryStrings.Hydro, IsStandard =  false },
             new FiveStarModel{ Name = "Baizhu", Type = CategoryStrings.Dendro, IsStandard =  false },
+            new FiveStarModel{ Name = "Chasca", Type = CategoryStrings.Anemo, IsStandard =  false },
             new FiveStarModel{ Name = "Chiori", Type = CategoryStrings.Geo, IsStandard =  false },
             new FiveStarModel{ Name = "Clorinde", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Cyno", Type = CategoryStrings.Electro, IsStandard = false },
@@ -64,6 +65,7 @@ namespace GenshinWishCounter1._5.Service
             };
         private List<FiveStarModel> GenshinWeaponList = new List<FiveStarModel>()
         {
+            new FiveStarModel{ Name = "Astral Vulture's Crimson Plumage", Type = CategoryStrings.Bow, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Floating Dreams", Type = CategoryStrings.Catalyst, IsStandard = false},
             new FiveStarModel { Name = "Absolution", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "Amos' Bow", Type = CategoryStrings.Bow, IsStandard = true },

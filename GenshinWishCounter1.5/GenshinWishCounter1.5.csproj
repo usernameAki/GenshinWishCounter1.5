@@ -28,6 +28,7 @@
     <None Remove="Images\Arataki Itto.png" />
     <None Remove="Images\Argenti.png" />
     <None Remove="Images\Arlecchino.png" />
+    <None Remove="Images\Astral Vulture%27s Crimson Plumage.png" />
     <None Remove="Images\Aventurine.png" />
     <None Remove="Images\Ayaka.png" />
     <None Remove="Images\Ayato.png" />
@@ -58,6 +59,7 @@
     <None Remove="Images\Calamity Queller.png" />
     <None Remove="Images\Cashflow Supervision.png" />
     <None Remove="Images\catalyst.png" />
+    <None Remove="Images\Chasca.png" />
     <None Remove="Images\Chiori.png" />
     <None Remove="Images\Clara.png" />
     <None Remove="Images\claymore.png" />
