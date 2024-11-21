@@ -1,78 +1,106 @@
-name: .NET Core Desktop - Release to GitHub
+name: .NET Core Desktop
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
-  build-and-release:
+
+  build:
+
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
     runs-on: windows-latest
-    permissions:
-      contents: write
-      packages: write
+
+    env:
+      Solution_Name: GenshinWishCounter1.5.sln
 
     steps:
-      # Checkout kodu
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-      # Zainstalowanie .NET
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
+    # Czyszczenie cache i artefaktów przed buildem
+    - name: Clean cache and artifacts before build
+      run: |
+        echo "Cleaning previous build artifacts and cache..."
+        if (Test-Path "${{ github.workspace }}\bin") { Remove-Item -Recurse -Force "${{ github.workspace }}\bin" }
+        if (Test-Path "${{ github.workspace }}\obj") { Remove-Item -Recurse -Force "${{ github.workspace }}\obj" }
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
 
-      # Instalacja MSBuild
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
 
-      # Restore dependencies
-      - name: Restore dependencies
-        run: msbuild GenshinWishCounter1.5.sln /t:Restore /p:Configuration=Release
+    - name: Restore the application
+      run: msbuild ${{ env.Solution_Name }} /t:Restore /p:Configuration=${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
 
-      # Build aplikacji
-      - name: Build solution
-        run: |
-          msbuild GenshinWishCounter1.5.sln /p:Configuration=Release /p:OutputPath=${{ github.workspace }}/build_output
-          echo "Listing build_output contents:"
-          Get-ChildItem -Path "${{ github.workspace }}/build_output" -Recurse
-        shell: pwsh
+    - name: Build the application
+      run: msbuild ${{ env.Solution_Name }} /p:Configuration=${{ matrix.configuration }} /p:OutputPath=${{ github.workspace }}/bin/${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
 
-      # Tworzenie pliku ZIP
-      - name: Create ZIP file
-        run: |
-          $outputPath = "${{ github.workspace }}\GenshinWishCounter_Release.zip"
-          $inputPath = "${{ github.workspace }}\build_output\*"
-          if (Test-Path $inputPath) {
-            Compress-Archive -Path $inputPath -DestinationPath $outputPath
-          } else {
-            Write-Error "Input path does not exist: $inputPath"
+    - name: List workspace after build
+      run: |
+        echo "Listing contents of workspace after build:"
+        Get-ChildItem -Recurse ${{ github.workspace }}
+    # Czyszczenie starych ZIP-ów przed kompresją
+    - name: Clean old ZIP files
+      if: matrix.configuration == 'Release'
+      run: |
+        echo "Cleaning old ZIP files..."
+        $oldZip = "${{ github.workspace }}\Genshin Wish Counter*.zip"
+        if (Test-Path $oldZip) { Remove-Item -Force $oldZip }
+    - name: Compress to ZIP
+      if: matrix.configuration == 'Release'
+      run: |
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
+        $outputPath = "${{ github.workspace }}\$customName"
+        $inputPath = "${{ github.workspace }}\bin\${{ matrix.configuration }}\*"
+        Compress-Archive -Path $inputPath -DestinationPath $outputPath -Update
+    - name: Configure Git
+      if: matrix.configuration == 'Release'
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: Commit ZIP file
+      if: matrix.configuration == 'Release'
+      run: |
+        $customName = "Genshin Wish Counter$env:Configuration.zip"
+        git add $customName
+        git commit -m "Add ${matrix.configuration} genshin Wish Counter"
+    - name: Pull and Push with Retry
+      if: matrix.configuration == 'Release'
+      shell: pwsh
+      run: |
+        $retry_count = 0
+        $max_retries = 5
+        $delay = 15
+        $customName = "Genshin Wish Counter $env:Configuration.zip"
+        while ($retry_count -lt $max_retries) {
+          try {
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+            git pull --no-rebase
+            git push --force
+            break
+          } catch {
+            $retry_count++
+            Write-Output "Retry $retry_count/$max_retries..."
+            Start-Sleep -Seconds $delay
           }
-        shell: pwsh
-
-      # Tworzenie GitHub Release
-      - name: Create GitHub Release
-        id: create_release
-        uses: actions/create-release@v1
-        with:
-          tag_name: v1.0.${{ github.run_number }}
-          release_name: "Release v1.0.${{ github.run_number }}"
-          body: |
-            Automatyczne wydanie dla aplikacji Genshin Wish Counter.
-            Plik zawiera build w konfiguracji Release.
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-
-      # Dodanie pliku ZIP do wydania
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/GenshinWishCounter_Release.zip
-          asset_name: GenshinWishCounter_Release.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        }
+        if ($retry_count -eq $max_retries) {
+          Write-Output "Failed to push after $max_retries attempts."
+          exit 1
+        }
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
