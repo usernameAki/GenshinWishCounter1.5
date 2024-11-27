@@ -285,9 +285,6 @@
     <Resource Update="Images\Banner\StarRailCharacterBanner2.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Update="Images\Banner\ZzzCharacterBanner1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Update="Images\Banner\ZzzWeaponBanner1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
