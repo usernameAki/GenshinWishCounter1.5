@@ -49,6 +49,7 @@
     <None Remove="Images\Before Dawn.png" />
     <None Remove="Images\Black Swan.png" />
     <None Remove="Images\Blade.png" />
+    <None Remove="Images\Blazing Laurel.png" />
     <None Remove="Images\Boothill.png" />
     <None Remove="Images\bow.png" />
     <None Remove="Images\Brighter Than the Sun.png" />
@@ -135,6 +136,7 @@
     <None Remove="Images\Kokomi.png" />
     <None Remove="Images\Koleda.png" />
     <None Remove="Images\Light of Foliar Incision.png" />
+    <None Remove="Images\Lighter.png" />
     <None Remove="Images\Lightning.png" />
     <None Remove="Images\Lingsha.png" />
     <None Remove="Images\Lost Prayer to the Sacred Winds.png" />
