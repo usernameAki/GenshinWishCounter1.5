@@ -150,6 +150,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Seele", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Silver Wolf", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Sparkle", Type = CategoryStrings.Quantum, IsStandard = false },
+            new FiveStarModel{ Name = "Sunday", Type = CategoryStrings.Imaginary, IsStandard = false },
             new FiveStarModel{ Name = "Topaz", Type = CategoryStrings.Fire, IsStandard = false },
             new FiveStarModel{ Name = "Welt", Type = CategoryStrings.Imaginary, IsStandard = true },
             new FiveStarModel{ Name = "Yanqing", Type = CategoryStrings.Ice, IsStandard = true },
@@ -157,6 +158,7 @@ namespace GenshinWishCounter1._5.Service
         };
         private List<FiveStarModel> StarRailWeaponList = new List<FiveStarModel>
         {
+            new FiveStarModel { Name = "A Grounded Ascent", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "Along the Passing Shore", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "An Instant Before A Gaze", Type = CategoryStrings.Erudition, IsStandard = false },
             new FiveStarModel { Name = "Baptism of Pure Thought", Type = CategoryStrings.Hunt, IsStandard = false },

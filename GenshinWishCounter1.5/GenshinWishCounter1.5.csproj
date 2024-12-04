@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\A Grounded Ascent.png" />
     <None Remove="Images\A Thousand Floating Dreams.png" />
     <None Remove="Images\Absolution.png" />
     <None Remove="Images\Abundance.png" />
@@ -205,6 +206,7 @@
     <None Remove="Images\Staff of the Scarlet Sands.png" />
     <None Remove="Images\Steel Cushion.png" />
     <None Remove="Images\Summit Shaper.png" />
+    <None Remove="Images\Sunday.png" />
     <None Remove="Images\Surf%27s Up.png" />
     <None Remove="Images\sword.png" />
     <None Remove="Images\Tartaglia.png" />
