@@ -42,7 +42,9 @@
     <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
+    <None Remove="Images\Banner\ZzzCharacterBanner2.png" />
     <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
+    <None Remove="Images\Banner\ZzzWeaponBanner2.png" />
     <None Remove="Images\Baptism of Pure Thought.png" />
     <None Remove="Images\bcg.png" />
     <None Remove="Images\Beacon of the Reed Sea.png" />
@@ -101,10 +103,13 @@
     <None Remove="Images\geo.png" />
     <None Remove="Images\Gepard.png" />
     <None Remove="Images\Grace.png" />
+    <None Remove="Images\Hailstorm Shrine.png" />
     <None Remove="Images\Haran Geppaku Futsu.png" />
     <None Remove="Images\Harmony.png" />
+    <None Remove="Images\Harumasa.png" />
     <None Remove="Images\Hellfire Gears.png" />
     <None Remove="Images\Himeko.png" />
+    <None Remove="Images\Hoshimi Miyabi.png" />
     <None Remove="Images\Hu Tao.png" />
     <None Remove="Images\Hunt.png" />
     <None Remove="Images\Hunter%27s Path.png" />
@@ -245,6 +250,7 @@
     <None Remove="Images\Yet Hope Is Priceless.png" />
     <None Remove="Images\Yoimiya.png" />
     <None Remove="Images\Yunli.png" />
+    <None Remove="Images\Zanshin Herb Case.png" />
     <None Remove="Images\Zhongli.png" />
     <None Remove="Images\Zhu Yuan.png" />
     <None Remove="Images\ZzzAnomaly.png" />
@@ -253,6 +259,7 @@
     <None Remove="Images\ZzzElectric.png" />
     <None Remove="Images\ZzzEther.png" />
     <None Remove="Images\ZzzFire.png" />
+    <None Remove="Images\ZzzFrost.png" />
     <None Remove="Images\ZzzIce.png" />
     <None Remove="Images\ZzzPhysical.png" />
     <None Remove="Images\ZzzStun.png" />

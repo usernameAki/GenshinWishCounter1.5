@@ -201,6 +201,8 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Burnice", Type = CategoryStrings.ZzzFire, IsStandard = false },
             new FiveStarModel { Name = "Ellen", Type = CategoryStrings.ZzzIce, IsStandard = false },
             new FiveStarModel { Name = "Grace", Type = CategoryStrings.ZzzElectric, IsStandard = true },
+            new FiveStarModel { Name = "Harumasa", Type = CategoryStrings.ZzzElectric, IsStandard = false },
+            new FiveStarModel { Name = "Hoshimi Miyabi", Type = CategoryStrings.ZzzFrost, IsStandard = false },
             new FiveStarModel { Name = "Jane", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Koleda", Type = CategoryStrings.ZzzFire, IsStandard = true },
             new FiveStarModel { Name = "Lighter", Type = CategoryStrings.ZzzFire, IsStandard = false },
@@ -218,6 +220,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Deep Sea Visitor", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Flamemaker Shaker", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Fusion Compiler", Type = CategoryStrings.ZzzAnomaly, IsStandard = true },
+            new FiveStarModel { Name = "Hailstorm Shrine", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Hellfire Gears", Type = CategoryStrings.ZzzStun, IsStandard = true },
             new FiveStarModel { Name = "Ice-Jade Teapot", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
@@ -228,6 +231,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "The Restrained", Type = CategoryStrings.ZzzStun, IsStandard = true },
             new FiveStarModel { Name = "Tusks of Fury", Type = CategoryStrings.ZzzDefense, IsStandard = false },
             new FiveStarModel { Name = "Weeping Cradle", Type = CategoryStrings.ZzzSupport, IsStandard = true },
+            new FiveStarModel { Name = "Zanshin Herb Case", Type = CategoryStrings.ZzzAttack, IsStandard = false },
         };
     public List<FiveStarModel> GetFiveStarList(Banner banner)
         {

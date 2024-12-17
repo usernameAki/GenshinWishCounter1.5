@@ -46,6 +46,7 @@ namespace GenshinWishCounter1._5.Core
         public const string ZzzIce = "ZzzIce";
         public const string ZzzElectric = "ZzzElectric";
         public const string ZzzEther = "ZzzEther";
+        public const string ZzzFrost = "ZzzFrost";
 
         public const string ZzzAttack = "ZzzAttack";
         public const string ZzzStun = "ZzzStun";
