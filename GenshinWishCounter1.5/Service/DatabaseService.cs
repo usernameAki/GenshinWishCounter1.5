@@ -23,6 +23,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Baizhu", Type = CategoryStrings.Dendro, IsStandard =  false },
             new FiveStarModel{ Name = "Chasca", Type = CategoryStrings.Anemo, IsStandard =  false },
             new FiveStarModel{ Name = "Chiori", Type = CategoryStrings.Geo, IsStandard =  false },
+            new FiveStarModel{ Name = "Citlali", Type = CategoryStrings.Cryo, IsStandard =  false },
             new FiveStarModel{ Name = "Clorinde", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Cyno", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Dehya", Type = CategoryStrings.Pyro, IsStandard = true },
@@ -40,6 +41,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Klee", Type = CategoryStrings.Pyro, IsStandard = false },
             new FiveStarModel{ Name = "Kokomi", Type = CategoryStrings.Hydro, IsStandard = false },
             new FiveStarModel{ Name = "Lyney", Type = CategoryStrings.Pyro, IsStandard = false },
+            new FiveStarModel{ Name = "Mavuika", Type = CategoryStrings.Pyro, IsStandard = false },
             new FiveStarModel{ Name = "Mona", Type = CategoryStrings.Hydro, IsStandard = true },
             new FiveStarModel{ Name = "Mualani", Type = CategoryStrings.Hydro, IsStandard = false },
             new FiveStarModel{ Name = "Nahida", Type = CategoryStrings.Dendro, IsStandard = false },
@@ -65,8 +67,9 @@ namespace GenshinWishCounter1._5.Service
             };
         private List<FiveStarModel> GenshinWeaponList = new List<FiveStarModel>()
         {
-            new FiveStarModel{ Name = "Astral Vulture's Crimson Plumage", Type = CategoryStrings.Bow, IsStandard = false},
+            new FiveStarModel{ Name = "A Thousand Blazing Suns", Type = CategoryStrings.Claymore, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Floating Dreams", Type = CategoryStrings.Catalyst, IsStandard = false},
+            new FiveStarModel{ Name = "Astral Vulture's Crimson Plumage", Type = CategoryStrings.Bow, IsStandard = false},
             new FiveStarModel { Name = "Absolution", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "Amos' Bow", Type = CategoryStrings.Bow, IsStandard = true },
             new FiveStarModel { Name = "Aqua Simulacra", Type = CategoryStrings.Bow, IsStandard = false },
@@ -106,6 +109,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Splendor of Tranquil Waters", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "Staff of Homa", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Staff of the Scarlet Sands", Type = CategoryStrings.Polearm, IsStandard = false },
+            new FiveStarModel { Name = "Starcaller's Watch", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Summit Shaper", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "Surf's Up", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "The First Great Magic", Type = CategoryStrings.Bow, IsStandard = false },

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <None Remove="Images\A Grounded Ascent.png" />
+    <None Remove="Images\A Thousand Blazing Suns.png" />
     <None Remove="Images\A Thousand Floating Dreams.png" />
     <None Remove="Images\Absolution.png" />
     <None Remove="Images\Abundance.png" />
@@ -64,6 +65,7 @@
     <None Remove="Images\catalyst.png" />
     <None Remove="Images\Chasca.png" />
     <None Remove="Images\Chiori.png" />
+    <None Remove="Images\Citlali.png" />
     <None Remove="Images\Clara.png" />
     <None Remove="Images\claymore.png" />
     <None Remove="Images\Clorinde.png" />
@@ -151,6 +153,7 @@
     <None Remove="Images\Luocha.png" />
     <None Remove="Images\Lycaon.png" />
     <None Remove="Images\Lyney.png" />
+    <None Remove="Images\Mavuika.png" />
     <None Remove="Images\Memory of Dust.png" />
     <None Remove="Images\Mistsplitter Reforged.png" />
     <None Remove="Images\Moment of Victory.png" />
@@ -210,6 +213,7 @@
     <None Remove="Images\Splendor of Tranquil Waters.png" />
     <None Remove="Images\Staff of Homa.png" />
     <None Remove="Images\Staff of the Scarlet Sands.png" />
+    <None Remove="Images\Starcaller's Watch.png" />
     <None Remove="Images\Steel Cushion.png" />
     <None Remove="Images\Summit Shaper.png" />
     <None Remove="Images\Sunday.png" />
