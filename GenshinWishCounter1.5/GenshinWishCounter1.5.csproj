@@ -41,6 +41,8 @@
     <None Remove="Images\Banner\GenshinWeaponBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner1.png" />
     <None Remove="Images\Banner\StarRailCharacterBanner2.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner3.png" />
+    <None Remove="Images\Banner\StarRailCharacterBanner4.png" />
     <None Remove="Images\Banner\StarRailWeaponBanner1.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner2.png" />

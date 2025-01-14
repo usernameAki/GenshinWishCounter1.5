@@ -13,7 +13,7 @@ namespace GenshinWishCounter1._5.Service
     public class DatabaseService : IDatabaseService
     {
 
-        private List<FiveStarModel> GenshinCharacterList = new List<FiveStarModel>() 
+        private readonly List<FiveStarModel> GenshinCharacterList = new ()
             {
             new FiveStarModel{ Name = "Albedo", Type = CategoryStrings.Geo, IsStandard =  false },
             new FiveStarModel{ Name = "Alhaitham", Type = CategoryStrings.Dendro, IsStandard =  false },
@@ -65,7 +65,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Yoimiya", Type = CategoryStrings.Pyro, IsStandard = false },
             new FiveStarModel{ Name = "Zhongli", Type = CategoryStrings.Geo, IsStandard = false },
             };
-        private List<FiveStarModel> GenshinWeaponList = new List<FiveStarModel>()
+        private readonly List<FiveStarModel> GenshinWeaponList = new ()
         {
             new FiveStarModel{ Name = "A Thousand Blazing Suns", Type = CategoryStrings.Claymore, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Floating Dreams", Type = CategoryStrings.Catalyst, IsStandard = false},
@@ -122,7 +122,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Vortex Vanquisher", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Wolf's Gravestone", Type = CategoryStrings.Claymore, IsStandard = false },
         };
-        private List<FiveStarModel> StarRailCharacterList = new List<FiveStarModel>()
+        private readonly List<FiveStarModel> StarRailCharacterList = new ()
         {
             new FiveStarModel{ Name = "Acheron", Type = CategoryStrings.Lightning, IsStandard = false },
             new FiveStarModel{ Name = "Argenti", Type = CategoryStrings.Physical, IsStandard = false },
@@ -156,12 +156,13 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Silver Wolf", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Sparkle", Type = CategoryStrings.Quantum, IsStandard = false },
             new FiveStarModel{ Name = "Sunday", Type = CategoryStrings.Imaginary, IsStandard = false },
+            new FiveStarModel{ Name = "The Herta", Type = CategoryStrings.Ice, IsStandard = false },
             new FiveStarModel{ Name = "Topaz", Type = CategoryStrings.Fire, IsStandard = false },
             new FiveStarModel{ Name = "Welt", Type = CategoryStrings.Imaginary, IsStandard = true },
             new FiveStarModel{ Name = "Yanqing", Type = CategoryStrings.Ice, IsStandard = true },
             new FiveStarModel{ Name = "Yunli", Type = CategoryStrings.Physical, IsStandard = true },
         };
-        private List<FiveStarModel> StarRailWeaponList = new List<FiveStarModel>
+        private readonly List<FiveStarModel> StarRailWeaponList = new ()
         {
             new FiveStarModel { Name = "A Grounded Ascent", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "Along the Passing Shore", Type = CategoryStrings.Nihility, IsStandard = false },
@@ -175,11 +176,12 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Echoes of the Coffin", Type = CategoryStrings.Abundance, IsStandard = false },
             new FiveStarModel { Name = "Flowing Nightglow", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "I Shall Be My Own Sword", Type = CategoryStrings.Destruction, IsStandard = false },
+            new FiveStarModel { Name = "I Venture Forth to Hunt", Type = CategoryStrings.Hunt, IsStandard = false },
             new FiveStarModel { Name = "In the Name of the World", Type = CategoryStrings.Nihility, IsStandard = true },
             new FiveStarModel { Name = "In the Night", Type = CategoryStrings.Hunt, IsStandard = false },
             new FiveStarModel { Name = "Incessant Rain", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Inherently Unjust Destiny", Type = CategoryStrings.Preservation, IsStandard = false },
-            new FiveStarModel { Name = "I Venture Forth to Hunt", Type = CategoryStrings.Hunt, IsStandard = false },
+            new FiveStarModel { Name = "Into the Unreachable Veil", Type = CategoryStrings.Erudition, IsStandard = false },
             new FiveStarModel { Name = "Long Road Leads Home", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Moment of Victory", Type = CategoryStrings.Preservation, IsStandard = true },
             new FiveStarModel { Name = "Night of Fright", Type = CategoryStrings.Abundance, IsStandard = false },
@@ -201,7 +203,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Worrisome, Blissful", Type = CategoryStrings.Hunt, IsStandard = false },
             new FiveStarModel { Name = "Yet Hope Is Priceless", Type = CategoryStrings.Erudition, IsStandard = false },
         };
-        private List<FiveStarModel> ZzzCharacterList = new List<FiveStarModel>
+        private readonly List<FiveStarModel> ZzzCharacterList = new ()
         {
             new FiveStarModel { Name = "Caesar King", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Burnice", Type = CategoryStrings.ZzzFire, IsStandard = false },
@@ -220,7 +222,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Yanagi", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Zhu Yuan", Type = CategoryStrings.ZzzEther, IsStandard = false },
         };
-        private List<FiveStarModel> ZzzWeaponList = new List<FiveStarModel>
+        private readonly List<FiveStarModel> ZzzWeaponList = new ()
         {
             new FiveStarModel { Name = "Blazing Laurel", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Deep Sea Visitor", Type = CategoryStrings.ZzzAttack, IsStandard = false },
