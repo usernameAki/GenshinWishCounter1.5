@@ -125,6 +125,7 @@ namespace GenshinWishCounter1._5.Service
         private readonly List<FiveStarModel> StarRailCharacterList = new ()
         {
             new FiveStarModel{ Name = "Acheron", Type = CategoryStrings.Lightning, IsStandard = false },
+            new FiveStarModel{ Name = "Aglaea", Type = CategoryStrings.Lightning, IsStandard = false },
             new FiveStarModel{ Name = "Argenti", Type = CategoryStrings.Physical, IsStandard = false },
             new FiveStarModel{ Name = "Aventurine", Type = CategoryStrings.Imaginary, IsStandard = false },
             new FiveStarModel{ Name = "Bailu", Type = CategoryStrings.Lightning, IsStandard = true },
@@ -199,6 +200,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "The Unreachable Side", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Those Many Springs", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Time Waits for No One", Type = CategoryStrings.Abundance, IsStandard = true },
+            new FiveStarModel { Name = "Time Woven Into Gold", Type = CategoryStrings.Remembrance, IsStandard = false },
             new FiveStarModel { Name = "Whereabouts Should Dreams Rest", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "Worrisome, Blissful", Type = CategoryStrings.Hunt, IsStandard = false },
             new FiveStarModel { Name = "Yet Hope Is Priceless", Type = CategoryStrings.Erudition, IsStandard = false },

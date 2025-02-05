@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GenshinWishCounter1._5.Core
+﻿namespace GenshinWishCounter1._5.Core
 {
     internal static class CategoryStrings
     {
@@ -39,6 +33,7 @@ namespace GenshinWishCounter1._5.Core
         public const string Harmony = "Harmony";
         public const string Abundance = "Abundance";
         public const string Preservation = "Preservation";
+        public const string Remembrance = "Remembrance";
 
         //ZZZ
         public const string ZzzPhysical = "ZzzPhysical";
