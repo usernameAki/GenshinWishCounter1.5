@@ -11,9 +11,9 @@ using System.Windows.Controls;
 namespace GenshinWishCounter1._5.Service
 {
     public class DatabaseService : IDatabaseService
-    {
+    {//Zmienić po 3.4 Yumemizuki na standard banner (Sunny Morning Sleep-In broń też)
 
-        private readonly List<FiveStarModel> GenshinCharacterList = new ()
+        private readonly List<FiveStarModel> GenshinCharacterList = new () 
             {
             new FiveStarModel{ Name = "Albedo", Type = CategoryStrings.Geo, IsStandard =  false },
             new FiveStarModel{ Name = "Alhaitham", Type = CategoryStrings.Dendro, IsStandard =  false },
@@ -63,6 +63,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Yae Miko", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Yelan", Type = CategoryStrings.Hydro, IsStandard = false },
             new FiveStarModel{ Name = "Yoimiya", Type = CategoryStrings.Pyro, IsStandard = false },
+            new FiveStarModel{ Name = "Yumemizuki Mizuki", Type = CategoryStrings.Anemo, IsStandard = false },
             new FiveStarModel{ Name = "Zhongli", Type = CategoryStrings.Geo, IsStandard = false },
             };
         private readonly List<FiveStarModel> GenshinWeaponList = new ()
@@ -111,6 +112,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Staff of the Scarlet Sands", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Starcaller's Watch", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Summit Shaper", Type = CategoryStrings.Sword, IsStandard = false },
+            new FiveStarModel { Name = "Sunny Morning Sleep-In", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Surf's Up", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "The First Great Magic", Type = CategoryStrings.Bow, IsStandard = false },
             new FiveStarModel { Name = "The Unforged", Type = CategoryStrings.Claymore, IsStandard = false },
@@ -211,6 +213,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Caesar King", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Burnice", Type = CategoryStrings.ZzzFire, IsStandard = false },
             new FiveStarModel { Name = "Ellen", Type = CategoryStrings.ZzzIce, IsStandard = false },
+            new FiveStarModel { Name = "Evelyn", Type = CategoryStrings.ZzzFire, IsStandard = false },
             new FiveStarModel { Name = "Grace", Type = CategoryStrings.ZzzElectric, IsStandard = true },
             new FiveStarModel { Name = "Harumasa", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Hoshimi Miyabi", Type = CategoryStrings.ZzzFrost, IsStandard = false },
@@ -233,6 +236,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Flamemaker Shaker", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Fusion Compiler", Type = CategoryStrings.ZzzAnomaly, IsStandard = true },
             new FiveStarModel { Name = "Hailstorm Shrine", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
+            new FiveStarModel { Name = "Heartstring Nocturne", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Hellfire Gears", Type = CategoryStrings.ZzzStun, IsStandard = true },
             new FiveStarModel { Name = "Ice-Jade Teapot", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
