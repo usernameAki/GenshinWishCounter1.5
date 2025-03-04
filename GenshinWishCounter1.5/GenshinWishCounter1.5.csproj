@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
 	<AssemblyName>GenshinWishCounter1_5</AssemblyName>
     <RootNamespace>GenshinWishCounter1_5</RootNamespace>
     <Nullable>enable</Nullable>
@@ -36,9 +36,6 @@
     <None Remove="Images\Ayato.png" />
     <None Remove="Images\Bailu.png" />
     <None Remove="Images\Baizhu.png" />
-    <None Remove="Images\Banner\GenshinCharacterBanner1.png" />
-    <None Remove="Images\Banner\GenshinCharacterBanner2.png" />
-    <None Remove="Images\Banner\GenshinWeaponBanner1.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
     <None Remove="Images\Banner\ZzzCharacterBanner2.png" />
     <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
@@ -276,20 +273,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Update="Images\Banner\GenshinCharacterBanner1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Update="Images\Banner\GenshinCharacterBanner2.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Resource Update="Images\Banner\GenshinWeaponBanner1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Update="Images\Banner\ZzzWeaponBanner1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
