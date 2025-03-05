@@ -5,6 +5,7 @@ using GenshinWishCounter1._5.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -54,6 +55,16 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             set
             {
                 _counterManagerService.GetCounterModelFromBannerEnum(Settings.banner).Counters = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _winRatio { get; set; }
+        public string WinRatio
+        {
+            get => _winRatio;
+            set
+            {
+                _winRatio = value;
                 OnPropertyChanged();
             }
         }
@@ -131,8 +142,9 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
                 GenerateBannerSlider();
                 OnPropertyChanged("CountersDisplayed");
                 OnPropertyChanged("PullHistoryList");
+                UpdateWinRatio();
             }, o => true);
-
+            UpdateWinRatio();
         }
 
         private void GenerateBannerSlider()
@@ -182,6 +194,16 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             BannerCanvas = canvas;
             BannerStoryboard = stBoard;
 
+        }
+
+        public void UpdateWinRatio()
+        {
+            var pullHistoryList = _pullManagerService.GetPullHistoryModelFromBannerEnum(Settings.banner).PullList;
+            double winCount = pullHistoryList.Where(phl => phl.FiftyFiftyResult == "Win").Count();
+            double lostCount = pullHistoryList.Where(phl => phl.FiftyFiftyResult == "Lose").Count();
+            if ((winCount == 0 && lostCount == 0) || (lostCount > 0 && winCount == 0)) WinRatio = "0 %";
+            var result = $"{winCount / ((winCount + lostCount) / 100d)}";
+            WinRatio = new string([.. result.Take(5)]) + " %";
         }
 
     }

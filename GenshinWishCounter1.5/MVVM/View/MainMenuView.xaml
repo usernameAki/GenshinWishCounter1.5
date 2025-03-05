@@ -85,6 +85,11 @@
                 <Button Content="+1" Style="{StaticResource ButtonStyle}" Command="{Binding AddOnePull}"/>
             </Border>
 
+            <Label FontWeight="Bold" FontSize="15" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" Width="100" Content="Win ratio:" VerticalAlignment="Bottom"/>
+
+            <Border Background="Gainsboro" Grid.Column="2" Grid.Row="6" Width="100" HorizontalAlignment="Right">
+                <Label Content="{Binding WinRatio}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" FontWeight="Bold"/>
+            </Border>
 
         </Grid>
 
