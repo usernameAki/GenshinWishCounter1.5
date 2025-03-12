@@ -32,6 +32,7 @@ namespace GenshinWishCounter1._5.Service
         public void NavigateTo<T>() where T : ViewModel
         {
             ViewModel viewModel = _viewModelFactory.Invoke(typeof(T));
+            viewModel.OnViewChanged();
             CurrentView = viewModel;
         }
     }

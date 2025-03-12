@@ -206,5 +206,10 @@ namespace GenshinWishCounter1._5.MVVM.ViewModel
             WinRatio = new string([.. result.Take(5)]) + " %";
         }
 
+        public override void OnViewChanged()
+        {
+            GenerateBannerSlider();
+        }
+
     }
 }

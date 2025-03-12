@@ -6,5 +6,6 @@
     /// </summary>
     public abstract class ViewModel : ObservableObject
     {
+        public virtual void OnViewChanged() { }
     }
 }
