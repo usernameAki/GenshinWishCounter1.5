@@ -54,6 +54,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Shenhe", Type = CategoryStrings.Cryo, IsStandard = false },
             new FiveStarModel{ Name = "Tartaglia", Type = CategoryStrings.Hydro, IsStandard = false },
             new FiveStarModel{ Name = "Tighnari", Type = CategoryStrings.Dendro, IsStandard = true },
+            new FiveStarModel{ Name = "Varesa", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Venti", Type = CategoryStrings.Anemo, IsStandard = false },
             new FiveStarModel{ Name = "Wanderer", Type = CategoryStrings.Anemo, IsStandard = false },
             new FiveStarModel{ Name = "Wriothesley", Type = CategoryStrings.Cryo, IsStandard = false },
@@ -121,6 +122,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Tulaytullah's Remembrance", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Uraku Misugiri", Type = CategoryStrings.Sword, IsStandard = false },
             new FiveStarModel { Name = "Verdict", Type = CategoryStrings.Claymore, IsStandard = false },
+            new FiveStarModel { Name = "Vivid Notions", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Vortex Vanquisher", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Wolf's Gravestone", Type = CategoryStrings.Claymore, IsStandard = false },
         };
