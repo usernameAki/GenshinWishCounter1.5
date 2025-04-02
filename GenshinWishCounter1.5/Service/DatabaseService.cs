@@ -232,6 +232,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Rina", Type = CategoryStrings.ZzzElectric, IsStandard = true },
             new FiveStarModel { Name = "Soldier 0-Anby", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Soldier 11", Type = CategoryStrings.ZzzFire, IsStandard = true },
+            new FiveStarModel { Name = "Trigger", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Yanagi", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Zhu Yuan", Type = CategoryStrings.ZzzEther, IsStandard = false },
         };
@@ -249,6 +250,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Severed Innocence", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Sharpened Stinger", Type = CategoryStrings.ZzzAttack, IsStandard = false },
+            new FiveStarModel { Name = "Spectral Gaze", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Steel Cushion", Type = CategoryStrings.ZzzAttack, IsStandard = true },
             new FiveStarModel { Name = "Timeweaver", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "The Brimstone", Type = CategoryStrings.ZzzAttack, IsStandard = true },

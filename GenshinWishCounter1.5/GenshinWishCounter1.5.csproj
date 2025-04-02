@@ -36,10 +36,6 @@
     <None Remove="Images\Ayato.png" />
     <None Remove="Images\Bailu.png" />
     <None Remove="Images\Baizhu.png" />
-    <None Remove="Images\Banner\ZzzCharacterBanner1.png" />
-    <None Remove="Images\Banner\ZzzCharacterBanner2.png" />
-    <None Remove="Images\Banner\ZzzWeaponBanner1.png" />
-    <None Remove="Images\Banner\ZzzWeaponBanner2.png" />
     <None Remove="Images\Baptism of Pure Thought.png" />
     <None Remove="Images\bcg.png" />
     <None Remove="Images\Beacon of the Reed Sea.png" />
@@ -276,12 +272,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Update="Images\Banner\ZzzWeaponBanner1.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
 </Project>
