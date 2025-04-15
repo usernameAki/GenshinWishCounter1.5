@@ -11,7 +11,7 @@ using System.Windows.Controls;
 namespace GenshinWishCounter1._5.Service
 {
     public class DatabaseService : IDatabaseService
-    {//Zmienić po 3.4 Yumemizuki na standard banner (Sunny Morning Sleep-In broń też)
+    {
 
         private readonly List<FiveStarModel> GenshinCharacterList = new () 
             {
@@ -64,7 +64,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Yae Miko", Type = CategoryStrings.Electro, IsStandard = false },
             new FiveStarModel{ Name = "Yelan", Type = CategoryStrings.Hydro, IsStandard = false },
             new FiveStarModel{ Name = "Yoimiya", Type = CategoryStrings.Pyro, IsStandard = false },
-            new FiveStarModel{ Name = "Yumemizuki Mizuki", Type = CategoryStrings.Anemo, IsStandard = false },
+            new FiveStarModel{ Name = "Yumemizuki Mizuki", Type = CategoryStrings.Anemo, IsStandard = true },
             new FiveStarModel{ Name = "Zhongli", Type = CategoryStrings.Geo, IsStandard = false },
             };
         private readonly List<FiveStarModel> GenshinWeaponList = new ()
@@ -113,7 +113,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Staff of the Scarlet Sands", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Starcaller's Watch", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "Summit Shaper", Type = CategoryStrings.Sword, IsStandard = false },
-            new FiveStarModel { Name = "Sunny Morning Sleep-In", Type = CategoryStrings.Catalyst, IsStandard = false },
+            new FiveStarModel { Name = "Sunny Morning Sleep-In", Type = CategoryStrings.Catalyst, IsStandard = true },
             new FiveStarModel { Name = "Surf's Up", Type = CategoryStrings.Catalyst, IsStandard = false },
             new FiveStarModel { Name = "The First Great Magic", Type = CategoryStrings.Bow, IsStandard = false },
             new FiveStarModel { Name = "The Unforged", Type = CategoryStrings.Claymore, IsStandard = false },
