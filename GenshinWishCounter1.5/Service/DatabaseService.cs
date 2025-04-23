@@ -1,19 +1,14 @@
 ﻿using GenshinWishCounter1._5.Core;
 using GenshinWishCounter1._5.MVVM.Enums;
 using GenshinWishCounter1._5.MVVM.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace GenshinWishCounter1._5.Service
 {
     public class DatabaseService : IDatabaseService
     {
 
-        private readonly List<FiveStarModel> GenshinCharacterList = new () 
+        private readonly List<FiveStarModel> GenshinCharacterList = new()
             {
             new FiveStarModel{ Name = "Albedo", Type = CategoryStrings.Geo, IsStandard =  false },
             new FiveStarModel{ Name = "Alhaitham", Type = CategoryStrings.Dendro, IsStandard =  false },
@@ -67,7 +62,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Yumemizuki Mizuki", Type = CategoryStrings.Anemo, IsStandard = true },
             new FiveStarModel{ Name = "Zhongli", Type = CategoryStrings.Geo, IsStandard = false },
             };
-        private readonly List<FiveStarModel> GenshinWeaponList = new ()
+        private readonly List<FiveStarModel> GenshinWeaponList = new()
         {
             new FiveStarModel{ Name = "A Thousand Blazing Suns", Type = CategoryStrings.Claymore, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Floating Dreams", Type = CategoryStrings.Catalyst, IsStandard = false},
@@ -126,7 +121,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Vortex Vanquisher", Type = CategoryStrings.Polearm, IsStandard = false },
             new FiveStarModel { Name = "Wolf's Gravestone", Type = CategoryStrings.Claymore, IsStandard = false },
         };
-        private readonly List<FiveStarModel> StarRailCharacterList = new ()
+        private readonly List<FiveStarModel> StarRailCharacterList = new()
         {
             new FiveStarModel{ Name = "Acheron", Type = CategoryStrings.Lightning, IsStandard = false },
             new FiveStarModel{ Name = "Aglaea", Type = CategoryStrings.Lightning, IsStandard = false },
@@ -170,7 +165,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel{ Name = "Yanqing", Type = CategoryStrings.Ice, IsStandard = true },
             new FiveStarModel{ Name = "Yunli", Type = CategoryStrings.Physical, IsStandard = true },
         };
-        private readonly List<FiveStarModel> StarRailWeaponList = new ()
+        private readonly List<FiveStarModel> StarRailWeaponList = new()
         {
             new FiveStarModel { Name = "A Grounded Ascent", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "Along the Passing Shore", Type = CategoryStrings.Nihility, IsStandard = false },
@@ -215,7 +210,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Worrisome, Blissful", Type = CategoryStrings.Hunt, IsStandard = false },
             new FiveStarModel { Name = "Yet Hope Is Priceless", Type = CategoryStrings.Erudition, IsStandard = false },
         };
-        private readonly List<FiveStarModel> ZzzCharacterList = new ()
+        private readonly List<FiveStarModel> ZzzCharacterList = new()
         {
             new FiveStarModel { Name = "Astra Yao", Type = CategoryStrings.ZzzEther, IsStandard = false },
             new FiveStarModel { Name = "Caesar King", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
@@ -235,15 +230,17 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Soldier 0-Anby", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Soldier 11", Type = CategoryStrings.ZzzFire, IsStandard = true },
             new FiveStarModel { Name = "Trigger", Type = CategoryStrings.ZzzElectric, IsStandard = false },
+            new FiveStarModel { Name = "Vivian", Type = CategoryStrings.ZzzEther, IsStandard = false },
             new FiveStarModel { Name = "Yanagi", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Zhu Yuan", Type = CategoryStrings.ZzzEther, IsStandard = false },
         };
-        private readonly List<FiveStarModel> ZzzWeaponList = new ()
+        private readonly List<FiveStarModel> ZzzWeaponList = new()
         {
             new FiveStarModel { Name = "Blazing Laurel", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Deep Sea Visitor", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Elegant Vanity", Type = CategoryStrings.ZzzSupport, IsStandard = false },
             new FiveStarModel { Name = "Flamemaker Shaker", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
+            new FiveStarModel { Name = "Flight of Fancy", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Fusion Compiler", Type = CategoryStrings.ZzzAnomaly, IsStandard = true },
             new FiveStarModel { Name = "Hailstorm Shrine", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Heartstring Nocturne", Type = CategoryStrings.ZzzAttack, IsStandard = false },
@@ -261,7 +258,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Weeping Cradle", Type = CategoryStrings.ZzzSupport, IsStandard = true },
             new FiveStarModel { Name = "Zanshin Herb Case", Type = CategoryStrings.ZzzAttack, IsStandard = false },
         };
-    public List<FiveStarModel> GetFiveStarList(Banner banner)
+        public List<FiveStarModel> GetFiveStarList(Banner banner)
         {
             switch (banner)
             {
