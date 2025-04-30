@@ -125,6 +125,7 @@ namespace GenshinWishCounter1._5.Service
         {
             new FiveStarModel{ Name = "Acheron", Type = CategoryStrings.Lightning, IsStandard = false },
             new FiveStarModel{ Name = "Aglaea", Type = CategoryStrings.Lightning, IsStandard = false },
+            new FiveStarModel{ Name = "Anaxa", Type = CategoryStrings.Wind, IsStandard = false },
             new FiveStarModel{ Name = "Argenti", Type = CategoryStrings.Physical, IsStandard = false },
             new FiveStarModel{ Name = "Aventurine", Type = CategoryStrings.Imaginary, IsStandard = false },
             new FiveStarModel{ Name = "Bailu", Type = CategoryStrings.Lightning, IsStandard = true },
@@ -187,6 +188,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Incessant Rain", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Inherently Unjust Destiny", Type = CategoryStrings.Preservation, IsStandard = false },
             new FiveStarModel { Name = "Into the Unreachable Veil", Type = CategoryStrings.Erudition, IsStandard = false },
+            new FiveStarModel { Name = "Life Should Be Cast to Flames", Type = CategoryStrings.Erudition, IsStandard = false },
             new FiveStarModel { Name = "Long Road Leads Home", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Make Farewells More Beautiful", Type = CategoryStrings.Remembrance, IsStandard = false },
             new FiveStarModel { Name = "Moment of Victory", Type = CategoryStrings.Preservation, IsStandard = true },
