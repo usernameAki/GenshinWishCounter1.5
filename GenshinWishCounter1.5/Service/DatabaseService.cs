@@ -239,6 +239,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Trigger", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Vivian", Type = CategoryStrings.ZzzEther, IsStandard = false },
             new FiveStarModel { Name = "Yanagi", Type = CategoryStrings.ZzzElectric, IsStandard = false },
+            new FiveStarModel { Name = "Yixuan", Type = CategoryStrings.ZzzAuricInk, IsStandard = false },
             new FiveStarModel { Name = "Zhu Yuan", Type = CategoryStrings.ZzzEther, IsStandard = false },
         };
         private readonly List<FiveStarModel> ZzzWeaponList = new()
@@ -254,6 +255,7 @@ namespace GenshinWishCounter1._5.Service
             new FiveStarModel { Name = "Hellfire Gears", Type = CategoryStrings.ZzzStun, IsStandard = true },
             new FiveStarModel { Name = "Ice-Jade Teapot", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Myriad Eclipse", Type = CategoryStrings.ZzzAttack, IsStandard = false },
+            new FiveStarModel { Name = "Qingming Birdcage", Type = CategoryStrings.ZzzRupture, IsStandard = false },
             new FiveStarModel { Name = "Riot Suppressor Mark VI", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Severed Innocence", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Sharpened Stinger", Type = CategoryStrings.ZzzAttack, IsStandard = false },

@@ -42,11 +42,13 @@
         public const string ZzzElectric = "ZzzElectric";
         public const string ZzzEther = "ZzzEther";
         public const string ZzzFrost = "ZzzFrost";
+        public const string ZzzAuricInk = "ZzzAuricInk";
 
         public const string ZzzAttack = "ZzzAttack";
         public const string ZzzStun = "ZzzStun";
         public const string ZzzSupport = "ZzzSupport";
         public const string ZzzAnomaly = "ZzzAnomaly";
         public const string ZzzDefense = "ZzzDefense";
+        public const string ZzzRupture = "ZzzRupture";
     }
 }
