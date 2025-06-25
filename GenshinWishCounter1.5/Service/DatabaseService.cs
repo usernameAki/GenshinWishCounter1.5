@@ -223,6 +223,7 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> ZzzCharacterList =
         [
+            new FiveStarModel { Name = "Ju Fufu", Type = CategoryStrings.ZzzFire, IsStandard = false },
             new FiveStarModel { Name = "Astra Yao", Type = CategoryStrings.ZzzEther, IsStandard = false },
             new FiveStarModel { Name = "Caesar King", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Burnice", Type = CategoryStrings.ZzzFire, IsStandard = false },
@@ -249,6 +250,7 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> ZzzWeaponList =
         [
+            new FiveStarModel { Name = "Roaring Fur-nace", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Blazing Laurel", Type = CategoryStrings.ZzzStun, IsStandard = false },
             new FiveStarModel { Name = "Deep Sea Visitor", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Elegant Vanity", Type = CategoryStrings.ZzzSupport, IsStandard = false },
