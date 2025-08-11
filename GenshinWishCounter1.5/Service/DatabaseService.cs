@@ -11,6 +11,7 @@ namespace GenshinWishCounter1._5.Service
 
         private readonly List<FiveStarModel> GenshinCharacterList =
             [
+            new FiveStarModel{ Name = "Ineffa", Type = CategoryStrings.Electro, IsStandard =  false },
             new FiveStarModel{ Name = "Skirk", Type = CategoryStrings.Cryo, IsStandard =  false },
             new FiveStarModel{ Name = "Albedo", Type = CategoryStrings.Geo, IsStandard =  false },
             new FiveStarModel{ Name = "Alhaitham", Type = CategoryStrings.Dendro, IsStandard =  false },
@@ -67,6 +68,7 @@ namespace GenshinWishCounter1._5.Service
             ];
         private readonly List<FiveStarModel> GenshinWeaponList =
         [
+            new FiveStarModel{ Name = "Fractured Halo", Type = CategoryStrings.Polearm, IsStandard = false},
             new FiveStarModel{ Name = "Azurelight", Type = CategoryStrings.Sword, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Blazing Suns", Type = CategoryStrings.Claymore, IsStandard = false},
             new FiveStarModel{ Name = "A Thousand Floating Dreams", Type = CategoryStrings.Catalyst, IsStandard = false},
