@@ -130,6 +130,7 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> StarRailCharacterList =
         [
+            new FiveStarModel{ Name = "Cerydra", Type = CategoryStrings.Wind, IsStandard = false },
             new FiveStarModel{ Name = "Hysilens", Type = CategoryStrings.Physical, IsStandard = false },
             new FiveStarModel{ Name = "Phainon", Type = CategoryStrings.Physical, IsStandard = false },
             new FiveStarModel{ Name = "Acheron", Type = CategoryStrings.Lightning, IsStandard = false },
@@ -179,6 +180,7 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> StarRailWeaponList =
         [
+            new FiveStarModel { Name = "Epoch Etched in Golden Blood", Type = CategoryStrings.Harmony, IsStandard = false },
             new FiveStarModel { Name = "Why Does the Ocean Sing", Type = CategoryStrings.Nihility, IsStandard = false },
             new FiveStarModel { Name = "Thus Burns the Dawn", Type = CategoryStrings.Destruction, IsStandard = false },
             new FiveStarModel { Name = "A Grounded Ascent", Type = CategoryStrings.Harmony, IsStandard = false },
