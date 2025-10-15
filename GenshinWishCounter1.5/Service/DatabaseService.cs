@@ -235,6 +235,8 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> ZzzCharacterList =
         [
+            new FiveStarModel { Name = "Lucia", Type = CategoryStrings.ZzzEther, IsStandard = false },
+            new FiveStarModel { Name = "Orphie and Magus", Type = CategoryStrings.ZzzFire, IsStandard = false },
             new FiveStarModel { Name = "Seed", Type = CategoryStrings.ZzzElectric, IsStandard = false },
             new FiveStarModel { Name = "Alice", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
             new FiveStarModel { Name = "Yuzuha", Type = CategoryStrings.ZzzPhysical, IsStandard = false },
@@ -265,6 +267,8 @@ namespace GenshinWishCounter1._5.Service
         ];
         private readonly List<FiveStarModel> ZzzWeaponList =
         [
+            new FiveStarModel { Name = "Dreamlit Hearth", Type = CategoryStrings.ZzzSupport, IsStandard = false },
+            new FiveStarModel { Name = "Bellicose Blaze", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Cordis Germina", Type = CategoryStrings.ZzzAttack, IsStandard = false },
             new FiveStarModel { Name = "Practiced Perfection", Type = CategoryStrings.ZzzAnomaly, IsStandard = false },
             new FiveStarModel { Name = "Metanukimorphosis", Type = CategoryStrings.ZzzSupport, IsStandard = false },
