@@ -1,3 +1,8 @@
+# This project is abandoned
+WPF is dying. 
+I switched to Linux and WPF is not working on Linux. 
+So, I have no more reasons to develop this project. 
+Feel free to use this project as you please.
 
 ## Gesnhin Wish Counter 1.5
 
